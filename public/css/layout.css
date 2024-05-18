@@ -1,3 +1,11 @@
+section.home {
+  background-image: url("/imgs/image-background.svg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 80vh;
+}
+
 .site-footer {
     background-color: var(--cor-terciaria);
     padding: 45px 0 20px;
