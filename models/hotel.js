@@ -3,6 +3,7 @@ import {avaliacao, Avaliacao} from './avaliacao.js'
 import {quarto, Quarto} from './quarto.js'
 import {image, Image} from './image.js'
 const hotel = new mongoose.Schema({
+    tipo: String,
     nome: String,
     endereco: String,
     desc: String,

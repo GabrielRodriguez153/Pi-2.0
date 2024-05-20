@@ -6,11 +6,11 @@ class HotelController{
         return await HotelService.findAll()
     }
     async create(){
-        return await HotelService.create(nome, endereco, desc)
+        return await HotelService.create(nome, endereco, desc, tipo)
     }
 
     async update(){
-        return await HotelService.update(id, nome, endereco, desc)
+        return await HotelService.update(id, nome, endereco, desc, tipo)
     }
     async delete(){
         return await HotelService.delete(id)
