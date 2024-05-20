@@ -1,13 +1,13 @@
-import moongose from 'mongoose'
+import mongoose from 'mongoose';
 
-const avaliacao = new moongose.Schema({
-    avaliacaoGeral:Number,
-    avaliacaoLimpeza:Number,
-    avaliacaoLocalizacao:Number,
-    avaliacaoCustoBeneficio:Number,
-    avaliacaoComunicacao:Number
-})
+const avaliacao = new mongoose.Schema({
+    avaliacaoGeral: Number,
+    avaliacaoLimpeza: Number,
+    avaliacaoLocalizacao: Number,
+    avaliacaoCustoBeneficio: Number,
+    avaliacaoComunicacao: Number
+});
 
-const Avaliacao = moongose.model("avaliacao", avaliacao)
+const Avaliacao = mongoose.model('Avaliacao', avaliacao);
 
-export default Avaliacao
+export { avaliacao, Avaliacao };

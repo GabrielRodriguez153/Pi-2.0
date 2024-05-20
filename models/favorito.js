@@ -1,8 +1,9 @@
 import moongose from 'mongoose'
-import hotel from '../models/hotel.js'
+import {hotel, Hotel} from '../models/hotel.js'
 
 const favorito = new moongose.Schema({
     hotel:hotel
 })
+const Favorito = new moongose.model("favorito", favorito)
 
-export default favorito
+export default {favorito, Favorito}

@@ -1,5 +1,5 @@
 import moongose from 'mongoose'
-import favorito from './favorito.js'
+import {favorito, Favorito} from './favorito.js'
 
 const usuario = new moongose.Schema({
     email : String,
@@ -10,4 +10,4 @@ const usuario = new moongose.Schema({
 
 const Usuario = moongose.model("usuario", usuario)
 
-export default Usuario
+export default {usuario, Usuario}

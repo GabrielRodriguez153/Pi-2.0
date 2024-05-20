@@ -1,12 +1,8 @@
 import express from "express"
+import HotelService from "./../services/HotelService.js"
 
-const router = express.Router()
 
-router.post("/hotel", async(req,res) => {
-    const response = await HotelService.Create(
-        req.body.nome,
-        req.body.endereco,
-        req.body.desc
-    )
-})
+class HotelController{
 
+}
+export default new HotelController()
