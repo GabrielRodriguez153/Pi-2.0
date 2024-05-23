@@ -5,8 +5,14 @@ import { hotel } from "../models/hotel.js";
 const router = express.Router()
 router.get("/home/:idUsuario", async (req, res) => {
     try {
+
+        const testeAvaliacao = {
+            "wifi": true
+        }
         console.log("Hotels")
         const hotels = await HotelController.findAll()
+        const hotelFiltrado = await HotelController.findByQuartoPreco(100, 1000)
+        const hotelAvaliado = await HotelController.findByAvaliacao(1, testeAvaliacao)
         // console.log("Usuário")
         // const usuario = await UsuarioController.findById(req.params.idUsuario)
         // if(!usuario) return
@@ -23,7 +29,7 @@ router.get("/home/:idUsuario", async (req, res) => {
 
         // const response = []
         // response.push(updatedHotels)
-        res.send(hotels)
+        res.send(hotelAvaliado)
 
     } catch (error) {
         console.error("Error fetching data:", error)

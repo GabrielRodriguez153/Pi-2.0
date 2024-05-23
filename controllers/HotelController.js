@@ -15,5 +15,14 @@ class HotelController{
     async delete(){
         return await HotelService.delete(id)
     }
+    async findByQuartoPreco(preco, preco2){
+        return await HotelService.findByQuartoPreco(preco, preco2)
+    }
+    async findByAvaliacao(nEstrelas, comodidades){
+        return await HotelService.findByAvaliacao(nEstrelas, comodidades)
+    }
+    async findByTipo(tipo){
+
+    }
 }
 export default new HotelController()

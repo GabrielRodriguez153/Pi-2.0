@@ -15,5 +15,14 @@ class HotelService{
     async delete(id){
         return await HotelRepository.delete(id);
     }
+    async findByQuartoPreco(preco, preco2){
+        return await HotelRepository.findByQuartoPreco(preco, preco2)
+    }
+    async findByAvaliacao(nEstrelas, comodidades){
+        const listaComodidades = Object.values(comodidades);
+
+
+        return await HotelRepository.findByAvaliacao(nEstrelas, listaComodidades)
+    }
 }
 export default new HotelService()
