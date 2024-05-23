@@ -55,28 +55,53 @@ class HotelRepository {
             ]);
             return hotels;
         } catch (err) {
-            console.error('Error finding hotels:', err);
+            console.error('Erro:', err)
             throw err;
         }
     }
-    async findByAvaliacao(nEstrelas, comodidades){
-        const comodidadesTrue= []
-        await comodidades.forEach(comodidade =>{
-            if(comodidade){
-                const condition = {};
-                condition[`quarto.comodidades.${comodidade}`] = true;
-                comodidadesTrue.push(condition)
+    async findByAvaliacao(nEstrelas, comodidadesTrue){
+        try {
+            const pesquisa = {
+                'avaliacao.avaliacaoGeral': { $gte: nEstrelas },
+                $and: comodidadesTrue
             }
-        })
-        const hotelAvaliado = await Hotel.aggregate([
-            {$unwind: "$quarto"},
-            {
-                $match:{
-                    "quarto.avaliacao.avaliacaoGeral":{ $gte: nEstrelas},
-                    $and: comodidadesTrue,
+    
+            const hotelAvaliado = await Hotel.aggregate([
+                { $unwind: "$quarto" },
+                { $match: pesquisa }
+            ])
+
+            return hotelAvaliado
+        } catch (error) {
+            throw new Error(`Erro: ${error}`)
+        }
+    }
+    async findByTipo(tipo){
+        return await Hotel.find({tipo: tipo})
+    }
+    async findByLocalidade(localidade){
+        return await Hotel.find({localidade: localidade})
+    }
+    async findByCidade(cidade){
+        return await Hotel.find({cidade: "Registro"})
+    }
+    async findHotelVago(entrada, saida) {
+        try {
+            const hotelVago = await Hotel.aggregate([
+                { $unwind: "$quarto" },
+                {
+                    $match: {
+                        $and: [
+                            { "quarto.alugado.data_checkin": { $lte: saida } },
+                            { "quarto.alugado.data_checkout": { $lte: entrada } },
+                        ]
+                    }
                 }
-            }
-        ])
+            ])
+            return hotelVago;
+        } catch (error) {
+            throw new Error(`Error finding vacant hotels: ${error}`);
+        }
     }
 }
 

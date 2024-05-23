@@ -5,8 +5,10 @@ import {image, Image} from './image.js'
 const hotel = new mongoose.Schema({
     tipo: String,
     nome: String,
+    cidade: String,
     endereco: String,
     desc: String,
+    localidade: String,
     avaliacao: avaliacao,
     num_avaliacao: Number,
     quarto: [quarto],

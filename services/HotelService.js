@@ -2,6 +2,7 @@ import { Hotel } from "../models/hotel.js"
 import HotelRepository from "./../repository/HotelRepository.js"
 
 class HotelService{
+
     async findAll(){
         return await HotelRepository.findAll()
     }
@@ -19,10 +20,26 @@ class HotelService{
         return await HotelRepository.findByQuartoPreco(preco, preco2)
     }
     async findByAvaliacao(nEstrelas, comodidades){
-        const listaComodidades = Object.values(comodidades);
-
-
-        return await HotelRepository.findByAvaliacao(nEstrelas, listaComodidades)
+        const filterTrueValues = (obj) => {
+            return Object.keys(obj)
+                .filter(key => obj[key] === true)
+                .map(key => ({ [`quarto.comodidades.${key}`]: true }))
+        }
+        
+        return await HotelRepository.findByAvaliacao(nEstrelas, filterTrueValues(comodidades))
     }
+    async findByTipo(tipo){
+        return await HotelRepository.findByTipo(tipo)
+    }
+    async findByLocalidade(localidade){
+        return await HotelRepository.findByLocalidade(localidade)
+    }
+    async findByCidade(cidade){
+        return await HotelRepository.findByCidade(cidade)
+    }
+    async findHotelVago(entrada, saida){
+        return await HotelRepository.findHotelVago(entrada, saida)
+    }
+
 }
 export default new HotelService()

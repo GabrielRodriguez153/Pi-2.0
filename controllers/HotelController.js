@@ -22,7 +22,16 @@ class HotelController{
         return await HotelService.findByAvaliacao(nEstrelas, comodidades)
     }
     async findByTipo(tipo){
-
+        return await HotelService.findByTipo(tipo)
+    }
+    async findByLocalidade(localidade){
+        return await HotelService.findByLocalidade(localidade)
+    }
+    async findByCidade(cidade){
+        return await HotelService.findByCidade(cidade)
+    }
+    async findHotelVago(entrada, saida){
+        return await HotelService.findHotelVago(entrada, saida)
     }
 }
 export default new HotelController()
