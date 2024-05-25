@@ -3,60 +3,49 @@
     <section class="home">
         <%-include ("partials/header.ejs")%>
         <div class="container">
-            <div class="row">
-                <div class="col-lg-9 col-md-6">
-                    <div class="block">
-                        <h1 class="text-center mb-3">Encontre a vista perfeita para a sua próxima escapada </h1>
-                        <span class="d-block mb-5 text-dark text-center">“Sight Inn, onde cada viagem se transforma em uma experiência única.”</span>
-                    </div>
+            <div class="text-center">
+                <div class="container">
+                    <h1 class="display-4">Encontre a vista perfeita para a sua próxima escapada </h1>
+                    <span class="lead">“Sight Inn, onde cada viagem se transforma em uma experiência única.”</span>
                 </div>
             </div>
 
-            <div class="search-bar">
-                <form action="" method="post">
-                    <div class="row">
-                        <!-- <div class="col-10 mb-3 d-flex justify-content-center">
-                            <div class="input-group rounded shadow-sm p-3 align-items-center">
-                                <span class="input-group-text bg-white border-0"><i class="fa-solid fa-location-dot"></i></span>
-                                <div class="d-flex flex-column ms-2">
-                                    <label for="destino" class="form-label mb-0 text-muted small">Onde vamos?</label>
-                                    <input type="text" class="form-control border-0 p-0" id="destino" placeholder="Buscar destinos">
-                                </div>
-
-                                <span class="input-group-text bg-white border-0"><i class="fa-solid fa-location-dot"></i></span>
-                                <div class="d-flex flex-column ms-2">
-                                    <label for="destino" class="form-label mb-0 text-muted small">Onde vamos?</label>
-                                    <input type="text" class="form-control border-0 p-0" id="destino" placeholder="Buscar destinos">
+            <div class="container mt-5">
+                <div class="search-bar p-3 rounded">
+                    <form action="" method="post" class="booking-input">
+                            <div class="location-input">
+                                <span><i class="fa-solid fa-location-dot"></i></span>
+                                <div>
+                                    <label class="mb-auto">Onde vamos?</label>
+                                    <input type="text" id="destino" placeholder="Buscar destinos">
                                 </div>
                             </div>
-                        </div> -->
-                        <div class="form-group col-md-4 mb-3">
-                            <i class="fa-solid fa-location-dot"></i>
-                            <label>Onde vamos?</label>
-                            <input type="text" class="form-control" id="destino" placeholder="Buscar destinos">
-                        </div>
-                        <div class="form-group col-md-2 mb-3">
-                            <i class="fa-solid fa-calendar-days"></i>
-                            <label>Check-in</label>
-                            <input type="date" class="form-control" id="checkIn">
-                        </div>
-                        <div class="form-group col-md-2 mb-3">
-                            <i class="fa-solid fa-calendar-days"></i>
-                            <label>Checkout</label>
-                            <input type="date" class="form-control" id="checkOut">
-                        </div>
-                        <div class="form-group col-md-4 mb-3">
-                            <i class="fa-solid fa-bed"></i>
-                            <label>Quartos & Hóspedes</label>
-                            <input type="text" class="form-control" id="hospedes" placeholder="1 quarto, 2 hóspedes">
-                        </div>
-                        <div class="form-group col-md-2 mb-3">
-                            <button type="submit" class="btn btn-warning btn-block">
+                            <div class="location-input">
+                                <span><i class="fa-solid fa-calendar-days"></i></span>
+                                <div>
+                                    <label class="mb-auto">Check-in</label>
+                                    <input type="date" id="checkIn">
+                                </div>
+                            </div>
+                            <div class="location-input">
+                                <span><i class="fa-solid fa-calendar-days"></i></span>
+                                <div>
+                                    <label class="mb-auto">Checkout</label>
+                                    <input type="date" id="checkOut">
+                                </div>
+                            </div>
+                            <div class="location-input">
+                                <span><i class="fa-solid fa-bed"></i></span>
+                                <div>
+                                    <label class="mb-auto">Quartos & Hóspedes</label>
+                                    <input type="text" id="hospedes" placeholder="1 quarto, 2 hóspedes">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-warning">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </button>
-                        </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
 
             <div class="filter-bar">
@@ -86,9 +75,7 @@
                     </div>
                 </form>
             </div>
-
             <hr>
-
         </div>
 
     </section>
