@@ -32,4 +32,25 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// header container
+
+const scrollRevealOption = {
+  distance: "3.125rem",
+  origin: "bottom",
+  duration: 1000,
+};
+
+ScrollReveal().reveal(".section-container h1", {
+  ...scrollRevealOption
+});
+
+ScrollReveal().reveal(".section-container p", {
+  ...scrollRevealOption,
+  delay: 500,
+});
+
+
+
+
+
 

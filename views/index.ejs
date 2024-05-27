@@ -1,82 +1,97 @@
-<%-include ("partials/head.ejs")%>
+<%- include ("partials/head.ejs")%>
 <div class="main-wrapper">
     <section class="home">
-        <%-include ("partials/header.ejs")%>
+        <%- include ("partials/header.ejs")%>
         <div class="container">
-            <div class="text-center">
-                <div class="container">
-                    <h1 class="display-4">Encontre a vista perfeita para a sua próxima escapada </h1>
-                    <span class="lead">“Sight Inn, onde cada viagem se transforma em uma experiência única.”</span>
-                </div>
+            
+            <div class="section-container text-center">
+                <h1 class="display-4 mb-3">Encontre a vista perfeita para a sua próxima escapada </h1>
+                <p class="lead">“Sight Inn, onde cada viagem se transforma em <br> uma experiência única.”</p>
             </div>
 
-            <div class="container mt-5">
-                <div class="search-bar p-3 rounded">
-                    <form action="" method="post" class="booking-input">
-                            <div class="location-input">
-                                <span><i class="fa-solid fa-location-dot"></i></span>
-                                <div>
-                                    <label class="mb-auto">Onde vamos?</label>
-                                    <input type="text" id="destino" placeholder="Buscar destinos">
-                                </div>
+            <div class="search-bar">
+                <div class="container">
+                    <form action="" method="post" class="booking-form">
+                        <div class="input-group-form border-end">
+                            <span><img src="/imgs/icon/location.svg" alt="location icon"></span>
+                            <div>
+                                <label class="mb-0">Onde vamos?</label>
+                                <input type="text" id="destino" class="text-input" placeholder="Buscar destinos">
                             </div>
-                            <div class="location-input">
-                                <span><i class="fa-solid fa-calendar-days"></i></span>
-                                <div>
-                                    <label class="mb-auto">Check-in</label>
-                                    <input type="date" id="checkIn">
-                                </div>
+                        </div>
+                        <div class="input-group-form border-end">
+                            <span><img src="/imgs/icon/calendar.svg" alt="calendar icon"></span>
+                            <div>
+                                <label class="mb-0">Check-in</label>
+                                <input type="date" id="checkIn">
                             </div>
-                            <div class="location-input">
-                                <span><i class="fa-solid fa-calendar-days"></i></span>
-                                <div>
-                                    <label class="mb-auto">Checkout</label>
-                                    <input type="date" id="checkOut">
-                                </div>
+                        </div>
+                        <div class="input-group-form border-end">
+                            <span><img src="/imgs/icon/calendar.svg" alt="calendar icon"></span>
+                            <div>
+                                <label class="mb-0">Check-out</label>
+                                <input type="date" id="checkOut">
                             </div>
-                            <div class="location-input">
-                                <span><i class="fa-solid fa-bed"></i></span>
-                                <div>
-                                    <label class="mb-auto">Quartos & Hóspedes</label>
-                                    <input type="text" id="hospedes" placeholder="1 quarto, 2 hóspedes">
-                                </div>
+                        </div>
+                        <div class="input-group-form">
+                            <span><img src="/imgs/icon/rooms.svg" alt="rooms icon"></span>
+                            <div>
+                                <label class="mb-0">Quartos & Hóspedes</label>
+                                <input type="text" id="hospedes" class="text-input" placeholder="1 quarto, 2 hóspedes">
                             </div>
-                            <button type="submit" class="btn btn-warning">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </button>
+                        </div>
+                        <button type="submit" class="btn">
+                            <img src="/imgs/icon/magnifying-glass.svg">
+                        </button>
                     </form>
                 </div>
             </div>
 
             <div class="filter-bar">
-                <form action="" method="post">
+                <div class="container-filter">
                     <div class="row">
-                        <div class="form-group col-md-3 mb-3">
-                            <label>Faixa de Preço</label>
-                            <select type="text" class="form-control" id="destino" placeholder="Buscar destinos"></select>
-                        </div>
-                        <div class="form-group col-md-2 mb-3">
-                            <label>Avaliação</label>
-                            <select type="date" class="form-control" id="checkIn"></select>
-                        </div>
-                        <div class="form-group col-md-2 mb-3">
-                            <label>Tipo</label>
-                            <select type="date" class="form-control" id="checkOut"></select>
-                        </div>
-                        <div class="form-group col-md-2 mb-3">
-                            <label>Localidade</label>
-                            <select type="text" class="form-control" id="hospedes" placeholder="1 quarto, 2 hóspedes"></select>
-                        </div>
-                        <div class="form-group col-md-3 mb-3">
-                            <button type="submit" class="btn btn-warning btn-block">
-                                Remover Filtros <i class="fa-solid fa-xmark"></i>
-                            </button>
+                        <div class="d-flex justify-content-between align-items-center flex-wrap">
+                            <div class="form-group input-group-form-dropdown">
+                                <label for="priceRange">Faixa de Preço</label>
+                                <div class="input-group-filter d-flex align-items-center">
+                                    <input type="text" class="form-control" id="priceRange" value="R$ 50 — R$ 970" readonly>
+                                    <span class="dropdown-icon"><img src="/imgs/icon/dropdown.svg" alt="dropdown-icon"></span>
+                                </div>
+                            </div>
+                            <div class="form-group input-group-form-dropdown">
+                                <label for="rating">Avaliação</label>
+                                <div class="input-group-filter d-flex align-items-center">
+                                    <input type="text" class="form-control" id="rating" value="Avaliação" readonly>
+                                    <span class="dropdown-icon"><img src="/imgs/icon/dropdown.svg" alt="dropdown-icon"></span>
+                                </div>
+                            </div>
+                            <div class="form-group input-group-form-dropdown">
+                                <label for="type">Tipo</label>
+                                <div class="input-group-filter d-flex align-items-center">
+                                    <input type="text" class="form-control" id="type" value="Tipo" readonly>
+                                    <span class="dropdown-icon"><img src="/imgs/icon/dropdown.svg" alt="dropdown-icon"></span>
+                                </div>
+                            </div>
+                            <div class="form-group input-group-form-dropdown">
+                                <label for="location">Localidade</label>
+                                <div class="input-group-filter d-flex align-items-center">
+                                    <input type="text" class="form-control" id="location" value="Localidade" readonly>
+                                    <span class="dropdown-icon"><img src="/imgs/icon/dropdown.svg" alt="dropdown-icon"></span>
+                                </div>
+                            </div>
+                            <div class="form-group input-group-form-dropdown">
+                                <button class="btn remove-filters-btn d-flex justify-content-center align-items-center" id="removeFilters">
+                                    Remover Filtros
+                                    <span><img src="/imgs/icon/close.svg"></span>
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </form>
+                </div>
             </div>
-            <hr>
         </div>
+
+        <hr>
 
     </section>
 
@@ -89,7 +104,7 @@
                         <span>Escolha entre 1400 opções de hotéis</span>
                     </div>
                 </div>
-                <% %-include('partials/apartamentos.ejs') %>
+                <%- include('partials/apartamentos.ejs') %>
             </div>
         </div>
     </section>

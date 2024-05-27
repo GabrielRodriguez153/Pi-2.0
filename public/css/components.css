@@ -1,3 +1,5 @@
+/* Styling Search Bar */
+
 /* .booking-input {
     padding: 2rem;
     display: flex;
@@ -7,86 +9,151 @@
     flex-wrap: wrap;
 } */
 
-.booking-input {
-    padding-inline: 0.30rem;
+.section-container {
+    max-width: 75rem;
+    margin: auto;
+    padding: 3.5rem 10rem;
+    color: #fff;
+}
+
+.section-container p {
+    color: #fff;
+}
+
+.search-bar {
+    background: #fff;
+    width: 92%;
+    margin: 1.875rem auto;
+    padding: 0.813rem 0.938rem;
+    border-radius: 0.813rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+.search-bar form button {
+    background-image: linear-gradient(to bottom right, #E0BF00, #ECD456);
+    width: 3.438rem;
+    height: 3.438rem;
+    border-radius: 15%;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-bar form button i {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.search-bar form button img{
+    width: 1.875rem;
+    height: 1.875rem;
+}
+
+.booking-form {
     display: flex;
     gap: 1rem;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
-
-.search-bar {
-    background: #fff;
-    width: 95%;
-    margin: 30px auto;
-    padding: 6px 10px 6px 30px;
-}
-
-.search-bar form {
+.input-group-form {
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
+    gap: 1rem;
+    flex: 1;
 }
 
-.search-bar form input {
+.input-group-form span img {
+    width: 1.563rem;
+    height: 1.563rem;
+}
+
+.input-group-form label {
     display: block;
-    border: 0;
+    font-size: 0.813rem;
+    font-weight: 600;
+}
+
+.input-group-form input {
+    border: none;
     outline: none;
     background: transparent;
+    font-size: 0.875rem;
+    padding: 0;
 }
 
-.search-bar form button {
-    background: #ff5361;
-    width: 55px;
-    height: 55px;
-    border-radius: 15%;
-    border: 0;
+.text-input {
+    width: 9.375rem;
+}
+
+.form-control:focus {
+    border-color: inherit;
+    box-shadow: none;
+}
+
+.filter-bar {
+    padding: 1.688rem 0;
+}
+
+.input-group-form-dropdown {
+    font-size: 14px;
+    color: #fff;
+    padding-inline: 5px;
+}
+
+.input-group-form-dropdown label{
+    padding: 5px 20px;
+}
+
+hr {
+    border-top: 2px solid #ffffff;
+}
+
+.input-group-filter {
+    background: #fff;
+    width: 13.75rem;
+    height: 50px;
+    gap: 0.4rem;
+    padding-inline: 10px;
+    border-radius: 3.125rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+.input-group-filter input {
+    color: #838383;
+    width: 10.313rem;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 0 0.625rem;
+}
+
+.input-group-filter span img {
+    width: 1.125rem;
+    height: 1.125rem;
+}
+
+.remove-filters-btn {
+    font-weight: 500;
+    color: #fff;
+    background: #E7CC34;
+    width: 180px;
+    height: 60px;
+    border-radius: 5px;
+    gap: 1rem;
     outline: none;
     cursor: pointer;
 }
 
-.form-control:focus{ 
-    border-color: inherit; 
-    -webkit-box-shadow: none; 
-    box-shadow: none; 
+.filter-bar button img{
+    width: 0.938rem;
+    height: 0.938rem;
 }
 
-/* .location-input {
-    flex: 1 1 220px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-} */
-
-.location-input {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-}
-
-.location-input span {
-    font-size: 1.60rem;
-}
-
-.location-input label {
-    font-size: 14px;
-    font-weight: 400;
-}
-
-.location-input input {
-    display: block;
-    outline: none;
-    border: none;
-}
-
-.search-bar form label {
-    font-weight: 600;
-}
+/* Styling Hotel Card */
 
 .hotel-card {
   border-radius: 8px;
