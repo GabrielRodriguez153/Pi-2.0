@@ -164,30 +164,36 @@
 %>
 
 <div class="hotel-container grid">
-    <% hotels.forEach(hotel => { %>
-        <div class="hotel-card m-2">
-            <img src="<%= hotel.image %>" alt="<%= hotel.name %>" />
-            <div class="row hotel-info">
-                <div class="col p-0 flex-grow-1">
-                    <h2><%= hotel.name %></h2>
-                    <p><%= hotel.location %></p>
-                    <p>R$ <%= hotel.price %> diária</p>
-                </div>
-                <div class="col-auto d-flex flex-column justify-content-between align-items-end p-0">
-                    <p class="text-end"> ⭐ <%= hotel.rating %> (<%= hotel.reviews %> mil+) </p>
-                    <button class="dropdown-btn"><i class="fa-solid fa-chevron-down"></i></button>
-                </div>
-                <div class="row dropdown-content p-0">
-                    <h2>Comodidades</h2>
-                    <ul class="amenities-list row">
-                        <% hotel.amenities.forEach(amenity => { %>
-                            <li class="col-md-6 d-flex align-items-center mb-2">
-                                <i class="fas fa-check mr-2"></i> <%= amenity %>
-                            </li>
-                        <% }); %>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    <% }); %>
+  <% hotels.forEach(hotel => { %>
+      <% 
+          const locationClass = hotel.location.split(',')[0].replace(/ /g, '_');
+          const ratingClass = 'rating-' + Math.floor(hotel.rating);
+          const priceClass = hotel.price <= 3000 ? 'price-low' : (hotel.price <= 6000 ? 'price-mid' : 'price-high');
+      %>
+      <div class="hotel-card m-2 <%= locationClass %> <%= ratingClass %> <%= priceClass %>">
+          <img src="<%= hotel.image %>" alt="<%= hotel.name %>" />
+          <div class="row hotel-info">
+              <div class="col p-0 flex-grow-1">
+                  <h2><%= hotel.name %></h2>
+                  <p><%= hotel.location %></p>
+                  <p>R$ <%= hotel.price %> diária</p>
+              </div>
+              <div class="col-auto d-flex flex-column justify-content-between align-items-end p-0">
+                  <p class="text-end"> ⭐ <%= hotel.rating %> (<%= hotel.reviews %> mil+) </p>
+                  <button class="dropdown-btn"><i class="fa-solid fa-chevron-down"></i></button>
+              </div>
+              <div class="row dropdown-content p-0">
+                  <h2>Comodidades</h2>
+                  <ul class="amenities-list row">
+                      <% hotel.amenities.forEach(amenity => { %>
+                          <li class="col-md-6 d-flex align-items-center mb-2">
+                              <i class="fas fa-check mr-2"></i> <%= amenity %>
+                          </li>
+                      <% }); %>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  <% }); %>
 </div>
+

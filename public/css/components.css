@@ -254,3 +254,105 @@ hr {
 .amenities-list li:hover i {
     color: #2ecc71;
 }
+
+/* #price-filter-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    margin: 20px auto;
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.filter-buttons button {
+    flex: 1;
+    padding: 10px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+}
+
+.filter-buttons button.active {
+    background-color: #ffd700;
+}
+
+.slider-container {
+    display: flex;
+    align-items: center;
+}
+
+.price-values {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.price-values input {
+    border: none;
+    background: none;
+    width: 60px;
+    text-align: right;
+}
+
+#price-filter-apply {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #ffd700;
+    cursor: pointer;
+}
+ 
+.slider{
+    height: 5px;
+    position: relative;
+    background: #ddd;
+    border-radius: 5px;
+  }
+  .slider .progress{
+    height: 100%;
+    left: 25%;
+    right: 25%;
+    position: absolute;
+    border-radius: 5px;
+    background: var(--cor-primaria );
+  }
+  .range-input{
+    position: relative;
+  }
+  .range-input input{
+    position: absolute;
+    width: 260px;
+    height: 5px;
+    top: -3px;
+    background: none;
+    pointer-events: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+  input[type="range"]::-webkit-slider-thumb{
+    height: 17px;
+    width: 17px;
+    border-radius: 50%;
+    background: var(--cor-primaria);
+    pointer-events: auto;
+    -webkit-appearance: none;
+    box-shadow: 0 0 6px rgba(0,0,0,0.05);
+  }
+  input[type="range"]::-moz-range-thumb{
+    height: 17px;
+    width: 17px;
+    border: none;
+    border-radius: 50%;
+    background: #17A2B8;
+    pointer-events: auto;
+    -moz-appearance: none;
+    box-shadow: 0 0 6px rgba(0,0,0,.005);
+  } */
