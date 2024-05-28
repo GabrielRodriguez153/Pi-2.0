@@ -1,3 +1,47 @@
+/* Styling Navs */
+
+.nav-links {
+    list-style: none;
+    gap: 2.5rem;
+}
+
+.nav-links a{
+    font-size: 20px;
+}
+
+.nav-links li span img{
+    width: 20px;
+    height: 20px;
+}
+
+.language-currency {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: bold;
+    gap: 0.6rem;
+}
+
+.language-currency img {
+    width: 1.563rem;
+    height: 1.563rem;
+}
+
+.language-currency input {
+    width: 3.438rem;
+    border: none;
+    background: none;
+    color: #fff;
+    font-size: 1rem;
+    appearance: none; 
+    cursor: pointer;
+}
+
+.language-currency input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
 /* Styling Search Bar */
 
 /* .booking-input {
@@ -148,6 +192,10 @@ hr {
     cursor: pointer;
 }
 
+.remove-filters-btn:hover {
+    background: #ECD456;
+}
+
 .filter-bar button img{
     width: 0.938rem;
     height: 0.938rem;
@@ -255,7 +303,9 @@ hr {
     color: #2ecc71;
 }
 
-/* #price-filter-container {
+/* Stylying Input */
+
+#price-filter-container {
     background-color: #f9f9f9;
     padding: 20px;
     border-radius: 8px;
@@ -355,4 +405,4 @@ hr {
     pointer-events: auto;
     -moz-appearance: none;
     box-shadow: 0 0 6px rgba(0,0,0,.005);
-  } */
+  }

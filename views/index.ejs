@@ -1,240 +1,157 @@
 <%- include ("partials/head.ejs")%>
-<div class="main-wrapper">
-  <section class="home">
-    <%- include ("partials/header.ejs")%>
-    <div class="container">
-      <div class="text-center">
-        <div class="section-container text-center">
-          <h1 class="display-4 mb-3">
-            Encontre a vista perfeita para a sua próxima escapada
-          </h1>
-          <p class="lead">
-            “Sight Inn, onde cada viagem se transforma em uma experiência
-            única.”
-          </p>
-        </div>
-      </div>
-
-      <div class="search-bar">
+  <div class="main-wrapper">
+    <section class="home">
+      <%- include ("partials/header.ejs")%>
         <div class="container">
-          <form action="" method="post" class="booking-form">
-            <div class="input-group-form border-end">
-              <span
-                ><img src="/imgs/icon/location.svg" alt="location icon"
-              /></span>
-              <div>
-                <label class="mb-0">Onde vamos?</label>
-                <input
-                  type="text"
-                  id="destino"
-                  class="text-input"
-                  placeholder="Buscar destinos"
-                />
-              </div>
+          <div class="text-center">
+            <div class="section-container text-center">
+              <h1 class="display-4 mb-3">Encontre a vista perfeita para a sua próxima escapada</h1>
+              <p class="lead">“Sight Inn, onde cada viagem se transforma em <br> uma experiência única.”</p>
             </div>
-            <div class="input-group-form border-end">
-              <span
-                ><img src="/imgs/icon/calendar.svg" alt="calendar icon"
-              /></span>
-              <div>
-                <label class="mb-0">Check-in</label>
-                <input type="date" id="checkIn" />
-              </div>
-            </div>
-            <div class="input-group-form border-end">
-              <span
-                ><img src="/imgs/icon/calendar.svg" alt="calendar icon"
-              /></span>
-              <div>
-                <label class="mb-0">Check-out</label>
-                <input type="date" id="checkOut" />
-              </div>
-            </div>
-            <div class="input-group-form">
-              <span><img src="/imgs/icon/rooms.svg" alt="rooms icon" /></span>
-              <div>
-                <label class="mb-0">Quartos & Hóspedes</label>
-                <input
-                  type="text"
-                  id="hospedes"
-                  class="text-input"
-                  placeholder="1 quarto, 2 hóspedes"
-                />
-              </div>
-            </div>
-            <button type="submit" class="btn">
-              <img src="/imgs/icon/magnifying-glass.svg" />
-            </button>
-          </form>
-        </div>
-      </div>
+          </div>
 
-      <div class="filter-bar">
-        <div class="container-filter">
-          <div class="row">
-            <div
-              class="d-flex justify-content-between align-items-center flex-wrap"
-            >
-              <div class="form-group input-group-form-dropdown">
-                <label for="priceRange">Faixa de Preço</label>
-                <div class="input-group-filter d-flex align-items-center">
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="priceRange"
-                    value="R$ 50 — R$ 970"
-                    readonly
-                  />
-                  <span class="dropdown-icon"
-                    ><img src="/imgs/icon/dropdown.svg" alt="dropdown-icon"
-                  /></span>
+          <div class="search-bar">
+            <div class="container">
+              <form action="" method="post" class="booking-form">
+                <div class="input-group-form border-end">
+                  <span><img src="/imgs/icon/location.svg" alt="location icon" /></span>
+                  <div>
+                    <label class="mb-0">Onde vamos?</label>
+                    <input type="text" id="destino" class="text-input" placeholder="Buscar destinos" />
+                  </div>
                 </div>
-              </div>
-              <div class="form-group input-group-form-dropdown">
-                <label for="rating">Avaliação</label>
-                <div class="input-group-filter d-flex align-items-center">
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="rating"
-                    value="Avaliação"
-                    readonly
-                  />
-                  <span class="dropdown-icon"
-                    ><img src="/imgs/icon/dropdown.svg" alt="dropdown-icon"
-                  /></span>
+                <div class="input-group-form border-end">
+                  <span><img src="/imgs/icon/calendar.svg" alt="calendar icon" /></span>
+                  <div>
+                    <label class="mb-0">Check-in</label>
+                    <input type="date" id="checkIn" />
+                  </div>
                 </div>
-              </div>
-              <div class="form-group input-group-form-dropdown">
-                <label for="type">Tipo</label>
-                <div class="input-group-filter d-flex align-items-center">
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="type"
-                    value="Tipo"
-                    readonly
-                  />
-                  <span class="dropdown-icon"
-                    ><img src="/imgs/icon/dropdown.svg" alt="dropdown-icon"
-                  /></span>
+                <div class="input-group-form border-end">
+                  <span><img src="/imgs/icon/calendar.svg" alt="calendar icon" /></span>
+                  <div>
+                    <label class="mb-0">Check-out</label>
+                    <input type="date" id="checkOut" />
+                  </div>
                 </div>
-              </div>
-              <div class="form-group input-group-form-dropdown">
-                <label for="location">Localidade</label>
-                <div class="input-group-filter d-flex align-items-center">
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="location"
-                    value="Localidade"
-                    readonly
-                  />
-                  <span class="dropdown-icon"
-                    ><img src="/imgs/icon/dropdown.svg" alt="dropdown-icon"
-                  /></span>
+                <div class="input-group-form">
+                  <span><img src="/imgs/icon/rooms.svg" alt="rooms icon" /></span>
+                  <div>
+                    <label class="mb-0">Quartos & Hóspedes</label>
+                    <input type="text" id="hospedes" class="text-input" placeholder="1 quarto, 2 hóspedes" />
+                  </div>
                 </div>
-              </div>
-              <div class="form-group input-group-form-dropdown">
-                <button
-                  class="btn remove-filters-btn d-flex justify-content-center align-items-center"
-                  id="removeFilters"
-                >
-                  Remover Filtros
-                  <span><img src="/imgs/icon/close.svg" /></span>
+                <button type="submit" class="btn">
+                  <img src="/imgs/icon/magnifying-glass.svg" />
                 </button>
-              </div>
+              </form>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
 
-    <hr />
-  </section>
-
-  <section class="card position-relative">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div id="filters">
-            <div>
-              <label for="location-filter">Localização:</label>
-              <select id="location-filter">
-                <option value="*">Todos</option>
-                <option value=".Fort_Lauderdale">Fort Lauderdale</option>
-                <option value=".Hollywood">Hollywood</option>
-                <option value=".West_Palm_Beach">West Palm Beach</option>
-                <option value=".Miami_Beach">Miami Beach</option>
-                <option value=".Miami">Miami</option>
-              </select>
-            </div>
-            <div>
-              <label for="rating-filter">Classificação:</label>
-              <select id="rating-filter">
-                <option value="*">Todos</option>
-                <option value=".rating-5">5 Estrelas</option>
-                <option value=".rating-4.5">4.5 Estrelas</option>
-                <option value=".rating-4">4 Estrelas</option>
-              </select>
-            </div>
-            <div id="price-filter-container">
-              <h3>Faixa de Preço</h3>
-              <div class="filter-buttons">
-                <button id="daily" class="active">Diária</button>
-                <button id="total">Total</button>
-              </div>
-              <div class="slider slider-container">
-                <div class="progress"></div>
-                <div class="range-input">
-                  <input
-                    type="range"
-                    id="price-min"
-                    min="0"
-                    max="10000"
-                    step="100"
-                    value="2000"
-                    oninput="updatePriceValues()"
-                  />
-                  <input
-                    type="range"
-                    id="price-max"
-                    min="0"
-                    max="10000"
-                    step="100"
-                    value="8000"
-                    oninput="updatePriceValues()"
-                  />
+          <div class="filter-bar">
+            <div class="container-filter">
+              <div class="row">
+                <div class="d-flex justify-content-between align-items-center flex-wrap">
+                  <div class="form-group input-group-form-dropdown">
+                    <label for="priceRange">Faixa de Preço</label>
+                    <div class="input-group-filter d-flex align-items-center">
+                      <input type="text" class="form-control" id="priceRange" value="R$ 50 — R$ 970" readonly />
+                      <span class="dropdown-icon"><img src="/imgs/icon/dropdown.svg" alt="dropdown-icon" /></span>
+                    </div>
+                  </div>
+                  <div class="form-group input-group-form-dropdown">
+                    <label for="rating">Avaliação</label>
+                    <div class="input-group-filter d-flex align-items-center">
+                      <input type="text" class="form-control" id="rating" value="Avaliação" readonly />
+                      <span class="dropdown-icon"><img src="/imgs/icon/dropdown.svg" alt="dropdown-icon" /></span>
+                    </div>
+                  </div>
+                  <div class="form-group input-group-form-dropdown">
+                    <label for="type">Tipo</label>
+                    <div class="input-group-filter d-flex align-items-center">
+                      <input type="text" class="form-control" id="type" value="Tipo" readonly />
+                      <span class="dropdown-icon"><img src="/imgs/icon/dropdown.svg" alt="dropdown-icon" /></span>
+                    </div>
+                  </div>
+                  <div class="form-group input-group-form-dropdown">
+                    <label for="location">Localidade</label>
+                    <div class="input-group-filter d-flex align-items-center">
+                      <input type="text" class="form-control" id="location" value="Localidade" readonly />
+                      <span class="dropdown-icon"><img src="/imgs/icon/dropdown.svg" alt="dropdown-icon" /></span>
+                    </div>
+                  </div>
+                  <div class="form-group input-group-form-dropdown align-self-end">
+                    <button class="btn remove-filters-btn d-flex justify-content-center align-items-center" id="removeFilters">
+                      Remover Filtros
+                      <span><img src="/imgs/icon/close.svg" /></span>
+                    </button>
+                  </div>
                 </div>
               </div>
-              <div class="price-values">
-                <span
-                  >Preço min.: R$
-                  <input type="number" id="price-min-value" value="2000" readonly
-                /></span>
-                <span
-                  >Preço máx.: R$
-                  <input
-                    type="number"
-                    id="price-max-value"
-                    value="8000"
-                    readonly
-                /></span>
-              </div>
-              <button id="price-filter-apply">OK</button>
             </div>
           </div>
-
-          <div
-            class="suggestion pr-3 mb-5 mb-lg-0 d-flex justify-content-between align-items-center"
-          >
-            <h2 class="mt-3 mb-4 content-title d-inline-block">Sugestões</h2>
-            <span>Escolha entre 1400 opções de hotéis</span>
-          </div>
         </div>
-        <%- include('partials/apartamentos.ejs') %>
+        <hr/>
+    </section>
+
+    <section class="card position-relative">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div id="filters">
+              <div>
+                <label for="location-filter">Localização:</label>
+                <select id="location-filter">
+                  <option value="*">Todos</option>
+                  <option value=".Fort_Lauderdale">Fort Lauderdale</option>
+                  <option value=".Hollywood">Hollywood</option>
+                  <option value=".West_Palm_Beach">West Palm Beach</option>
+                  <option value=".Miami_Beach">Miami Beach</option>
+                  <option value=".Miami">Miami</option>
+                </select>
+              </div>
+              <div>
+                <label for="rating-filter">Classificação:</label>
+                <select id="rating-filter">
+                  <option value="*">Todos</option>
+                  <option value=".rating-5">5 Estrelas</option>
+                  <option value=".rating-4.5">4.5 Estrelas</option>
+                  <option value=".rating-4">4 Estrelas</option>
+                </select>
+              </div>
+              <div id="price-filter-container">
+                <h3>Faixa de Preço</h3>
+                <div class="filter-buttons">
+                  <button id="daily" class="active">Diária</button>
+                  <button id="total">Total</button>
+                </div>
+                <div class="slider slider-container">
+                  <div class="progress"></div>
+                  <div class="range-input">
+                    <input type="range" id="price-min" min="0" max="10000" step="100" value="2000"
+                      oninput="updatePriceValues()" />
+                    <input type="range" id="price-max" min="0" max="10000" step="100" value="8000"
+                      oninput="updatePriceValues()" />
+                  </div>
+                </div>
+                <div class="price-values">
+                  <span>Preço min.: R$
+                    <input type="number" id="price-min-value" value="2000" readonly /></span>
+                  <span>Preço máx.: R$
+                    <input type="number" id="price-max-value" value="8000" readonly /></span>
+                </div>
+                <button id="price-filter-apply">OK</button>
+              </div>
+            </div>
+
+            <div class="suggestion pr-3 mb-5 mb-lg-0 d-flex justify-content-between align-items-center">
+              <h2 class="mt-3 mb-4 content-title d-inline-block">Sugestões</h2>
+              <span>Escolha entre 1400 opções de hotéis</span>
+            </div>
+          </div>
+          <%- include('partials/apartamentos.ejs') %>
+        </div>
       </div>
-    </div>
-  </section>
-</div>
-<%-include ("partials/footer.ejs")%> <%-include ("partials/foot.ejs")%>
+    </section>
+  </div>
+  <%-include ("partials/footer.ejs")%> <%-include ("partials/foot.ejs")%>

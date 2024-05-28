@@ -39,11 +39,13 @@
 }
 
 @media (max-width: 1200px) {
-    
+
 }
 
 @media (max-width: 1400px) {
-    
+    section.home {
+        height: 125vh;
+    }
 }
 
 

@@ -1,3 +1,4 @@
+// Cards
 document.addEventListener("DOMContentLoaded", function () {
   var $grid = $(".grid").isotope({
       itemSelector: ".hotel-card",
@@ -86,8 +87,6 @@ document.querySelectorAll(".filter-buttons button").forEach(function (button) {
   });
 });
 
-
-
 const rangeInput = document.querySelectorAll(".range-input input"),
 priceInput = document.querySelectorAll(".price-values span input"),
 range = document.querySelector(".slider .progress");
@@ -130,23 +129,22 @@ rangeInput.forEach(input =>{
 
 // Initialize price values
 updatePriceValues();
+
 // header container
-
 const scrollRevealOption = {
-  distance: "3.125rem",
-  origin: "bottom",
-  duration: 1000,
-};
-
-ScrollReveal().reveal(".section-container h1", {
-  ...scrollRevealOption
-});
-
-ScrollReveal().reveal(".section-container p", {
-  ...scrollRevealOption,
-  delay: 500,
-});
-
+    distance: "3.125rem",
+    origin: "bottom",
+    duration: 1000,
+  };
+  
+  ScrollReveal().reveal(".section-container h1", {
+    ...scrollRevealOption
+  });
+  
+  ScrollReveal().reveal(".section-container p", {
+    ...scrollRevealOption,
+    delay: 500,
+  });
 
 
 
