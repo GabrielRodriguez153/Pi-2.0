@@ -5,11 +5,13 @@
     gap: 2.5rem;
 }
 
-.nav-links a{
+.nav-links a {
     font-size: 20px;
+    position: relative;
+    padding-bottom: 5px;
 }
 
-.nav-links li span img{
+.nav-links li span img {
     width: 20px;
     height: 20px;
 }
@@ -40,6 +42,28 @@
 .language-currency input:focus {
     outline: none;
     box-shadow: none;
+}
+
+/* Active link indicator */
+.nav-link.active {
+    color: #E7CA2F;
+}
+
+.nav-link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #E7CA2F;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
 }
 
 /* Styling Search Bar */
