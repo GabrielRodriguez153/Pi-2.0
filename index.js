@@ -14,7 +14,14 @@ app.use(session({
 app.use(express.urlencoded({ extended: false}))
 app.use(express.json())
 
-mongoose.connect("mongodb://localhost:27017/sightinn")
+const mongoURI = "https://localhostmongodb://localhost:27017/sightinn";
+
+mongoose.connect(mongoURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+.then(() => console.log("MongoDB conectado com sucesso!"))
+.catch(err => console.error("Erro de conexão MongoDB:", err));
 
 app.set("view engine", "ejs")
 
