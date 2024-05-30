@@ -35,7 +35,7 @@
     background: none;
     color: #fff;
     font-size: 1rem;
-    appearance: none; 
+    appearance: none;
     cursor: pointer;
 }
 
@@ -62,7 +62,8 @@
     transform: translateX(-50%);
 }
 
-.nav-link:hover::after, .nav-link.active::after {
+.nav-link:hover::after,
+.nav-link.active::after {
     width: 100%;
 }
 
@@ -114,7 +115,7 @@
     color: white;
 }
 
-.search-bar form button img{
+.search-bar form button img {
     width: 1.875rem;
     height: 1.875rem;
 }
@@ -172,7 +173,7 @@
     padding-inline: 5px;
 }
 
-.input-group-form-dropdown label{
+.input-group-form-dropdown label {
     padding: 5px 20px;
 }
 
@@ -220,7 +221,7 @@ hr {
     background: #ECD456;
 }
 
-.filter-bar button img{
+.filter-bar button img {
     width: 0.938rem;
     height: 0.938rem;
 }
@@ -228,60 +229,60 @@ hr {
 /* Styling Hotel Card */
 
 .hotel-card {
-  border-radius: 8px;
-  overflow: hidden;
-  width: 300px;
-  position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 300px;
+    position: relative;
 }
 
 .hotel-card img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  border-radius: 15px;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
 }
 
 .hotel-info {
-  padding: 15px;
+    padding: 15px;
 }
 
 .hotel-info h2 {
-  margin: 0;
-  font-size: 20px;
+    margin: 0;
+    font-size: 20px;
 }
 
 .hotel-info p {
-  margin: 5px 0;
+    margin: 5px 0;
 }
 
 .dropdown-btn {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  width: 25%;
-  margin-left: 80px;
-  text-align: right;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: 25%;
+    margin-left: 80px;
+    text-align: right;
 }
 
 .dropdown-content {
-  display: none;
-  min-width: 100%;
+    display: none;
+    min-width: 100%;
 }
 
 .dropdown-content p {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
 }
 
 .hotel-card.expanded {
     height: auto;
-  }
-  
-  .hotel-card.expanded .dropdown-content {
+}
+
+.hotel-card.expanded .dropdown-content {
     display: block;
-  }
+}
 
 .row.dropdown-content {
     padding: 20px;
@@ -298,7 +299,7 @@ hr {
 }
 
 .row.dropdown-content h2 {
-    color:  var(--cor-primaria);
+    color: var(--cor-primaria);
     margin-bottom: 15px;
 }
 
@@ -328,105 +329,149 @@ hr {
 }
 
 /* Stylying Input */
-
+ 
 #price-filter-container {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 8px;
-    width: 300px;
-    margin: 20px auto;
+    width: 500px;
+    padding: 25px;
+    margin: 0 auto;
+    border: 1px solid var(--cor-terciaria);
+    border-radius: 10px;
 }
 
-.filter-buttons {
+.price-input-container {
+    width: 100%;
+}
+
+.price-input .price-field {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
 }
 
-.filter-buttons button {
-    flex: 1;
-    padding: 10px;
-    margin: 0 5px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    background-color: #f0f0f0;
+.price-field span {
+    margin-right: 10px;
+    margin-top: 6px;
+    font-size: 17px;
 }
 
-.filter-buttons button.active {
-    background-color: #ffd700;
+.price-field input {
+    height: 35px;
+    font-size: 15px;
+    font-family: "DM Sans", sans-serif;
+    border-radius: 9px;
+    text-align: center;
+    border: 0px;
+}
+
+.price-input {
+    width: 100%;
+    font-size: 19px;
+}
+
+/* Remove Arrows/Spinners */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 .slider-container {
-    display: flex;
-    align-items: center;
-}
-
-.price-values {
-    display: flex;
-    justify-content: space-between;
-    margin: 20px 0;
-}
-
-.price-values input {
-    border: none;
-    background: none;
-    width: 60px;
-    text-align: right;
-}
-
-#price-filter-apply {
     width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    background-color: #ffd700;
-    cursor: pointer;
 }
- 
-.slider{
-    height: 5px;
+
+.slider-container {
+    height: 6px;
     position: relative;
-    background: #ddd;
+    background: #e4e4e4;
     border-radius: 5px;
-  }
-  .slider .progress{
+}
+
+.slider-container .price-slider {
     height: 100%;
     left: 25%;
-    right: 25%;
+    right: 15%;
     position: absolute;
     border-radius: 5px;
-    background: var(--cor-primaria );
-  }
-  .range-input{
+    background: var(--cor-primaria);
+}
+
+.range-input {
     position: relative;
+}
+
+.price-input span input{
+  display: block;
+  height: 3.4rem;
+  width: 100%;
+  padding: 0.5rem 0 0 0;
+  border: none;
+  border-radius: 2px;
+  border-bottom: 1px solid var(--cor-primaria);
+  &::placeholder {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
   }
-  .range-input input{
+  &:hover,
+  &:focus,
+  &:active:focus {
+    color: var(--cor-de-link);
+    outline: none;
+    border-bottom: 1px solid var(--cor-terciaria);
+    &::placeholder {
+      color: var(--cor-terciaria);
+      position: relative;
+      -webkit-transform: translateY(-20px);
+      transform: translateY(-20px);
+    }
+  }
+}
+
+.range-input input {
     position: absolute;
-    width: 260px;
+    width: 100%;
     height: 5px;
-    top: -3px;
     background: none;
+    top: -5px;
     pointer-events: none;
+    cursor: pointer;
     -webkit-appearance: none;
-    -moz-appearance: none;
-  }
-  input[type="range"]::-webkit-slider-thumb{
-    height: 17px;
-    width: 17px;
-    border-radius: 50%;
+}
+
+/* Styles for the range thumb in WebKit browsers */
+input[type="range"]::-webkit-slider-thumb {
+    height: 18px;
+    width: 18px;
+    border-radius: 70%;
     background: var(--cor-primaria);
     pointer-events: auto;
     -webkit-appearance: none;
-    box-shadow: 0 0 6px rgba(0,0,0,0.05);
-  }
-  input[type="range"]::-moz-range-thumb{
-    height: 17px;
-    width: 17px;
-    border: none;
-    border-radius: 50%;
-    background: var(--cor-primaria);
-    pointer-events: auto;
-    -moz-appearance: none;
-    box-shadow: 0 0 6px rgba(0,0,0,.005);
-  }
+}
+
+@media screen and (max-width: 768px) {
+    .main {
+        width: 80%;
+        margin-right: 5px;
+    }
+
+    .custom-wrapper {
+        width: 100%;
+        left: 0;
+        padding: 0 10px;
+    }
+
+    .projtitle {
+        width: 100%;
+        position: relative;
+        right: 26px;
+    }
+
+    .price-input {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .price-field {
+        margin-bottom: 10px;
+    }
+}
