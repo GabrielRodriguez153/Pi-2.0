@@ -329,13 +329,43 @@ hr {
 }
 
 /* Stylying Input */
- 
+
+/* Estilo para a classe de botões */
+.filter-buttons button {
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Estilo para o botão ativo */
+.filter-buttons .active {
+    background-color: #f1c40f; /* Cor de fundo amarela para o botão ativo */
+    color: #fff; /* Cor do texto branco para o botão ativo */
+}
+
+/* Estilo para o botão inativo */
+.filter-buttons button:not(.active) {
+    background-color: #f8f9fa; /* Cor de fundo cinza claro para o botão inativo */
+    color: #6c757d; /* Cor do texto cinza escuro para o botão inativo */
+}
+
+/* Adiciona um contorno arredondado aos botões */
+.filter-buttons button {
+    border-radius: 5px;
+}
+
 #price-filter-container {
     width: 500px;
     padding: 25px;
-    margin: 0 auto;
     border: 1px solid var(--cor-terciaria);
     border-radius: 10px;
+    display: none; /* Inicialmente escondido */
+    position: absolute; /* Permite o posicionamento absoluto */
+    z-index: 1000; /* Garante que o dropdown esteja acima de outros elementos */
+    background-color: #fff; /* Fundo branco */
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175); /* Sombra */
 }
 
 .price-input-container {
@@ -379,10 +409,13 @@ input::-webkit-inner-spin-button {
 }
 
 .slider-container {
+    width: 85%;
     height: 6px;
-    position: relative;
+    position: absolute;
+    left: 8%;
     background: #e4e4e4;
     border-radius: 5px;
+    top: 48.5%
 }
 
 .slider-container .price-slider {
@@ -398,7 +431,7 @@ input::-webkit-inner-spin-button {
     position: relative;
 }
 
-.price-input span input{
+.price-field input {
   display: block;
   height: 3.4rem;
   width: 100%;
@@ -447,6 +480,32 @@ input[type="range"]::-webkit-slider-thumb {
     pointer-events: auto;
     -webkit-appearance: none;
 }
+
+/* Estilo para a classe de dropdown */
+.input-group-filter {
+    position: relative;
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0.25rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);
+}
+
+/* Mostra o dropdown quando a classe 'open' é adicionada */
+.input-group-filter.open .dropdown-menu {
+    display: block;
+}
+
+
 
 @media screen and (max-width: 768px) {
     .main {

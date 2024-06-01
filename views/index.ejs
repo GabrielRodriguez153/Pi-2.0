@@ -55,8 +55,39 @@
               <div class="form-group input-group-form-dropdown">
                 <label for="priceRange">Faixa de Preço</label>
                 <div class="input-group-filter d-flex align-items-center">
-                  <input type="text" class="form-control" id="priceRange" value="R$ 50 — R$ 970" readonly />
-                  <span class="dropdown-icon"><img src="/imgs/icon/dropdown.svg" alt="dropdown-icon" /></span>
+                  <input type="text" class="form-control" id="priceRange" value="R$ 2500 — R$ 8500" readonly />
+                  <span class="dropdown-icon" id="price-dropdown-icon">
+                    <img src="/imgs/icon/dropdown.svg" alt="dropdown-icon" />
+                  </span>
+                  <div id="price-filter-container" class="dropdown-menu p-3" style="display:none;">
+                    <h3>Faixa de Preço</h3>
+                    <div class="filter-buttons mb-5 mt-3 row">
+                      <button id="daily" class="active col py-2">Diária</button>
+                      <button id="total" class="col py-2">Total</button>
+                    </div>
+                    <div class="slider-container">
+                      <div class="price-slider">
+                      </div>
+                    </div>
+                    <div class="range-input">
+                      <input type="range" class="min-range" min="0" max="10000" value="2500" step="1">
+                      <input type="range" class="max-range" min="0" max="10000" value="8500" step="1">
+                    </div>
+                    <div class="price-input-container my-3 container">
+                      <div class="price-input d-flex">
+                        <div class="price-field col">
+                          <input type="number" placeholder="Valor Min" class="min-input" value="2500">
+                        </div>
+                        <div class="price-field col">
+                          <input type="number" placeholder="Valor Max" class="max-input" value="8500">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="d-grid col-6 mx-auto">
+                      <button id="price-filter-apply" class="btn btn-warning">OK</button>
+                    </div>
+                </div>
+                
                 </div>
               </div>
               <div class="form-group input-group-form-dropdown">
@@ -119,33 +150,9 @@
                 <option value=".rating-4">4 Estrelas</option>
               </select>
             </div>
-            <div id="price-filter-container">
-              <h3>Faixa de Preço</h3>
-              <div class="filter-buttons mb-5 mt-3 row">
-                <button id="daily" class="active col py-1">Diária</button>
-                <button id="total" class="col p-1">Total</button>
-              </div>
-              <div class="slider-container">
-                <div class="price-slider">
-                </div>
-              </div>
-              <div class="range-input">
-                <input type="range" class="min-range" min="0" max="10000" value="2500" step="1">
-                <input type="range" class="max-range" min="0" max="10000" value="8500" step="1">
-              </div>
-              <div class="price-input-container my-3 container">
-                <div class="price-input d-flex">
-                  <div class="price-field col">
-                    <input type="number" placeholder="Valor Min" class="min-input" value="2500">
-                  </div>
-                  <div class="price-field col">
-                    <input type="number" placeholder="Valor Max" class="max-input" value="8500">
-                  </div>
-                </div>
-              </div>
-              <button id="price-filter-apply" class="ce">OK</button>
-            </div>
           </div>
+
+          <%- include ("partials/Auth.ejs")%>
 
           <div class="suggestion pr-3 mb-5 mb-lg-0 d-flex justify-content-between align-items-center">
             <h2 class="mt-3 mb-4 content-title d-inline-block">Sugestões</h2>

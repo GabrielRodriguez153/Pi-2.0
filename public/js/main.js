@@ -59,6 +59,67 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Filter - price
 
+
+// buttons
+
+// Seleciona os elementos
+const priceRangeInput = document.getElementById('priceRange');
+const inputGroupFilter = document.querySelector('.input-group-filter');
+const dailyButton = document.getElementById('daily');
+const totalButton = document.getElementById('total');
+const minRangeInput = document.querySelector('.min-range');
+const maxRangeInput = document.querySelector('.max-range');
+const minInput = document.querySelector('.min-input');
+const maxInput = document.querySelector('.max-input');
+const applyButton = document.getElementById('price-filter-apply');
+const dropdownIcon = document.getElementById('price-dropdown-icon');
+const priceFilterContainer = document.getElementById('price-filter-container');
+
+    dropdownIcon.addEventListener('click', function() {
+      if (priceFilterContainer.style.display === 'none' || priceFilterContainer.style.display === '') {
+        priceFilterContainer.style.display = 'block';
+      } else {
+        priceFilterContainer.style.display = 'none';
+      }
+    });
+
+    document.addEventListener('click', function(event) {
+      if (!dropdownIcon.contains(event.target) && !priceFilterContainer.contains(event.target)) {
+        priceFilterContainer.style.display = 'none';
+      }
+    });
+
+// Sincroniza os valores dos inputs de número e range
+minRangeInput.addEventListener('input', () => {
+    minInput.value = minRangeInput.value;
+    updatePriceRange();
+});
+
+maxRangeInput.addEventListener('input', () => {
+    maxInput.value = maxRangeInput.value;
+    updatePriceRange();
+});
+
+minInput.addEventListener('input', () => {
+    minRangeInput.value = minInput.value;
+    updatePriceRange();
+});
+
+maxInput.addEventListener('input', () => {
+    maxRangeInput.value = maxInput.value;
+    updatePriceRange();
+});
+
+// Atualiza o valor no input de faixa de preço
+function updatePriceRange() {
+    priceRangeInput.value = `R$ ${minInput.value} — R$ ${maxInput.value}`;
+}
+
+// Fecha o dropdown ao clicar no botão de aplicar
+applyButton.addEventListener('click', () => {
+    inputGroupFilter.classList.remove('open');
+});
+
 const rangevalue =  
     document.querySelector(".slider-container .price-slider"); 
 const rangeInputvalue =  
@@ -105,7 +166,7 @@ for (let i = 0; i < priceInputvalue.length; i++) {
             if (e.target.className === "min-input") { 
                 rangeInputvalue[0].value = minp; 
                 let value1 = rangeInputvalue[0].max; 
-                rangevalue.style.left = `${(minp / value1) * 100}%`; 
+                rangevalue.style.left = `${(minp / value1) * 100 + 1}%`; 
             } 
             else { 
                 rangeInputvalue[1].value = maxp; 
