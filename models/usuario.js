@@ -4,7 +4,7 @@ import mongoose from 'mongoose'
 const usuario = new mongoose.Schema({
     email : String,
     senha : String,
-    telefone : Number,
+    telefone : String,
     favorito:[hotel]
 })
 

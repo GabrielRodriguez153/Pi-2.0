@@ -1,7 +1,6 @@
 import mongoose from 'mongoose'
 import {avaliacao, Avaliacao} from './avaliacao.js'
 import {quarto, Quarto} from './quarto.js'
-import {image, Image} from './image.js'
 const hotel = new mongoose.Schema({
     tipo: String,
     nome: String,
@@ -12,9 +11,22 @@ const hotel = new mongoose.Schema({
     avaliacao: avaliacao,
     num_avaliacao: Number,
     quarto: [quarto],
-    image: [image] 
-});
+    image: String,
+    coordenadas: {
+        type: {
+            type: String,
+            enum: ['Point'],
+            required: true
+        },
+        coordinates: {
+            type: [Number],
+            required: true
+        }
+    }
+})
 
-const Hotel = mongoose.model('Hotel', hotel);
+
+hotel.index({"coordenadas":"2dsphere"})
+const Hotel = mongoose.model('Hotel', hotel)
 
 export { hotel, Hotel };
