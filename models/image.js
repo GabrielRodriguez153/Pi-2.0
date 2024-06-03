@@ -1,9 +1,9 @@
-import moongose from 'mongoose'
+import mongoose from 'mongoose';
 
-const image = new moongose.Schema({
-    url:String,
-})
+const image = new mongoose.Schema({
+    url: String,
+});
 
-const Image = moongose.model("image",image)
+const Image = mongoose.model('Image', image);
 
-export default Image
+export { image, Image };

@@ -1,16 +1,16 @@
-import moongose from 'mongoose'
-import comodidades from 'comodidades.js'
-import alugado from 'alugado.js'
+import mongoose from 'mongoose'
+import {comodidades, Comodidades} from './comodidades.js'
+import {alugado, Alugado} from './alugado.js'
 
-const quarto = new moongose.Schema({
-    tamanho_cama:String,
-    hospedes:Number,
-    comodidades:comodidades,
-    tipo:String,
-    alugado:alugado,
-    valor:Number,
-})
+const quarto= new mongoose.Schema({
+    tamanho_cama: String,
+    hospedes: Number,
+    comodidades: comodidades,
+    tipo: String,
+    alugado: alugado,
+    valor: Number,
+});
 
-const Quarto = moongose.model("quarto", quarto)
+const Quarto = mongoose.model('Quarto', quarto);
 
-export default Quarto
+export { quarto, Quarto };

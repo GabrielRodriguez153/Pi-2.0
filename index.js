@@ -1,7 +1,7 @@
 import express from "express"
 import mongoose from "mongoose"
 import session from "express-session"
-
+import PageController from "./controllers/PageController.js"
 const app = express()
 
 app.use(session({

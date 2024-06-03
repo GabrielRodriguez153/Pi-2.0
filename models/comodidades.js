@@ -1,14 +1,14 @@
-import moongose from 'mongoose'
+import mongoose from 'mongoose';
 
-const comodidades = new moongose.Schema({
-    wifi:Boolean,
-    estacionamento:Boolean,
-    arcondicionado:Boolean,
-    secador:Boolean,
-    Tv_Smart:Boolean,
-    varanda:Boolean
-})
+const comodidades= new mongoose.Schema({
+    wifi: Boolean,
+    estacionamento: Boolean,
+    arcondicionado: Boolean,
+    secador: Boolean,
+    Tv_Smart: Boolean,
+    varanda: Boolean,
+});
 
-const Comodidades = moongose.model("comodidades", comodidades)
+const Comodidades = mongoose.model('comodidades', comodidades);
 
-export default Comodidades
+export { comodidades, Comodidades };

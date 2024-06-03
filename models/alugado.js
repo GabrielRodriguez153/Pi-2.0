@@ -1,10 +1,10 @@
-import moongose from 'mongoose'
+import mongoose from 'mongoose';
 
-const alugados = new moongose.Schema({
-    data_checkin:Date,
-    data_checkout:Date,
-})
+const alugado = new mongoose.Schema({
+    data_checkin: Date,
+    data_checkout: Date,
+});
 
-const Alugados = moongose.model("alugados", alugados)
+const Alugado = mongoose.model('alugado', alugado);
 
-export default Alugados
+export { alugado, Alugado };

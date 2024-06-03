@@ -1,18 +1,20 @@
-import moongose from 'mongoose'
-import avaliacao from 'avaliacao.js'
-import quarto from 'quarto.js'
-import imagem from 'imagem.js'
+import mongoose from 'mongoose'
+import {avaliacao, Avaliacao} from './avaliacao.js'
+import {quarto, Quarto} from './quarto.js'
+import {image, Image} from './image.js'
+const hotel = new mongoose.Schema({
+    tipo: String,
+    nome: String,
+    cidade: String,
+    endereco: String,
+    desc: String,
+    localidade: String,
+    avaliacao: avaliacao,
+    num_avaliacao: Number,
+    quarto: [quarto],
+    image: [image] 
+});
 
-const hotel = new moongose.Schema({
-    nome:String,
-    endereco:String,
-    desc:String,
-    avaliacao:avaliacao,
-    num_avalicacao:Number,
-    quarto:quarto,
-    imagem:imagem
-})
+const Hotel = mongoose.model('Hotel', hotel);
 
-const Hotel = moongose.model("hotel", hotel)
-
-export default Hotel
+export { hotel, Hotel };

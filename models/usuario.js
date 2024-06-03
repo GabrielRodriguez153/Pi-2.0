@@ -1,13 +1,14 @@
-import moongose from 'mongoose'
-import favorito from './favorito.js'
+import {hotel, Hotel} from './hotel.js'
+import mongoose from 'mongoose'
 
-const usuario = new moongose.Schema({
+const usuario = new mongoose.Schema({
     email : String,
     senha : String,
     telefone : Number,
-    favorito:[favorito]
+    favorito:[hotel]
 })
 
-const Usuario = moongose.model("usuario", usuario)
+const Usuario = mongoose.model("Usuario", usuario);
 
-export default Usuario
+
+export  {usuario, Usuario}
