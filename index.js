@@ -10,6 +10,7 @@ app.use(session({
     saveUninitialized: false,
     resave: false
 }))
+app.use("/", PageController)
 
 app.use(express.urlencoded({ extended: false}))
 app.use(express.json())
@@ -24,9 +25,7 @@ app.set("view engine", "ejs")
 
 app.use(express.static('public'))
 
-app.get("/", function(req, res) {
-    res.render("index")
-})
+ 
 
 const port = 8000;
 app.listen(port, function (erro) {

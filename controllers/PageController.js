@@ -1,68 +1,48 @@
 import express from "express"
 import HotelController from "./HotelController.js"
 import UsuarioController from "./UsuarioController.js"
-
 const router = express.Router()
-router.get("/home/:page?/usuario/:idUsuario", async (req, res) => {
+
+
+
+router.get("/:page?", async (req, res) => {
     try {
         let hotels = null
         const page = req.params.page ? parseInt(req.params.page) : 0
 
-        if (page) {
+        if (page >= 0) {
             hotels = await HotelController.findAll(page)
         } else {
             hotels = await HotelController.findAll(0)
         }
-        
-        const usuario = await UsuarioController.findById(req.params.idUsuario)
+        const idUsuario = req.session.user ? parseInt(req.session.user.idUsuario) : null
+
+        if (!idUsuario) return res.render("index", { hotels: hotels })
+        console.log("Achei Id")
+
+        const usuario = await UsuarioController.findById(idUsuario)
+
         if (!usuario) {
-            return res.send(hotels)
+            return res.render("index", { hotels: hotels })
         }
-        
-        const favoritos = usuario.favorito
-        if (!favoritos) {
-            return res.send(hotels)
-        }
-        let hotelModificado = []
-        hotels.forEach(hotel => {
-            favoritos.forEach(favorito => {
-                if (favorito._id.equals(hotel._id)) {
-                    hotel = { ...hotel, classe: "class-favorito" }
-                    hotelModificado.push(hotel)
-                }
-                else{
-                    hotelModificado.push(hotel)
-                }
-            })
+        console.log("Achei Usuário")
+        const favoritos = usuario.favorito || [];
+
+        const hotelModificado = hotels.map(hotel => {
+            if (favoritos.some(favorito => favorito._id.equals(hotel._id))) {
+                return { ...hotel, classe: "class-favorito" }
+            } else {
+                return hotel
+            }
         })
-        res.send(hotelModificado)
-        
+        console.log("ACHEI favoritos")
+
+        res.render("index", { hotels: hotelModificado })
     } catch (error) {
         console.error("Erro, não foi possível buscar os hotéis:", error)
-        res.status(500).send("Internal Server Error")
+        res.status(500).send("Erro")
     }
 })
-
-
-
-router.get("/home/:page?", async (req, res) => {
-    try {
-        let hotels = null
-        const page = req.params.page ? parseInt(req.params.page) : 0
-
-        if (page) {
-            hotels = await HotelController.findAll(page)
-        } else {
-            hotels = await HotelController.findAll(0)
-        }
-
-        res.send(hotels);
-    } catch (error) {
-        console.error("Erro, não foi possível buscar os hotéis:", error)
-        res.status(500).json({ error: "Erro interno" })
-    }
-})
-
 
 router.get("/hotel/:idHotel", async(req, res) =>{
     const response = await HotelController.findById(req.params.idHotel)
