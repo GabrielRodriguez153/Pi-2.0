@@ -534,3 +534,22 @@ input[type="range"]::-webkit-slider-thumb {
         margin-bottom: 10px;
     }
 }
+
+.btn-primary {
+    color: var(--cor-secundaria);
+    background-color: var(--cor-primaria);
+    border-color: var(--cor-primaria);
+    &:hover {
+      color: var(--cor-primaria);
+      background-color: var(--cor-secundaria);
+      border-color: #d8bf30;
+    }
+    &:focus {
+      box-shadow:unset 0 3px 5px rgb(231, 204, 52);
+    }
+    &:active {
+      color: var(--cor-secundaria) !important;
+      background-color: var(--cor-primaria) !important;
+      border-color: #d8bf30 !important;
+    }
+  }

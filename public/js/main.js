@@ -239,5 +239,16 @@ $(document).ready(function () {
 });
 
 
-
+$(document).ready(function() {
+    $('#continueButton').on('click', function() {
+        // Animate out the email form
+        $('#emailForm').addClass('fade-out');
+        
+        // After the animation ends, hide the email form and show the password form
+        setTimeout(function() {
+            $('#emailForm').addClass('hidden').removeClass('fade-out');
+            $('#passwordForm').removeClass('hidden').addClass('fade-in');
+        }, 500); // Match the duration of the fade-out animation
+    });
+});
 
