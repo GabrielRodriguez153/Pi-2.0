@@ -15,6 +15,10 @@ class UsuarioRepository{
         return await user.save()
     }
 
+    async findByEmail(email){
+        return await Usuario.findOne({email : email})
+    }
+
 }
 
 export default new UsuarioRepository()
