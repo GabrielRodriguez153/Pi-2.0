@@ -5,7 +5,6 @@ class UsuarioRepository{
         return await Usuario.findById(id)
     }
     async save(email, senha, telefone){
-        console.log("teste")
 
         const user =  new Usuario({
             email: email,
@@ -13,6 +12,9 @@ class UsuarioRepository{
             telefone: telefone
         })
         return await user.save()
+    }
+    async findByEmail(email){
+        return await Usuario.findOne({email : email})
     }
 
 }

@@ -241,7 +241,13 @@ hr {
     object-fit: cover;
     border-radius: 15px;
 }
-
+.like-button {
+    position: absolute;
+    top: 22.87px;
+    right: 30px;
+    z-index: 1;
+  }
+  
 .hotel-info {
     padding: 15px;
 }

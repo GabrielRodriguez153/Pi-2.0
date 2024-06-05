@@ -1,199 +1,45 @@
-<% const hotels = [
-{
-  "name": "Pousada Mar Azul",
-  "location": "Fort Lauderdale, Florida, USA",
-  "rating": 4.8,
-  "reviews": 120,
-  "price": 3200,
-  "image": "imgs/image-background.svg",
-  "amenities": [
-    "Wi-fi",
-    "Estacionamento",
-    "Ar-condicionado",
-    "Secador",
-    "TV Smart",
-    "Varanda"
-  ]
-},
-{
-  "name": "Ocean Breeze Resort",
-  "location": "Hollywood, Florida, USA",
-  "rating": 4.7,
-  "reviews": 543,
-  "price": 6100,
-  "image": "imgs/image-background.svg",
-  "amenities": [
-    "Wi-fi",
-    "Piscina",
-    "Ar-condicionado",
-    "Secador",
-    "TV a cabo",
-    "Varanda"
-  ]
-},
-{
-  "name": "Palm Beach Inn",
-  "location": "West Palm Beach, Florida, USA",
-  "rating": 4.2,
-  "reviews": 87,
-  "price": 2500,
-  "image": "imgs/image-background.svg",
-  "amenities": [
-    "Wi-fi",
-    "Estacionamento",
-    "Ar-condicionado",
-    "Secador",
-    "TV Smart",
-    "Varanda"
-  ]
-},
-{
-  "name": "Sunset Cove Villas",
-  "location": "Miami Beach, Florida, USA",
-  "rating": 5.0,
-  "reviews": 25,
-  "price": 8900,
-  "image": "imgs/image-background.svg",
-  "amenities": [
-    "Wi-fi",
-    "Estacionamento",
-    "Ar-condicionado",
-    "Secador",
-    "TV Smart",
-    "Varanda",
-    "Hidromassagem"
-  ]
-},
-{
-  "name": "Ocean View Suites",
-  "location": "Miami, Florida, USA",
-  "rating": 4.9,
-  "reviews": 182,
-  "price": 4700,
-  "image": "imgs/image-background.svg",
-  "amenities": [
-    "Wi-fi",
-    "Estacionamento",
-    "Ar-condicionado",
-    "Secador",
-    "TV Smart",
-    "Varanda"
-  ]
-},
-{
-  "name": "Tropical Paradise Hotel",
-  "location": "Miami Beach, Florida, USA",
-  "rating": 4.5,
-  "reviews": 310,
-  "price": 1900,
-  "image": "imgs/image-background.svg",
-  "amenities": [
-    "Wi-fi",
-    "Estacionamento",
-    "Ar-condicionado",
-    "Secador",
-    "TV Smart",
-    "Varanda"
-  ]
-},
-{
-  "name": "Tropical Paradise Hotel",
-  "location": "Miami Beach, Florida, USA",
-  "rating": 4.5,
-  "reviews": 310,
-  "price": 1900,
-  "image": "imgs/image-background.svg",
-  "amenities": [
-    "Wi-fi",
-    "Estacionamento",
-    "Ar-condicionado",
-    "Secador",
-    "TV Smart",
-    "Varanda"
-  ]
-},
-{
-  "name": "Tropical Paradise Hotel",
-  "location": "Miami Beach, Florida, USA",
-  "rating": 4.5,
-  "reviews": 310,
-  "price": 1900,
-  "image": "imgs/image-background.svg",
-  "amenities": [
-    "Wi-fi",
-    "Estacionamento",
-    "Ar-condicionado",
-    "Secador",
-    "TV Smart",
-    "Varanda"
-  ]
-},
-{
-  "name": "Tropical Paradise Hotel",
-  "location": "Miami Beach, Florida, USA",
-  "rating": 4.5,
-  "reviews": 310,
-  "price": 1900,
-  "image": "imgs/image-background.svg",
-  "amenities": [
-    "Wi-fi",
-    "Estacionamento",
-    "Ar-condicionado",
-    "Secador",
-    "TV Smart",
-    "Varanda"
-  ]
-},
-{
-  "name": "Tropical Paradise Hotel",
-  "location": "Miami Beach, Florida, USA",
-  "rating": 4.5,
-  "reviews": 310,
-  "price": 1900,
-  "image": "imgs/image-background.svg",
-  "amenities": [
-    "Wi-fi",
-    "Estacionamento",
-    "Ar-condicionado",
-    "Secador",
-    "TV Smart",
-    "Varanda"
-  ]
-}
-];
-%>
-
 <div class="hotel-container grid">
   <% hotels.forEach(hotel => { %>
-      <% 
-          const locationClass = hotel.location.split(',')[0].replace(/ /g, '_');
-          const ratingClass = 'rating-' + Math.floor(hotel.rating);
-          const priceClass = hotel.price <= 3000 ? 'price-low' : (hotel.price <= 6000 ? 'price-mid' : 'price-high');
-      %>
-      <div class="hotel-card m-2 <%= locationClass %> <%= ratingClass %> <%= priceClass %>">
-          <img src="<%= hotel.image %>" alt="<%= hotel.name %>" />
-          <div class="row hotel-info">
-              <div class="col p-0 flex-grow-1">
-                  <h2><%= hotel.name %></h2>
-                  <p><%= hotel.location %></p>
-                  <p>R$ <%= hotel.price %> diária</p>
-              </div>
-              <div class="col-auto d-flex flex-column justify-content-between align-items-end p-0">
-                  <p class="text-end"> ⭐ <%= hotel.rating %> (<%= hotel.reviews %> mil+) </p>
-                  <button class="dropdown-btn"><i class="fa-solid fa-chevron-down"></i></button>
-              </div>
-              <div class="row dropdown-content p-0">
-                  <h2>Comodidades</h2>
-                  <ul class="amenities-list row">
-                      <% hotel.amenities.forEach(amenity => { %>
-                          <li class="col-md-6 d-flex align-items-center mb-2">
-                              <i class="fas fa-check mr-2"></i> <%= amenity %>
-                          </li>
-                      <% }); %>
-                  </ul>
-              </div>
-          </div>
-      </div>
+    <% 
+    const locationClass = hotel.localidade.split(',')[0].replace(/ /g, '_');
+    const ratingClass = 'rating-' + Math.floor(hotel.avaliacao.avaliacaoGeral);
+    const priceClass = hotel.quarto[0].valor <= 3000 ? 'price-low' : (hotel.quarto[0].valor <= 6000 ? 'price-mid' : 'price-high');
+  %>
+<div class="hotel-card m-2 <%= locationClass %> <%= ratingClass %> <%= priceClass %>">
+    <img src="<%= hotel.image %>" alt="<%= hotel.name %>" />
+    <% if (hotel.classe) { %>
+        <form action="/hotel/fav/<%= hotel.id %>" method="DELETE">
+          <input type="image" class="like-button" src="imgs/icon/liked.svg" alt="Botão de Like">
+        </form>
+      <% } else { %>
+        <form action="/hotel/fav/<%= hotel.id %>" method="POST">
+          <input type="image" class="like-button" src="imgs/icon/like.svg" alt="Botão de Like">
+        </form>
+      <% } %>
+      
+    <div class="row hotel-info">
+        <div class="col p-0 flex-grow-1">
+            <h2><%= hotel.nome %></h2>
+            <p><%= hotel.localidade %></p>
+            <p>R$ <%= hotel.quarto[0].valor %> diária</p>
+        </div>
+
+        <div class="col-auto d-flex flex-column justify-content-between align-items-end p-0">
+            <p class="text-end"> ⭐ <%= hotel.avaliacao.avaliacaoGeral %> (<%= hotel.num_avaliacao %> mil+) </p>
+            <button class="dropdown-btn"><i class="fa-solid fa-chevron-down"></i></button>
+        </div>
+        <div class="row dropdown-content p-0">
+            <h2>Comodidades</h2>
+            <ul class="amenities-list row">
+                <% hotel.quarto[0].comodidades.forEach(comodidade => { %>
+                    <li class="col-md-6 d-flex align-items-center mb-2">
+                        <i class="fas fa-check mr-2"></i> <%= comodidade %>
+                    </li>
+                <% }); %>
+            </ul>
+        </div>
+    </div>
+</div>
   <% }); %>
 </div>
 

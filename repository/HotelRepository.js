@@ -44,9 +44,11 @@ class HotelRepository {
     async saveFav(idHotel, idPessoa){
         console.log("SALVANDO FAVORITOS")
         const pessoa = await UsuarioRepository.findById(idPessoa)
+        console.log(pessoa)
         if(!pessoa) return
 
         const hotel = await Hotel.findById(idHotel)
+        console.log(hotel)
         if(!hotel) return
         
         pessoa.favorito.push(hotel)
@@ -66,7 +68,7 @@ class HotelRepository {
         return pessoaAtualizada
     }
     async findById(idHotel){
-        console.log("PROCURANDO HOTEL PELO ID")
+        
         historicoDeBusca.push(idHotel)
         const hotel = await Hotel.findById(idHotel)
         return hotel
@@ -80,18 +82,18 @@ class HotelRepository {
                 return hotels; 
             }
     
-            const hoteis = historicoDeBusca.map(id => Hotel.findById(id));
-            const hotelsProntos = await Promise.all(hoteis);
+            const hoteis = historicoDeBusca.map(id => Hotel.findById(id))
+            const hotelsProntos = await Promise.all(hoteis)
     
             hotelsProntos.forEach(hotel => {
                 if (hotel) {
-                    hotels.push(hotel);
+                    hotels.push(hotel)
                 }
-            });
+            })
     
             return hotels;
         } catch (error) {
-            console.error("Erro:", error);
+            console.error("Erro:", error)
         }
     }
     async findNear(coordenadas){

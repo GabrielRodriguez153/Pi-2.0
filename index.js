@@ -10,22 +10,19 @@ app.use(session({
     saveUninitialized: false,
     resave: false
 }))
-app.use("/", PageController)
-
+    
 app.use(express.urlencoded({ extended: false}))
 app.use(express.json())
+app.set("view engine", "ejs")
+
+app.use(express.static('public'))
+app.use("/", PageController)
 
 const mongoURI = "mongodb://localhost:27017/sightinn";
 
 mongoose.connect(mongoURI)
 .then(() => console.log("MongoDB conectado com sucesso!"))
 .catch(err => console.error("Erro de conexão MongoDB:", err));
-
-app.set("view engine", "ejs")
-
-app.use(express.static('public'))
-
- 
 
 const port = 8000;
 app.listen(port, function (erro) {
