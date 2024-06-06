@@ -268,3 +268,16 @@ $(document).ready(function() {
     });
 });
 
+$(document).ready(function() {
+    $('#Auth__Continue--login').on('click', function() {
+        // Animate out the email form
+        $('#loginForm').addClass('fade-out');
+        
+        // After the animation ends, hide the email form and show the password form
+        setTimeout(function() {
+            $('#loginForm').addClass('hidden').removeClass('fade-out');
+            $('#Auth__password--Login').removeClass('hidden').addClass('fade-in');
+        }, 500); // Match the duration of the fade-out animation
+    });
+});
+
