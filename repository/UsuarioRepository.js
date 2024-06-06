@@ -2,6 +2,7 @@ import {usuario, Usuario} from "./../models/usuario.js"
 
 class UsuarioRepository{
     async findById(id){
+        console.log(id)
         return await Usuario.findById(id)
     }
     async save(email, senha, telefone){
