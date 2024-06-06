@@ -9,13 +9,25 @@ document.addEventListener("DOMContentLoaded", function () {
         getSortData: {
             price: '[data-price] parseInt',
             rating: '[data-rating] parseFloat'
+        },
+        filter: function() {
+            var isMatched = true;
+            var $this = $(this);
+            for (var prop in filters) {
+                var filter = filters[prop];
+                if (typeof filter === 'function') {
+                    isMatched = isMatched && filter($this[0]);
+                }
+            }
+            return isMatched;
         }
     });
 
     var filters = {};
 
     document.querySelectorAll("#filters select").forEach(function (filter) {
-        filter.addEventListener("change", function () {
+        filter.addEventListener("click", function () {
+            console.log("KKKKKKKKKKKKKKKKKKKKk");
             var filterGroup = this.getAttribute("id").replace("-filter", "");
             filters[filterGroup] = this.value;
             var filterValue = concatValues(filters);
@@ -26,7 +38,11 @@ document.addEventListener("DOMContentLoaded", function () {
     function concatValues(obj) {
         var value = "";
         for (var prop in obj) {
-            value += obj[prop];
+            if (typeof obj[prop] === 'function') {
+                value += obj[prop];
+            } else {
+                value += obj[prop];
+            }
         }
         return value;
     }
