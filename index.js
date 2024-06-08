@@ -3,6 +3,7 @@ import mongoose from "mongoose"
 import session from "express-session"
 import PageController from "./controllers/PageController.js"
 import LoginController from "./controllers/LoginController.js"
+import UsuarioController from "./controllers/UsuarioController.js"
 const app = express()
 
 app.use(session({
@@ -18,6 +19,7 @@ app.use(express.json())
 mongoose.connect("mongodb://localhost:27017/sightinn")
 app.use("/", PageController)
 app.use("/", LoginController)
+app.use("/", UsuarioController)
 app.set("view engine", "ejs")
 
 app.use(express.static('public'))
