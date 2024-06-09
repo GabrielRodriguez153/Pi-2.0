@@ -9,6 +9,7 @@ router.get("/home/:idUsuario", async (req, res) => {
         const testeAvaliacao = {
             "wifi": true
         }
+        
         let tipo = "Luxury"
         let localidade = "deserto"
         let cidade = "Registro"
@@ -44,6 +45,7 @@ router.get("/home/:idUsuario", async (req, res) => {
         res.status(500).json({ error: "Internal server error" })
     }
 })
+
 router.get("/home", async (req, res) => {
     try {
         const hotels = await HotelController.findAll()

@@ -5,7 +5,7 @@
   "rating": 4.8,
   "reviews": 120,
   "price": 3200,
-  "image": "imgs/image-background.svg",
+  "image": "imgs/apartments/sunsetBeach_hotel.svg",
   "amenities": [
     "Wi-fi",
     "Estacionamento",
@@ -21,7 +21,7 @@
   "rating": 4.7,
   "reviews": 543,
   "price": 6100,
-  "image": "imgs/image-background.svg",
+  "image": "imgs/apartments/starlightInn.svg",
   "amenities": [
     "Wi-fi",
     "Piscina",
@@ -37,7 +37,7 @@
   "rating": 4.2,
   "reviews": 87,
   "price": 2500,
-  "image": "imgs/image-background.svg",
+  "image": "imgs/apartments/oceanView_resort.svg",
   "amenities": [
     "Wi-fi",
     "Estacionamento",
@@ -53,7 +53,7 @@
   "rating": 5.0,
   "reviews": 25,
   "price": 8900,
-  "image": "imgs/image-background.svg",
+  "image": "imgs/apartments/satoriniParadise_hotel.svg",
   "amenities": [
     "Wi-fi",
     "Estacionamento",
@@ -70,7 +70,7 @@
   "rating": 4.9,
   "reviews": 182,
   "price": 4700,
-  "image": "imgs/image-background.svg",
+  "image": "imgs/apartments/skylineSuites.svg",
   "amenities": [
     "Wi-fi",
     "Estacionamento",
@@ -86,7 +86,7 @@
   "rating": 4.5,
   "reviews": 310,
   "price": 1900,
-  "image": "imgs/image-background.svg",
+  "image": "imgs/apartments/mountainLodge_resort.svg",
   "amenities": [
     "Wi-fi",
     "Estacionamento",
@@ -102,7 +102,7 @@
   "rating": 4.5,
   "reviews": 310,
   "price": 1900,
-  "image": "imgs/image-background.svg",
+  "image": "imgs/apartments/westinsterPalace.svg",
   "amenities": [
     "Wi-fi",
     "Estacionamento",
@@ -118,7 +118,7 @@
   "rating": 4.5,
   "reviews": 310,
   "price": 1900,
-  "image": "imgs/image-background.svg",
+  "image": "imgs/apartments/skylineSuites2.svg",
   "amenities": [
     "Wi-fi",
     "Estacionamento",
@@ -134,7 +134,7 @@
   "rating": 4.5,
   "reviews": 310,
   "price": 1900,
-  "image": "imgs/image-background.svg",
+  "image": "imgs/apartments/riversideLodge.svg",
   "amenities": [
     "Wi-fi",
     "Estacionamento",
@@ -150,7 +150,39 @@
   "rating": 4.5,
   "reviews": 310,
   "price": 1900,
-  "image": "imgs/image-background.svg",
+  "image": "imgs/apartments/paradiseCove_resort.svg",
+  "amenities": [
+    "Wi-fi",
+    "Estacionamento",
+    "Ar-condicionado",
+    "Secador",
+    "TV Smart",
+    "Varanda"
+  ]
+},
+{
+  "name": "Serenity Heights Hotel",
+  "location": "Kyoto, Japan",
+  "rating": 4.5,
+  "reviews": 310,
+  "price": 1900,
+  "image": "imgs/apartments/serenityHeights_hotel.svg",
+  "amenities": [
+    "Wi-fi",
+    "Estacionamento",
+    "Ar-condicionado",
+    "Secador",
+    "TV Smart",
+    "Varanda"
+  ]
+},
+{
+  "name": "Great Wall Lodge",
+  "location": "Shijiazhuang, Hebei, China",
+  "rating": 4.5,
+  "reviews": 310,
+  "price": 1900,
+  "image": "imgs/apartments/greatWall_lodge.svg",
   "amenities": [
     "Wi-fi",
     "Estacionamento",
@@ -171,6 +203,7 @@
           const priceClass = hotel.price <= 3000 ? 'price-low' : (hotel.price <= 6000 ? 'price-mid' : 'price-high');
       %>
       <div class="hotel-card m-2 <%= locationClass %> <%= ratingClass %> <%= priceClass %>">
+        <a href="/apartamentoId"> 
           <img src="<%= hotel.image %>" alt="<%= hotel.name %>" />
           <div class="row hotel-info">
               <div class="col p-0 flex-grow-1">
@@ -182,6 +215,7 @@
                   <p class="text-end"> ⭐ <%= hotel.rating %> (<%= hotel.reviews %> mil+) </p>
                   <button class="dropdown-btn"><i class="fa-solid fa-chevron-down"></i></button>
               </div>
+        </a>
               <div class="row dropdown-content p-0">
                   <h2>Comodidades</h2>
                   <ul class="amenities-list row">

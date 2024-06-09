@@ -28,6 +28,10 @@ app.get("/", function(req, res) {
     res.render("index")
 })
 
+app.get("/apartamentoId", (req, res) => {
+    res.render('apartamentoId');
+});
+
 const port = 8000;
 app.listen(port, function (erro) {
     if (erro) {
