@@ -1,7 +1,6 @@
 import express from "express"
 import HotelController from "./HotelController.js"
 import UsuarioController from "./UsuarioController.js"
-import UsuarioRepository from "../repository/UsuarioRepository.js"
 const router = express.Router()
 
 
@@ -17,7 +16,6 @@ router.get("/:page?", async (req, res) => {
         } else {
             hotels = await HotelController.findAll(0)
         }
-
         const idUsuario = req.session.user ? parseInt(req.session.user.idUsuario) : null
         if (!idUsuario) return res.render("index", { hotels: hotels })
 
@@ -26,7 +24,6 @@ router.get("/:page?", async (req, res) => {
         if (!usuario) {
             return res.render("index", { hotels: hotels })
         }
-        console.log("Achei Usuário")
         const favoritos = usuario.favorito || []
 
         const hotelModificado = hotels.map(hotel => {
@@ -53,14 +50,15 @@ router.get("/:page?", async (req, res) => {
         
         res.render("index", { hotels: hotelModificado })
     } catch (error) {
-        console.error("Erro, não foi possível buscar os hotéis:", error)
-        res.status(500).send("Erro")
+        res.status(500).render("errors", {"message": err })
     }
 })
 
-router.get("/hotel/:idHotel", async(req, res) =>{
+router.get("/hotel/apartamento/:idHotel", async(req, res) =>{
     const response = await HotelController.findById(req.params.idHotel)
-    res.status(200).send(response)
+    res.status(200).render('apartamentoId', {
+        hotel: response
+    })
 })
 
 router.get("/hotel/usuario/recents", async (req, res) => {
@@ -68,14 +66,13 @@ router.get("/hotel/usuario/recents", async (req, res) => {
         const response = await HotelController.findRecents()
         res.status(200).send(response)
     }catch(err){
-
+        res.status(500).render("errors", {"message": err })
     }
 })
 
 
 router.get("/hotel/points/map", async (req, res) => {
     try{
-        console.log("AQUI")
         const { latitude, longitude } = req.query
         if (!latitude || !longitude) {
             res.status(400).send({ erro: 'Faltou a latitude ou longitude' })
@@ -89,8 +86,7 @@ router.get("/hotel/points/map", async (req, res) => {
         const hoteisProximos = await HotelController.findNear(coordenadas)
         res.status(200).send(hoteisProximos)
     }catch(err){
-        console.log(err)
-        res.status(500).send(err)
+        res.status(500).render("errors", {"message": err })
     }
 })
 
@@ -99,7 +95,7 @@ router.get("/hotel/fav/:idPessoa", async (req, res) =>{
         const response =  await HotelController.findByPessoaId(req.params.idPessoa)
         res.status(200).send(response)
     }catch(err){
-        res.status(500).send()
+        res.status(500).render("errors", {"message": err })
     }
 })
 
@@ -109,36 +105,28 @@ router.post("/hotel/fav/:idHotel", async (req, res) =>{
 
         if (!idUsuario) return res.redirect("/")
 
-        console.log("Procurando usuário", )
         const usuario = await UsuarioController.findById(req.session.user.idUsuario)
             
 
         if (!usuario) {
             return res.redirect("/")
         }
-        console.log(usuario)
         const response = await HotelController.saveFav(req.params.idHotel, req.session.user.idUsuario)
 
         res.status(201).redirect("/")
     }catch(err){
-        console.log(err)
-        res.status(500).send(err)
+        res.status(500).render("errors", {"message": err })
     }
 })
 
 router.post("/hotel/fav/delete/:idHotel", async (req, res) =>{
     try{
-        console.log("Aqui")
         const idUsuario = req.session.user ? parseInt(req.session.user.idUsuario) : null
-        console.log(idUsuario)
 
         if (!idUsuario) return res.redirect("/")
 
-        console.log("Procurando usuário", )
-
         const usuario = await UsuarioController.findById(req.session.user.idUsuario)
             
-
         if (!usuario) {
             return res.redirect("/")
         }
@@ -146,13 +134,13 @@ router.post("/hotel/fav/delete/:idHotel", async (req, res) =>{
         const response = await HotelController.removeFav(req.params.idHotel, req.session.user.idUsuario)
         res.status(204).redirect("/")
     }catch(err){
-        res.status(500).send(err)
+        res.status(500).render("errors", {"message": err })
     }
 })
 
-router.post("/usuario", async(req,res) =>{
+router.post("/cadastro/usuario", async(req,res) =>{
     try{
-        const response = await UsuarioController.save(req.body.email, req.body.senha, req.body.telefone)
+        const response = await UsuarioController.save(req.body.email, req.body.senha)
         res.status(201).send(response)
     }catch(err){
         res.status(500).send(err.message)
@@ -162,16 +150,16 @@ router.post("/usuario", async(req,res) =>{
 router.post('/login', async (req, res) => {
     const { email, senha } = req.body;
     if (!email || !senha) {
-        res.status(400).send({ message: "Email e senha são obrigatórios!" })
+        res.status(400).render("errors", { message: "Email e senha são obrigatórios!" })
     }
 
     try {
         const usuario = await UsuarioController.findOne(email)
         if (!usuario) {
-            res.status(500).send({ message: "Usuário não encontrado!" })
+            res.status(500).render("errors",{ message: "Usuário não encontrado!" })
         }
         if (senha != usuario.senha) {
-            res.status(401).send({ message: "Senha inválida!" })
+            res.status(401).render("errors", { message: "Senha inválida!" })
         }
 
         req.session.user = {
@@ -180,10 +168,8 @@ router.post('/login', async (req, res) => {
         res.status(200).redirect("/")
 
     } catch (error) {
-        console.log(error)
-        res.status(500).redirect("/")
+        res.status(500).render("errors", {"message": err })
     }
 })
-
 
 export default router

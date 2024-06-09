@@ -1,96 +1,196 @@
+<!-- Modal de Login -->
+<div
+  class="modal fade align-content-center"
+  id="loginModal"
+  tabindex="-1"
+  aria-labelledby="loginModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-left"></div>
+      <div class="modal-right">
+        <div class="d-flex justify-content-between align-items-center">
+          <img src="imgs/image-logo.svg" alt="" width="50%" />
+          <a type="button" data-dismiss="modal" aria-label="Close">
+            <img src="/imgs/icon/close-black.svg" alt="Close" />
+          </a>
+        </div>
 
-
-  <!-- Botões para abrir os modais -->
-  <div class="container mt-5">
-    <button type="button" class="btn btn-primary mr-2" data-toggle="modal" data-target="#loginModal">
-      <i class="fas fa-sign-in-alt"></i> Login
-    </button>
-    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#signupModal">
-      <i class="fas fa-user-plus"></i> Cadastro
-    </button>
-  </div>
-
-  <!-- Modal de Login -->
-  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="loginModalLabel">Login</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+        <div class="modal-header flex-column pb-1">
+          <p class="modal-subtitle">Bem-vindo de volta ao Sight Inn</p>
+          <h2 class="modal-title text-start" id="loginModalLabel">
+            Estamos felizes em vê-lo por aqui novamente!
+          </h2>
+          <p class="modal-subtitle">Por favor, entre com seu e-mail e senha.</p>
         </div>
         <div class="modal-body">
           <form action="/login" method = "POST">
             <div class="form-group">
               <label for="loginEmail">Email</label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                </div>
-                <input type="email" class="form-control" name="email" id="email" placeholder="Digite seu email">
-              </div>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                placeholder="Digite seu email"
+              />
             </div>
+            <div class="mx-auto d-grid col-x">
+              <button
+                type="button"
+                class="btn btn-lg btn-primary btn-block"
+                id="Auth__Continue--login"
+              >
+                Continuar
+              </button>
+            </div>
+        <div id="Auth__password--Login" class="hidden">
             <div class="form-group">
               <label for="loginPassword">Senha</label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                </div>
-                <input type="password" class="form-control" name="senha" id="senha" placeholder="Digite sua senha">
-              </div>
+              <input
+                type="password"
+                class="form-control"
+                id="senha"
+                placeholder="Digite sua senha"
+                name="senha"
+              />
             </div>
-            <button type="submit" class="btn btn-primary">Entrar</button>
-          </form>
+            <div class="mx-auto d-grid col-x">
+              <button
+                type="submit"
+                class="btn btn-lg btn-primary btn-block"
+                id="loginButton"
+              >
+                Entrar
+              </button>              
+            </div>
+          </div>
+        </form>
+
+          <div class="separator">
+            <span><button
+              type="button"
+              class="btn btn-link"
+              data-toggle="modal"
+              data-target="#signupModal"
+            >
+            Criar Conta
+            </button></span>
+          </div>
+          <div class="d-flex">
+            <button class="btn btn-social btn-outline-black">
+              <span><i class="fa-brands fa-google"></i> Google</span>
+            </button>
+            <button class="btn btn-social btn-outline-black">
+              <span><i class="fa-brands fa-facebook"></i></span>
+              <span class="ps-1">Facebook</span>
+            </button>
+            <button class="btn btn-social btn-outline-black">
+              <span><i class="fa-brands fa-apple"></i> Apple</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- Modal de Cadastro -->
-  <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="signupModalLabel">Cadastro</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+<!-- Modal de Cadastro -->
+<div
+  class="modal fade align-content-center"
+  id="signupModal"
+  tabindex="-1"
+  aria-labelledby="signupModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-left"></div>
+      <div class="modal-right">
+        <div class="d-flex justify-content-between align-items-center">
+          <img src="imgs/image-logo.svg" alt="" width="50%" />
+          <a type="button" data-dismiss="modal" aria-label="Close">
+            <img src="/imgs/icon/close-black.svg" alt="" />
+          </a>
+        </div>
+
+        <div class="modal-header flex-column">
+          <p class="modal-subtitle">Seja bem-vindo ao Sight Inn</p>
+          <h2 class="modal-title text-start" id="signupModalLabel">
+            Estamos felizes em vê-lo por aqui!
+          </h2>
+          <p class="modal-subtitle">
+            Para fazer o login use o seu e-mail ou entre por outras plataformas.
+          </p>
         </div>
         <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="signupName">Nome</label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fas fa-user"></i></span>
-                </div>
-                <input type="text" class="form-control" id="signupName" placeholder="Digite seu nome">
-              </div>
-            </div>
+          <form  action="cadastro/usuario" method="POST">
+          <div id="emailForm">
             <div class="form-group">
               <label for="signupEmail">Email</label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                </div>
-                <input type="email" class="form-control" id="signupEmail" placeholder="Digite seu email">
-              </div>
+              <input
+                type="email"
+                class="form-control"
+                id="signupEmail"
+                placeholder="Digite seu email"
+                name="email"
+              />
             </div>
+            <div class="mx-auto d-grid col-x">
+              <button
+                type="button"
+                class="btn btn-lg btn-primary btn-block"
+                id="continueButton"
+              >
+                Continuar
+              </button>
+            </div>
+            </div>
+
+          <div id="passwordForm" class="hidden">
             <div class="form-group">
               <label for="signupPassword">Senha</label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                </div>
-                <input type="password" class="form-control" id="signupPassword" placeholder="Digite sua senha">
-              </div>
+              <input
+                type="password"
+                class="form-control"
+                id="signupPassword"
+                placeholder="Digite sua senha"
+                name="senha"
+              />
             </div>
-            <button type="submit" class="btn btn-primary">Cadastrar</button>
-          </form>
+            <div class="mx-auto d-grid col-x">
+              <button type="submit" class="btn btn-lg btn-primary btn-block">
+                Cadastro
+              </button>
+            </div>
+          </div>
+        </form>
+
+          <div class="separator">
+            <span><button
+              type="button"
+              class="btn btn-link"
+              data-toggle="modal"
+              data-target="#loginModal"
+            >
+            Logar
+            </button></span>
+          </div>
+          <div class="d-flex">
+            <button class="btn btn-social btn-outline-black">
+              <span><i class="fa-brands fa-google"></i> Google</span>
+            </button>
+            <button class="btn btn-social btn-outline-black">
+              <span><i class="fa-brands fa-facebook"></i></span>
+              <span class="ps-1">Facebook</span>
+            </button>
+            <button class="btn btn-social btn-outline-black">
+              <span><i class="fa-brands fa-apple"></i> Apple</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
   </div>
-
-
+</div>

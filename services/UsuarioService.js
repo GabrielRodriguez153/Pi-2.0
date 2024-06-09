@@ -6,7 +6,7 @@ class UsuarioService{
     }
 
     async save(email, senha, telefone){
-        return await UsuarioRepository.save(email, senha, telefone)
+        return await UsuarioRepository.save(email, senha)
     }
     async findByEmail(email){
         return await UsuarioRepository.findByEmail(email)

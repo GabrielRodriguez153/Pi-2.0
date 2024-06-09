@@ -1,6 +1,5 @@
 import HotelService from "./../services/HotelService.js"
 
-
 class HotelController{
     async findAll(page){
         return await HotelService.findAll(page)

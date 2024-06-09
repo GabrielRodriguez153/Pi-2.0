@@ -1,0 +1,170 @@
+<%-include ("partials/head.ejs")%>
+<%- include ("partials/header.ejs")%>
+
+<div class="main-wrapper">
+    <div class="container">
+      <section class="info-hotel-general">
+        <div class="info-hotel-general-txt mt-5">
+          <div class="hotel-info-container">
+              <div class="info-hotel-name mr-3">
+                  <h2><%= hotel.nome %></h2>
+                  <span><%= hotel.endereco %></span>
+              </div>
+    
+              <div class="vl mx-3"></div>
+    
+              <div class="info-hotel-adress mr-3">
+                  <span>Address</span>
+                  <h5><%= hotel.localidade %></h5>
+              </div>
+    
+              <div class="info-hotel-rating">
+                  <span>⭐ <%= hotel.avaliacao.avaliacaoGeral %>  (<%= hotel.num_avaliacao %> avalições)</span>
+              </div>
+          </div>
+        </div>
+    
+        <div class="hotel-gallery mt-3">
+          <div class="item gallery-img1"><img src="../../imgs/hotels/<%= hotel.image %>" alt="<%= hotel.name %>" /></div>
+          <div class="item gallery-img2"><img src="../../imgs/apartments/<%= hotel.quarto[0].image[0]%>"></div>
+          <div class="item gallery-img3"><img src="../../imgs/apartments/<%= hotel.quarto[0].image[1]%>"></div>
+          <div class="item gallery-img4"><img src="../../imgs/apartments/<%= hotel.quarto[0].image[2]%>"></div>
+        </div>
+      </section>
+    
+      <section class="hotel-description">
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="description">
+                        <h3>Descrição do Hotel</h3>
+                        <p><%= hotel.desc %></p>
+                    </div>
+                    <div class="amenities mt-5">
+                        <h3>Comodidades do Hotel</h3>
+                        <ul class="list-unstyled row mt-4">
+                          <div class="col-md-7">
+                            <% hotel.quarto[0].comodidades.forEach(comodidade => { %>
+                              <% if (comodidade === 'wifi') { %>
+                                <li class="d-flex align-items-center mb-3"><i class="fas fa-wifi"></i> Wi-fi</li>
+                              <% } %>
+                              <% if (comodidade === 'estacionamento') { %>
+                                <li class="d-flex align-items-center mb-3"><i class="fas fa-parking"></i> Estacionamento</li>
+                              <% } %>
+                              <% if (comodidade === 'arcondicionado') { %>
+                                <li class="d-flex align-items-center mb-3"><i class="fas fa-snowflake"></i> Ar Condicionado</li>
+                              <% } %>
+                            <% }) %>
+                          </div>
+                          <div class="col-md-5">
+                            <% hotel.quarto[0].comodidades.forEach(comodidade => { %>
+                              <% if (comodidade === 'secador') { %>
+                                <li class="d-flex align-items-center mb-3"><i class="fas fa-tshirt"></i> Secador</li>
+                              <% } %>
+                              <% if (comodidade === 'Tv_Smart') { %>
+                                <li class="d-flex align-items-center mb-3"><i class="fas fa-tv"></i> TV Smart</li>
+                              <% } %>
+                              <% if (comodidade === 'varanda') { %>
+                                <li class="d-flex align-items-center mb-3"><i class="fas fa-cocktail"></i> Varanda</li>
+                              <% } %>
+                            <% }) %>
+                          </div>
+                        </ul>
+                        <button class="btn btn-outline-dark btn-amenities">Mostrar todas as comodidades</button>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="booking-box p-5">
+                    <div class="d-flex align-items-center">
+                      <div>
+                        <i class="fa-solid fa-spa"></i>
+                        <div class="hotel-name mt-2">
+                          <h5><%= hotel.nome %></h5>
+                        </div>
+                      </div>
+                      <div class="hotel-price ms-auto mt-4">
+                        <p><%= hotel.quarto[0].valor%> diária</p>
+                      </div>
+                    </div>
+                    
+                    <div class="check-in-out mt-4">
+                      <form action="" method="post" class="reserve-form">
+                        <div class="section-checkIn d-flex align-items-center justify-content-center flex-wrap">
+                          <div class="input-group-form">
+                            <span><img src="/imgs/icon/location.svg" alt="location icon"/></span>
+                            <div class="col-auto">
+                              <label id="checkin">Check-in</label>
+                            </div>
+                            <div class="col-auto">
+                              <input type="time" id="checkIn" class="time-input form-control" placeholder="14:00" />
+                            </div>
+                          </div>
+                          <div class="vl2 mx-3"></div>
+                          <div class="input-group-form">
+                            <span><img src="/imgs/icon/location.svg" alt="location icon" /></span>
+                            <div class="col-auto">
+                              <label id="checkout">Check-out</label>
+                            </div>
+                            <div class="col-auto">
+                              <input type="time" id="checkOut" class="time-input form-control" placeholder="14:00" />
+                            </div>
+                          </div>
+                        </div>
+                        <hr>
+                        <div class="section-date-check">
+                          <div class="input-group-form">
+                            <span><img src="/imgs/icon/location.svg" alt="location icon" /></span>                 
+                              <input type="date" id="dateIn" class="date-input form-control"/>
+                              &rarr;
+                              <input type="date" id="dateOut" class="date-input form-control"/>
+                          </div>
+                        </div>
+                        <hr>
+                        <div class="section-room-check">
+                          <div class="input-group-form">
+                            <span><img src="/imgs/icon/location.svg" alt="location icon" /></span>
+                            <div>
+                              <label id="guests">Quartos&Hóspedes</label>                 
+                              <input type="text" id="guestRoom" class="text-input form-control" placeholder="1 quarto, 2 adultos"/>
+                            </div>
+                          </div>
+                        </div>
+                        <hr>
+                        <button type="submit" class="btn btn-reserve">Reservar</button>
+                      </form>
+                    </div>
+                    
+                    <div class="pricing mt-3">
+                      <div class="price-hotel-night d-flex align-items-center">
+                        <div class=""><p id="price-night">R$ <%= hotel.quarto[0].valor %> x 3 noites</p></div>
+                        <div class="ms-auto">
+                          <span id="price-night-noTax"> R$ <%= hotel.quarto[0].valor * 3 %></span>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="price-hotel-all d-flex align-items-center">
+                        <div>
+                          <p id="price-tax"><strong>Valor total sem impostos</strong></p>
+                        </div>
+                        <div class="ms-auto">
+                          <span class="float-right" id="price-include">R$ <%= hotel.quarto[0].valor * 3 %></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+      </section>
+      <hr>
+      <section class="hotel-rating">
+              
+      </section>
+  
+  
+    </div>
+  </div>
+       
+
+<%-include ("partials/footer.ejs")%>
+<%-include ("partials/foot.ejs")%>

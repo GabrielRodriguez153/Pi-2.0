@@ -10,7 +10,6 @@ class UsuarioRepository{
         const user =  new Usuario({
             email: email,
             senha: senha,
-            telefone: telefone
         })
         return await user.save()
     }

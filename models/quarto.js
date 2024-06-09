@@ -9,6 +9,7 @@ const quarto= new mongoose.Schema({
     tipo: String,
     alugado: alugado,
     valor: Number,
+    image: [String]
 });
 
 const Quarto = mongoose.model('Quarto', quarto);

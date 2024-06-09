@@ -1,34 +1,49 @@
-import express from "express"
-import mongoose from "mongoose"
-import session from "express-session"
-import PageController from "./controllers/PageController.js"
-const app = express()
+import express from "express";
+import mongoose from "mongoose";
+import session from "express-session";
+import PageController from "./controllers/PageController.js";
+const app = express();
 
-app.use(session({
+app.use(
+  session({
     secret: "sightinn",
-    cookie: { maxAge: 7200000},
+    cookie: { maxAge: 7200000 },
     saveUninitialized: false,
-    resave: false
-}))
-    
-app.use(express.urlencoded({ extended: false}))
-app.use(express.json())
-app.set("view engine", "ejs")
+    resave: false,
+  })
+);
 
-app.use(express.static('public'))
-app.use("/", PageController)
+app.use(express.urlencoded({ extended: false }));
+
+app.use(express.json());
+
+app.set("view engine", "ejs");
+
+app.use(express.static("public"));
+
+app.use((req, res, next) => {
+  res.locals.session = req.session;
+  next();
+});
 
 const mongoURI = "mongodb://localhost:27017/sightinn";
 
-mongoose.connect(mongoURI)
-.then(() => console.log("MongoDB conectado com sucesso!"))
-.catch(err => console.error("Erro de conexão MongoDB:", err));
+mongoose
+  .connect(mongoURI)
+  .then(() => console.log("MongoDB conectado com sucesso!"))
+  .catch((err) => console.error("Erro de conexão MongoDB:", err));
+
+
+app.use("/", PageController)
+
+
 
 const port = 8000;
+
 app.listen(port, function (erro) {
-    if (erro) {
-        console.log("Ocorreu um erro!")
-    } else {
-        console.log(`Servidor iniciado com sucesso na porta ${port}!`)
-    }
-})
+  if (erro) {
+    console.log("Ocorreu um erro!");
+  } else {
+    console.log(`Servidor iniciado com sucesso na porta ${port}!`);
+  }
+});

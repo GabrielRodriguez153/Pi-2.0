@@ -1,12 +1,16 @@
 <div class="hotel-container grid">
   <% hotels.forEach(hotel => { %>
-    <% 
-    const locationClass = hotel.localidade.split(',')[0].replace(/ /g, '_');
-    const ratingClass = `rating-${hotel.avaliacao.avaliacaoGeral}`;
-    const priceClass = hotel.quarto[0].valor <= 3000 ? 'price-low' : (hotel.quarto[0].valor <= 6000 ? 'price-mid' : 'price-high');
+      <% 
+          const locationClass = hotel.localidade.split(',')[0].replace(/ /g, '_');
+          const ratingClass = `rating-${hotel.avaliacao.avaliacaoGeral}`;
+          const priceClass = hotel.quarto[0].valor <= 3000 ? 'price-low' : (hotel.quarto[0].valor <= 6000 ? 'price-mid' : 'price-high');
+      %>
   %>
 <div class="hotel-card m-2 <%= locationClass %> <%= ratingClass %> <%= priceClass %>">
-    <img src="<%= hotel.image %>" alt="<%= hotel.name %>" />
+    <a href="/hotel/apartamento/<%= hotel.id %>"> 
+
+    <img src="imgs/hotels/<%= hotel.image %>" alt="<%= hotel.name %>" />
+    
     <% if (hotel.classe) { %>
         <form action="/hotel/fav/delete/<%=hotel.id%>" method="POST">
           <input type="image" class="like-button" src="imgs/icon/liked.svg" alt="Botão de Like">
@@ -28,6 +32,8 @@
             <p class="text-end"> ⭐ <%= hotel.avaliacao.avaliacaoGeral %> (<%= hotel.num_avaliacao %> mil+) </p>
             <button class="dropdown-btn"><i class="fa-solid fa-chevron-down"></i></button>
         </div>
+      </a>
+
         <div class="row dropdown-content p-0">
             <h2>Comodidades</h2>
             <ul class="amenities-list row">
