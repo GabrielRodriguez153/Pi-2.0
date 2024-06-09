@@ -37,7 +37,7 @@ app.get("/", function (req, res) {
   res.render("index");
 });
 
-<<<<<<< Updated upstream
+
 app.get("/apartamentoId", (req, res) => {
     res.render('apartamentoId');
 });

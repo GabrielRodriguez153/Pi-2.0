@@ -21,21 +21,16 @@
 }
 ] %>
 
-<div class="container mt-5">
-  <div class="row d-flex flex-column">
+<div class="container mt-5 m-0 p-0">
+  <div class="d-flex flex-column">
     <% hotels.forEach(hotel => { %>
     <div class="col-md-4 mb-4">
       <div class="card mb-3">
         <div class="row g-0">
-          <div class="col-md-4">
-            <img
-              src="<%= hotel.image %>"
-              class="img-fluid rounded-start"
-              alt="Hotel Image"
-            />
+          <div class="col-md-4 rounded-start image-card" style="background-image: url('<%= hotel.image %>');">
           </div>
           <div class="col-md-8">
-            <div class="card-body p-0">
+            <div class="card-body">
               <h5 class="card-title"><%= hotel.name %></h5>
               <p class="card-text"><%= hotel.location %></p>
               <p class="card-text">
