@@ -617,8 +617,8 @@ hr {
     padding-left: 15px;
 }
 
-.info-hotel-adress h4 {
-    margin: 0;
+.info-hotel-adress h5{
+    font-weight: 400;
 }
 
 .info-hotel-adress span {
@@ -632,6 +632,10 @@ hr {
 .hotel-info-container {
     display: flex;
     align-items: center;
+}
+
+.hotel-info-container span{
+    color: #000000a6;
 }
 
 .hotel-gallery {
@@ -724,13 +728,27 @@ hr {
     margin-bottom: 5px;
 }
 
+.booking-box span img {
+    width: 30px;
+    height: 30px
+}
+
 .check-in-out {
     font-size: 0.9em;
+}
+
+.check-in-out span img {
+    width: 17px;
+    height: 17px
 }
 
 .room-info {
     font-size: 0.9em;
     margin-top: 10px;
+}
+
+.hotel-price {
+    padding-top: 35px;
 }
 
 .pricing p {
@@ -755,6 +773,7 @@ hr {
 }
 
 .btn-amenities {
+    padding: 1rem 2.5rem;
     border-radius: 10px;
 }
 
