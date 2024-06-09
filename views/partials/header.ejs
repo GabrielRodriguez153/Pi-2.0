@@ -1,7 +1,7 @@
 <header>
   <nav class="navbar navbar-expand-lg py-4">
     <div class="container">
-        <a class="navbar-brand text-white" href="#">Sight-inn</a>
+        <img src="/imgs/image-logo-white.svg" alt="Logo" width="10%">
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -24,6 +24,31 @@
             </ul>
         </div>
 
+        <% if (session.loggedIn) { %>
+            <img src="path/to/your/image.jpg" alt="Imagem de Sessão Ativa">
+            <form action="/logout" method="get">
+              <button type="submit">Logout</button>
+            </form>
+          <% } else { %>
+            <button
+              type="button"
+              class="btn btn-outline-light me-2"
+              data-toggle="modal"
+              data-target="#loginModal"
+            >
+            Entrar
+            </button>
+          <% } %>
+        
+<!-- 
+          <button
+              type="button"
+              class="btn btn-secondary"
+              data-toggle="modal"
+              data-target="#signupModal"
+            >
+            Cadastro
+            </button> -->
         <div class="language-currency d-flex align-items-center">
             <span><img src="/imgs/icon/global.svg" alt="Global" class="nav-icon"></span>
             <input type="text" id="language-currency" value="PT · R$" readonly class="form-control-plaintext text-white ml-2">

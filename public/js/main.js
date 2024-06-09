@@ -9,13 +9,25 @@ document.addEventListener("DOMContentLoaded", function () {
         getSortData: {
             price: '[data-price] parseInt',
             rating: '[data-rating] parseFloat'
+        },
+        filter: function() {
+            var isMatched = true;
+            var $this = $(this);
+            for (var prop in filters) {
+                var filter = filters[prop];
+                if (typeof filter === 'function') {
+                    isMatched = isMatched && filter($this[0]);
+                }
+            }
+            return isMatched;
         }
     });
 
     var filters = {};
 
     document.querySelectorAll("#filters select").forEach(function (filter) {
-        filter.addEventListener("change", function () {
+        filter.addEventListener("click", function () {
+            console.log("KKKKKKKKKKKKKKKKKKKKk");
             var filterGroup = this.getAttribute("id").replace("-filter", "");
             filters[filterGroup] = this.value;
             var filterValue = concatValues(filters);
@@ -26,7 +38,11 @@ document.addEventListener("DOMContentLoaded", function () {
     function concatValues(obj) {
         var value = "";
         for (var prop in obj) {
-            value += obj[prop];
+            if (typeof obj[prop] === 'function') {
+                value += obj[prop];
+            } else {
+                value += obj[prop];
+            }
         }
         return value;
     }
@@ -239,5 +255,29 @@ $(document).ready(function () {
 });
 
 
+$(document).ready(function() {
+    $('#continueButton').on('click', function() {
+        // Animate out the email form
+        $('#emailForm').addClass('fade-out');
+        
+        // After the animation ends, hide the email form and show the password form
+        setTimeout(function() {
+            $('#emailForm').addClass('hidden').removeClass('fade-out');
+            $('#passwordForm').removeClass('hidden').addClass('fade-in');
+        }, 500); // Match the duration of the fade-out animation
+    });
+});
 
+$(document).ready(function() {
+    $('#Auth__Continue--login').on('click', function() {
+        // Animate out the email form
+        $('#loginForm').addClass('fade-out');
+        
+        // After the animation ends, hide the email form and show the password form
+        setTimeout(function() {
+            $('#loginForm').addClass('hidden').removeClass('fade-out');
+            $('#Auth__password--Login').removeClass('hidden').addClass('fade-in');
+        }, 500); // Match the duration of the fade-out animation
+    });
+});
 
