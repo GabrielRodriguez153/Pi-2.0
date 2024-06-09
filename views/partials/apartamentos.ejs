@@ -205,19 +205,19 @@
       <div class="hotel-card m-2 grid-item<%= locationClass %> <%= ratingClass %> <%= priceClass %>">
         <a href="/apartamentoId"> 
           <img src="<%= hotel.image %>" alt="<%= hotel.name %>" />
+        </a>
           <div class="row hotel-info">
               <div class="col p-0 flex-grow-1">
-                  <h2><%= hotel.name %></h2>
-                  <p><%= hotel.location %></p>
-                  <p>R$ <%= hotel.price %> diária</p>
+                  <h2 id="txtHotelName"><%= hotel.name %></h2>
+                  <p id="txtHotelLocal"><%= hotel.location %></p>
+                  <p id="txtHotelPrice">R$ <%= hotel.price %> diária</p>
               </div>
               <div class="col-auto d-flex flex-column justify-content-between align-items-end p-0">
                   <p class="text-end"> ⭐ <%= hotel.rating %> (<%= hotel.reviews %> mil+) </p>
                   <button class="dropdown-btn"><i class="fa-solid fa-chevron-down"></i></button>
               </div>
-        </a>
               <div class="row dropdown-content p-0">
-                  <h2>Comodidades</h2>
+                  <h2 id="txtAmen">Comodidades</h2>
                   <ul class="amenities-list row">
                       <% hotel.amenities.forEach(amenity => { %>
                           <li class="col-md-6 d-flex align-items-center mb-2">

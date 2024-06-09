@@ -7,19 +7,19 @@
         <div class="info-hotel-general-txt mt-5">
           <div class="hotel-info-container">
               <div class="info-hotel-name mr-3">
-                  <h2>Sunset Beach Hotel</h2>
-                  <span>Miami Beach, Florida, USA</span>
+                  <h2 id="txtHotelName">Sunset Beach Hotel</h2>
+                  <span id="txtHotelLocal">Miami Beach, Florida, USA</span>
               </div>
     
               <div class="vl mx-3"></div>
     
               <div class="info-hotel-adress mr-3">
-                  <span>Address</span>
-                  <h5>456 Ocean Avenue <br> Miami Beach, FL 33139 USA</h5>
+                  <span id="txtAdr">Address</span>
+                  <h5 id="txtHotelAdr">456 Ocean Avenue <br> Miami Beach, FL 33139 USA</h5>
               </div>
     
               <div class="info-hotel-rating">
-                  <span>⭐ 5,0  (1 mil)</span>
+                  <span id="txtHotelRatin">⭐ 5,0  (1 mil)</span>
               </div>
           </div>
         </div>
@@ -37,25 +37,25 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="description">
-                        <h3>Descrição do Hotel</h3>
-                        <p class="mt-4">Descubra o Oceanfront Paradise Hotel em Miami Beach, onde luxo à beira-mar e comodidades modernas se encontram.</p>
-                        <p class="mt-4">Desfrute de vistas deslumbrantes do oceano, acomodações elegantes e acesso conveniente às atrações de South Beach.</p>
+                        <h3 id="txtHotelDesc">Descrição do Hotel</h3>
+                        <p class="mt-4" id="txtHotelDescPar">Descubra o Oceanfront Paradise Hotel em Miami Beach, onde luxo à beira-mar e comodidades modernas se encontram.</p>
+                        <p class="mt-4" id="txtHotelDescPar2">Desfrute de vistas deslumbrantes do oceano, acomodações elegantes e acesso conveniente às atrações de South Beach.</p>
                     </div>
                     <div class="amenities mt-5">
-                        <h3>Comodidades do Hotel</h3>
+                        <h3 id="txtHotelAmen">Comodidades do Hotel</h3>
                         <ul class="list-unstyled row mt-4">
                           <div class="col-md-7">
-                            <li class="d-flex align-items-center mb-3"><i class="fas fa-wifi"></i> Wi-fi</li>
-                            <li class="d-flex align-items-center mb-3"><i class="fas fa-parking"></i> Estacionamento</li>
-                            <li class="d-flex align-items-center mb-3"><i class="fas fa-snowflake"></i> Ar-condicionado</li>
+                            <li class="d-flex align-items-center mb-3" id="txtHotelAmenSpeci"><i class="fas fa-wifi"></i> Wi-fi</li>
+                            <li class="d-flex align-items-center mb-3" id="txtHotelAmenSpeci"><i class="fas fa-parking"></i> Estacionamento</li>
+                            <li class="d-flex align-items-center mb-3" id="txtHotelAmenSpeci"><i class="fas fa-snowflake"></i> Ar-condicionado</li>
                           </div>
                           <div class="col-md-5">
-                            <li class="d-flex align-items-center mb-3"><i class="fas fa-tshirt"></i> Secador</li>
-                            <li class="d-flex align-items-center mb-3"><i class="fas fa-tv"></i> TV Smart</li>
-                            <li class="d-flex align-items-center mb-3"><i class="fas fa-cocktail"></i> Varanda</li>
+                            <li class="d-flex align-items-center mb-3" id="txtHotelAmenSpeci"><i class="fas fa-tshirt"></i> Secador</li>
+                            <li class="d-flex align-items-center mb-3" id="txtHotelAmenSpeci"><i class="fas fa-tv"></i> TV Smart</li>
+                            <li class="d-flex align-items-center mb-3" id="txtHotelAmenSpeci"><i class="fas fa-cocktail"></i> Varanda</li>
                           </div>
                         </ul>
-                        <button class="btn btn-outline-dark btn-amenities">Mostrar todas as comodidades</button>
+                        <button class="btn btn-outline-dark btn-amenities" id="txtHotelAllAmen">Mostrar todas as comodidades</button>
                     </div>
                 </div>
   
@@ -65,11 +65,11 @@
                       <div>
                         <i class="fa-solid fa-spa"></i>
                         <div class="hotel-name mt-2">
-                          <h5>Sunset Beach Hotel</h5>
+                          <h5 id="txtHotelName">Sunset Beach Hotel</h5>
                         </div>
                       </div>
                       <div class="hotel-price ms-auto mt-4">
-                        <p>R$ 500 diária</p>
+                        <p id="txtHotelPrice">R$ 500 diária</p>
                       </div>
                     </div>
                     
@@ -79,7 +79,7 @@
                           <div class="input-group-form">
                             <span><img src="/imgs/icon/location.svg" alt="location icon"/></span>
                             <div class="col-auto">
-                              <label id="checkin">Check-in</label>
+                              <label id="txtCheckin">Check-in</label>
                             </div>
                             <div class="col-auto">
                               <input type="time" id="checkIn" class="time-input form-control" placeholder="14:00" />
@@ -89,7 +89,7 @@
                           <div class="input-group-form">
                             <span><img src="/imgs/icon/location.svg" alt="location icon" /></span>
                             <div class="col-auto">
-                              <label id="checkout">Check-out</label>
+                              <label id="txtCheckout">Check-out</label>
                             </div>
                             <div class="col-auto">
                               <input type="time" id="checkOut" class="time-input form-control" placeholder="14:00" />
@@ -110,30 +110,30 @@
                           <div class="input-group-form">
                             <span><img src="/imgs/icon/location.svg" alt="location icon" /></span>
                             <div>
-                              <label id="guests">Quartos&Hóspedes</label>                 
+                              <label id="txtRooms">Quartos&Hóspedes</label>                 
                               <input type="text" id="guestRoom" class="text-input form-control" placeholder="1 quarto, 2 adultos"/>
                             </div>
                           </div>
                         </div>
                         <hr>
-                        <button type="submit" class="btn btn-reserve">Reservar</button>
+                        <button type="submit" class="btn btn-reserve" id="txtReserveBtn">Reservar</button>
                       </form>
                     </div>
                     
                     <div class="pricing mt-3">
                       <div class="price-hotel-night d-flex align-items-center">
-                        <div class=""><p id="price-night">R$ 500 x 3 noites</p></div>
+                        <div class=""><p id="txtPriceNight">R$ 500 x 3 noites</p></div>
                         <div class="ms-auto">
-                          <span id="price-night-noTax">R$ 1500</span>
+                          <span id="txtPricenoTax">R$ 1500</span>
                         </div>
                       </div>
                       <hr>
                       <div class="price-hotel-all d-flex align-items-center">
                         <div>
-                          <p id="price-tax"><strong>Valor total sem impostos</strong></p>
+                          <p id="txtPriceTax"><strong>Valor total sem impostos</strong></p>
                         </div>
                         <div class="ms-auto">
-                          <span class="float-right" id="price-include">R$ 1500</span>
+                          <span class="float-right" id="txtPriceIncludeTax">R$ 1500</span>
                         </div>
                       </div>
                     </div>
