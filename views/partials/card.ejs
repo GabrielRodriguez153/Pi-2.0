@@ -1,0 +1,67 @@
+<% const hotels =  [
+{
+  "image": "/imgs/image-background.svg",
+  "name": "Santorini Paradise Hotel",
+  "location": "Santorini, Aegean Sea, Greece",
+  "rating": 5.0,
+  "reviews": "1 mil",
+  "price": 501,
+  "dateRange": "09/04/24 — 10/04/24",
+  "roomInfo": "1 quarto, 2 hóspedes"
+},
+{
+  "image": "/imgs/image-background.svg",
+  "name": "Another Hotel",
+  "location": "Location, Country",
+  "rating": 4.5,
+  "reviews": "500",
+  "price": 450,
+  "dateRange": "01/05/24 — 05/05/24",
+  "roomInfo": "2 quartos, 4 hóspedes"
+}
+] %>
+
+<div class="container mt-5">
+  <div class="row d-flex flex-column">
+    <% hotels.forEach(hotel => { %>
+    <div class="col-md-4 mb-4">
+      <div class="card mb-3">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src="<%= hotel.image %>"
+              class="img-fluid rounded-start"
+              alt="Hotel Image"
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body p-0">
+              <h5 class="card-title"><%= hotel.name %></h5>
+              <p class="card-text"><%= hotel.location %></p>
+              <p class="card-text">
+                <small class="text-muted">
+                  <i class="bi bi-star-fill"></i> <%= hotel.rating %> (<%=
+                  hotel.reviews %>)
+                </small>
+              </p>
+              <p class="card-text">
+                <strong>R$ <%= hotel.price %> diária</strong>
+              </p>
+              <p class="card-text">
+                <small class="text-muted">
+                  <i class="bi bi-calendar-event"></i> <%= hotel.dateRange %>
+                </small>
+              </p>
+              <p class="card-text">
+                <small class="text-muted">
+                  <i class="bi bi-person"></i> <%= hotel.roomInfo %>
+                </small>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+</div>

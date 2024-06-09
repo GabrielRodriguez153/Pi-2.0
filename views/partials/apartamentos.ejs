@@ -202,7 +202,7 @@
           const ratingClass = 'rating-' + Math.floor(hotel.rating);
           const priceClass = hotel.price <= 3000 ? 'price-low' : (hotel.price <= 6000 ? 'price-mid' : 'price-high');
       %>
-      <div class="hotel-card m-2 <%= locationClass %> <%= ratingClass %> <%= priceClass %>">
+      <div class="hotel-card m-2 grid-item<%= locationClass %> <%= ratingClass %> <%= priceClass %>">
         <a href="/apartamentoId"> 
           <img src="<%= hotel.image %>" alt="<%= hotel.name %>" />
           <div class="row hotel-info">

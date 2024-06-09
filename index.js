@@ -28,6 +28,7 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 
 app.use((req, res, next) => {
+  res.locals.url = req.url
   res.locals.session = req.session;
   next();
 });
@@ -39,6 +40,9 @@ app.get("/", function (req, res) {
 app.get("/apartamentoId", (req, res) => {
     res.render('apartamentoId');
 });
+app.get("/recentes", function (req, res) {
+  res.render("recentes")
+})
 
 const port = 8000;
 app.listen(port, function (erro) {

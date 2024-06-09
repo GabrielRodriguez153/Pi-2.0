@@ -17,6 +17,7 @@ html {
 
 body {
   font-family: var(--estilo-fonte);
+  min-height: 100vh;
 }
 
 p {

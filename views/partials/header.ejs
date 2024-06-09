@@ -1,58 +1,60 @@
 <header>
   <nav class="navbar navbar-expand-lg py-4">
-    <div class="container">
-        <img src="/imgs/image-logo-white.svg" alt="Logo" width="10%">
+    <div class="container<%= (url != "/") ? '-fluid mx-5' : '' %>">
+      <a href="/">
+      <% if (url === "/") { %>
+        <img src="/imgs/image-logo-white.svg" width="80%" alt="Logo">
+      <% } else { %>
+        <img src="/imgs/image-logo.svg" width="80%" alt="Logo">
+      <% } %>
+    </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+      <div class="collapse navbar-collapse text-center d-flex justify-content-center" id="navbarNav">
+        <ul class="navbar-nav ml-auto d-flex align-items-center nav-links">
+          <li class="nav-item d-flex align-items-center">
+            <span><img src="/imgs/icon/<%= (url != "/") ? 'favorites-black' : 'favorites' %>.svg" alt="Favoritos" class="nav-icon"></span>
+            <a class="nav-link 
+            <%= (url === "/") ? 'text-white' : '' %>
+            <%= (url === "/favoritos") ? 'active' : '' %> " href="/favoritos">Favoritos</a>
+          </li>
+          <li class="nav-item d-flex align-items-center">
+            <span><img src="/imgs/icon/<%= (url != "/") ? (url === "/recentes") ? 'recently-active' : 'recently-black' : 'recently'  %>.svg" alt="Vistos Recentemente" class="nav-icon"></span>
+            <a class="nav-link 
+            <%= (url === "/") ? 'text-white' : '' %>
+            <%= (url === "/recentes") ? 'active' : '' %> " href="/recentes">Vistos Recentemente</a>
+          </li>
+          <li class="nav-item d-flex align-items-center">
+            <span><img src="/imgs/icon/<%= (url != "/") ? (url === "/mapa") ? 'map-active' : 'map-black' : 'map'  %>.svg" alt="Mapa" class="nav-icon"></span>
+            <a class="nav-link 
+            <%= (url === "/") ? 'text-white' : '' %>
+            <%= (url === "/map") ? 'active' : '' %> " href="/mapa">Mapa</a>
+          </li>
+        </ul>
+      </div>
+
+      <% if (session.loggedIn) { %>
+        <img src="" alt="Imagem de Sessão">
+        <form action="/logout" method="get">
+          <button type="submit">Logout</button>
+        </form>
+      <% } else { %>
+        <button
+          type="button"
+          class="btn <%= (url === "/") ? 'btn-outline-light' : 'btn-outline-dark' %> me-2"
+          data-toggle="modal"
+          data-target="#loginModal"
+        >
+          Entrar
         </button>
+      <% } %>
 
-        <div class="collapse navbar-collapse text-center d-flex justify-content-center" id="navbarNav">
-            <ul class="navbar-nav ml-auto d-flex align-items-center nav-links">
-                <li class="nav-item d-flex align-items-center">
-                    <span><img src="/imgs/icon/favorites.svg" alt="Favoritos" class="nav-icon"></span>
-                    <a class="nav-link text-white" href="/favoritos">Favoritos</a>
-                </li>
-                <li class="nav-item d-flex align-items-center">
-                    <span><img src="/imgs/icon/recently.svg" alt="Vistos Recentemente" class="nav-icon"></span>
-                    <a class="nav-link text-white" href="/recentes">Vistos Recentemente</a>
-                </li>
-                <li class="nav-item d-flex align-items-center">
-                    <span><img src="/imgs/icon/map.svg" alt="Mapa" class="nav-icon"></span>
-                    <a class="nav-link text-white" href="/mapa">Mapa</a>
-                </li>
-            </ul>
-        </div>
-
-        <% if (session.loggedIn) { %>
-            <img src="path/to/your/image.jpg" alt="Imagem de Sessão Ativa">
-            <form action="/logout" method="get">
-              <button type="submit">Logout</button>
-            </form>
-          <% } else { %>
-            <button
-              type="button"
-              class="btn btn-outline-light me-2"
-              data-toggle="modal"
-              data-target="#loginModal"
-            >
-            Entrar
-            </button>
-          <% } %>
-        
-<!-- 
-          <button
-              type="button"
-              class="btn btn-secondary"
-              data-toggle="modal"
-              data-target="#signupModal"
-            >
-            Cadastro
-            </button> -->
-        <div class="language-currency d-flex align-items-center">
-            <span><img src="/imgs/icon/global.svg" alt="Global" class="nav-icon"></span>
-            <input type="text" id="language-currency" value="PT · R$" readonly class="form-control-plaintext text-white ml-2">
-        </div>
+      <div class="language-currency d-flex align-items-center">
+        <span><img src="/imgs/icon/<%= (url != "/") ? 'global-black' : 'global' %>.svg" alt="Global" class="nav-icon"></span>
+        <input type="text" id="language-currency" value="PT · R$" readonly class="form-control-plaintext <%= (url === "/") ? 'text-white' : 'text-dark' %> ml-2">
+      </div>
     </div>
-</nav>
+  </nav>
 </header>

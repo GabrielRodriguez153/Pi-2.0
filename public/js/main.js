@@ -1,10 +1,10 @@
-// Cards
 document.addEventListener("DOMContentLoaded", function () {
     var $grid = $(".grid").isotope({
         itemSelector: ".hotel-card",
         layoutMode: "masonry",
         masonry: {
             columnWidth: ".hotel-card",
+            isFitWidth: true,
         },
         getSortData: {
             price: '[data-price] parseInt',
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.querySelectorAll("#filters select").forEach(function (filter) {
         filter.addEventListener("click", function () {
-            console.log("KKKKKKKKKKKKKKKKKKKKk");
+
             var filterGroup = this.getAttribute("id").replace("-filter", "");
             filters[filterGroup] = this.value;
             var filterValue = concatValues(filters);
@@ -67,7 +67,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 icon.classList.add("fa-chevron-up");
             }
 
-            $grid.isotope("layout");
+            
+                $grid.isotope('layout');
         });
     });
 });

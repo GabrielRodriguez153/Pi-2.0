@@ -1,0 +1,25 @@
+<%- include ("partials/head.ejs")%> <%- include ("partials/header.ejs")%>
+<div class="recent-stays">
+    <div class="row">
+        <div class="col-sm-3 actions mt-3 ms-5">
+            <h5><a href="#" class="back"><i class="fa-solid fa-chevron-left"></i> Back</a></h5>
+            <h5 class="mt-2"><a href="#" class="clear-history"><i class="fa-solid fa-clock-rotate-left"></i> Clear history</a></h5>
+        </div>
+        <div class="col">
+            <h1>Hospedagens Recentes</h1>
+            <%- include("partials/card.ejs") %>
+        </div>   
+    </div>
+    <div class="pagination">
+        <span class="page-number active">1</span>
+        <span class="page-number">2</span>
+        <span class="page-number">3</span>
+        <span class="page-number">4</span>
+        <span class="page-number">...</span>
+        <span class="page-number">7</span>
+        <span class="next-page">&gt;</span>
+    </div>
+</div>
+<%- include ("partials/footer.ejs")%>
+<%- include ("partials/foot.ejs")%>
+</div>
