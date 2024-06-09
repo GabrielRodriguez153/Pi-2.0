@@ -15,7 +15,7 @@
       <div class="collapse navbar-collapse text-center d-flex justify-content-center" id="navbarNav">
         <ul class="navbar-nav ml-auto d-flex align-items-center nav-links">
           <li class="nav-item d-flex align-items-center">
-            <span><img src="/imgs/icon/<%= (url != "/") ? 'favorites-black' : 'favorites' %>.svg" alt="Favoritos" class="nav-icon"></span>
+            <span><img src="/imgs/icon/<%= (url != "/") ? (url === "/favoritos") ? 'favorites-active' : 'favorites-black' : 'favorites' %>.svg" alt="Favoritos" class="nav-icon"></span>
             <a class="nav-link 
             <%= (url === "/") ? 'text-white' : '' %>
             <%= (url === "/favoritos") ? 'active' : '' %> " href="/favoritos">Favoritos</a>

@@ -41,8 +41,13 @@ app.get("/", function (req, res) {
 app.get("/apartamentoId", (req, res) => {
     res.render('apartamentoId');
 });
+
 app.get("/recentes", function (req, res) {
   res.render("recentes")
+})
+
+app.get("/favoritos", function (req, res) {
+  res.render("favoritos")
 })
 
 const port = 8000;

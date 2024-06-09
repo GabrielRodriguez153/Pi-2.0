@@ -82,6 +82,10 @@ a.nav-link.active {
     justify-content: center;
     flex-wrap: wrap;
 } */
+ 
+#mainText {
+    color: var(--cor-secundaria)
+}
 
 .section-container {
     max-width: 75rem;
@@ -883,7 +887,7 @@ hr {
 
 .page-number, .next-page {
     display: inline-block;
-    padding: 5px 10px;
+    padding: 5px 12px;
     border: 1px solid #ddd;
     border-radius: 5px;
     cursor: pointer;
