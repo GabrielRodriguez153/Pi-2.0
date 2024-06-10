@@ -5,6 +5,12 @@ class UsuarioService{
         return await UsuarioRepository.findById(id)
     }
 
+    async save(email, senha, telefone){
+        return await UsuarioRepository.save(email, senha)
+    }
+    async findByEmail(email){
+        return await UsuarioRepository.findByEmail(email)
+    }
 
 }
 

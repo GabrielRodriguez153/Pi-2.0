@@ -1,11 +1,14 @@
+import { Usuario } from "../models/usuario.js"
 import { hotel, Hotel } from "./../models/hotel.js"
+import UsuarioRepository from "./UsuarioRepository.js"
+let historicoDeBusca = []
 
 class HotelRepository {
-    async findAll() {
-        return await Hotel.find()
+    async findAll(page) {
+        return await Hotel.find().skip(page*10).limit(12)
     }
     async create(nome, endereco, desc, tipo) {
-        console.log("Criando Hotel")
+
         const newHotel = new Hotel({
             "nome": nome,
             "endereco": endereco,
@@ -27,81 +30,81 @@ class HotelRepository {
     async delete(id) {
         return await Hotel.findByIdAndDelete(id)
     }
-    async findByQuartoPreco(preco, preco2) {
-        try {
-            const hotels = await Hotel.aggregate([
-                { $unwind: "$quarto" },
-                {
-                    $match: {
-                        "quarto.valor": {
-                            $gte: preco,
-                            $lte: preco2
-                        }
-                    }
-                },
-                {
-                    $group: {
-                        _id: "$_id",
-                        tipo: { $first: "$tipo" },
-                        nome: { $first: "$nome" },
-                        endereco: { $first: "$endereco" },
-                        desc: { $first: "$desc" },
-                        avaliacao: { $first: "$avaliacao" },
-                        num_avaliacao: { $first: "$num_avaliacao" },
-                        image: { $first: "$image" },
-                        quarto: { $push: "$quarto" } 
-                    }
-                }
-            ]);
-            return hotels;
-        } catch (err) {
-            console.error('Erro:', err)
-            throw err;
-        }
+    async findByPessoaId(idPessoa){
+        const pessoa = await UsuarioRepository.findById(idPessoa)
+        if(!pessoa) return
+        return pessoa.favorito
     }
-    async findByAvaliacao(nEstrelas, comodidadesTrue){
+    async saveFav(idHotel, idPessoa){
+        const pessoa = await UsuarioRepository.findById(idPessoa)
+        if(!pessoa) return
+
+        const hotel = await Hotel.findById(idHotel)
+        if(!hotel) return
+        
+        pessoa.favorito.push(hotel)
+
+        await pessoa.save()
+        
+        return pessoa
+    }
+    async removeFav(idHotel, idPessoa){
+        console.log("REMOVENDO FAVORITOS")
+        const pessoa = await UsuarioRepository.findById(idPessoa)
+        if(!pessoa) return
+        const hotelFav = pessoa.favorito.id(idHotel)
+        if(!hotelFav) return 
+        await hotelFav.deleteOne()
+        const pessoaAtualizada =await pessoa.save()
+        return pessoaAtualizada
+    }
+    async findById(idHotel){
+        if (!historicoDeBusca.includes(idHotel)) {
+            historicoDeBusca.push(idHotel)
+        }
+        
+        const hotel = await Hotel.findById(idHotel)
+        return hotel
+    }
+    async findRecents(){
         try {
-            const pesquisa = {
-                'avaliacao.avaliacaoGeral': { $gte: nEstrelas },
-                $and: comodidadesTrue
+            const hotels = [];
+    
+    
+            if (historicoDeBusca.length === 0) {
+                return hotels; 
             }
     
-            const hotelAvaliado = await Hotel.aggregate([
-                { $unwind: "$quarto" },
-                { $match: pesquisa }
-            ])
-
-            return hotelAvaliado
-        } catch (error) {
-            throw new Error(`Erro: ${error}`)
-        }
-    }
-    async findByTipo(tipo){
-        return await Hotel.find({tipo: tipo})
-    }
-    async findByLocalidade(localidade){
-        return await Hotel.find({localidade: localidade})
-    }
-    async findByCidade(cidade){
-        return await Hotel.find({cidade: "Registro"})
-    }
-    async findHotelVago(entrada, saida) {
-        try {
-            const hotelVago = await Hotel.aggregate([
-                { $unwind: "$quarto" },
-                {
-                    $match: {
-                        $and: [
-                            { "quarto.alugado.data_checkin": { $lte: saida } },
-                            { "quarto.alugado.data_checkout": { $lte: entrada } },
-                        ]
-                    }
+            const hoteis = historicoDeBusca.map(id => Hotel.findById(id))
+            const hotelsProntos = await Promise.all(hoteis)
+    
+            hotelsProntos.forEach(hotel => {
+                if (hotel) {
+                    hotels.push(hotel)
                 }
-            ])
-            return hotelVago;
+            })
+    
+            return hotels;
         } catch (error) {
-            throw new Error(`Error finding vacant hotels: ${error}`);
+            console.error("Erro:", error)
         }
+    }
+    async findNear(coordenadas){
+        const response = await Hotel.aggregate([
+            {$geoNear:{
+                near:{
+                    type: "Point",
+                    coordinates: [coordenadas.longitude, coordenadas.latitude]
+                },
+                distanceField: "distance",
+                spherical: true,
+                maxDistance: 100000000000000000,
+            }}
+        ])
+        return response
+    }
+    clearRecents(){
+        historicoDeBusca = []
     }
 }
 

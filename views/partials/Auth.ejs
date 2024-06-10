@@ -25,13 +25,14 @@
           <p class="modal-subtitle">Por favor, entre com seu e-mail e senha.</p>
         </div>
         <div class="modal-body">
-          <form id="loginForm">
+          <form action="/login" method = "POST">
             <div class="form-group">
               <label for="loginEmail">Email</label>
               <input
                 type="email"
                 class="form-control"
-                id="loginEmail"
+                id="email"
+                name="email"
                 placeholder="Digite seu email"
               />
             </div>
@@ -44,15 +45,15 @@
                 Continuar
               </button>
             </div>
-          </form>
-          <form id="Auth__password--Login" class="hidden">
+        <div id="Auth__password--Login" class="hidden">
             <div class="form-group">
               <label for="loginPassword">Senha</label>
               <input
                 type="password"
                 class="form-control"
-                id="loginPassword"
+                id="senha"
                 placeholder="Digite sua senha"
+                name="senha"
               />
             </div>
             <div class="mx-auto d-grid col-x">
@@ -62,9 +63,11 @@
                 id="loginButton"
               >
                 Entrar
-              </button>
+              </button>              
             </div>
-          </form>
+          </div>
+        </form>
+
           <div class="separator">
             <span><button
               type="button"
@@ -122,7 +125,8 @@
           </p>
         </div>
         <div class="modal-body">
-          <form id="emailForm">
+          <form  action="cadastro/usuario" method="POST">
+          <div id="emailForm">
             <div class="form-group">
               <label for="signupEmail">Email</label>
               <input
@@ -130,6 +134,7 @@
                 class="form-control"
                 id="signupEmail"
                 placeholder="Digite seu email"
+                name="email"
               />
             </div>
             <div class="mx-auto d-grid col-x">
@@ -141,8 +146,9 @@
                 Continuar
               </button>
             </div>
-          </form>
-          <form id="passwordForm" class="hidden">
+            </div>
+
+          <div id="passwordForm" class="hidden">
             <div class="form-group">
               <label for="signupPassword">Senha</label>
               <input
@@ -150,6 +156,7 @@
                 class="form-control"
                 id="signupPassword"
                 placeholder="Digite sua senha"
+                name="senha"
               />
             </div>
             <div class="mx-auto d-grid col-x">
@@ -157,7 +164,9 @@
                 Cadastro
               </button>
             </div>
-          </form>
+          </div>
+        </form>
+
           <div class="separator">
             <span><button
               type="button"

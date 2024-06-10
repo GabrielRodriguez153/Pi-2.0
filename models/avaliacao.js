@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from 'mongoose'
 
 const avaliacao = new mongoose.Schema({
     avaliacaoGeral: Number,
@@ -6,8 +6,8 @@ const avaliacao = new mongoose.Schema({
     avaliacaoLocalizacao: Number,
     avaliacaoCustoBeneficio: Number,
     avaliacaoComunicacao: Number
-});
+})
 
-const Avaliacao = mongoose.model('Avaliacao', avaliacao);
+const Avaliacao = mongoose.model('Avaliacao', avaliacao)
 
-export { avaliacao, Avaliacao };
+export { avaliacao, Avaliacao }

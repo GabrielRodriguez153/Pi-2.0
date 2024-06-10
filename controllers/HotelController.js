@@ -1,36 +1,42 @@
 import HotelService from "./../services/HotelService.js"
 
 class HotelController{
-    async findAll(){
-        return await HotelService.findAll()
+    
+    async findAll(page){
+        return await HotelService.findAll(page)
     }
-    async create(){
-        return await HotelService.create(nome, endereco, desc, tipo)
+    // async create(nome, endereco, desc, tipo){
+    //     return await HotelService.create(nome, endereco, desc, tipo)
+    // }
+
+    // async update(id){
+    //     return await HotelService.update(id, nome, endereco, desc, tipo)
+    // }
+    // async delete(id){
+    //     return await HotelService.delete(id)
+    // }
+    async findById(hotelId){
+        return await HotelService.findById(hotelId)
     }
 
-    async update(){
-        return await HotelService.update(id, nome, endereco, desc, tipo)
+    async saveFav(idHotel, idPessoa){
+        return await HotelService.saveFav(idHotel, idPessoa)
     }
-    async delete(){
-        return await HotelService.delete(id)
+    async removeFav(idHotel, idPessoa){
+        return await HotelService.removeFav(idHotel, idPessoa)
     }
-    async findByQuartoPreco(preco, preco2){
-        return await HotelService.findByQuartoPreco(preco, preco2)
+    async findByPessoaId(idPessoa){
+        return await HotelService.findByPessoaId(idPessoa)
     }
-    async findByAvaliacao(nEstrelas, comodidades){
-        return await HotelService.findByAvaliacao(nEstrelas, comodidades)
+    async findRecents(){
+        return await HotelService.findRecents()
     }
-    async findByTipo(tipo){
-        return await HotelService.findByTipo(tipo)
+    async findNear(coordenadas){
+        return await HotelService.findNear(coordenadas)
     }
-    async findByLocalidade(localidade){
-        return await HotelService.findByLocalidade(localidade)
+    clearRecents(){
+        return HotelService.clearRecents()
     }
-    async findByCidade(cidade){
-        return await HotelService.findByCidade(cidade)
-    }
-    async findHotelVago(entrada, saida){
-        return await HotelService.findHotelVago(entrada, saida)
-    }
+
 }
 export default new HotelController()

@@ -1,60 +1,55 @@
-<% const hotels =  [
-{
-  "image": "/imgs/image-background.svg",
-  "name": "Santorini Paradise Hotel",
-  "location": "Santorini, Aegean Sea, Greece",
-  "rating": 5.0,
-  "reviews": "1 mil",
-  "price": 501,
-  "dateRange": "09/04/24 — 10/04/24",
-  "roomInfo": "1 quarto, 2 hóspedes"
-},
-{
-  "image": "/imgs/image-background.svg",
-  "name": "Another Hotel",
-  "location": "Location, Country",
-  "rating": 4.5,
-  "reviews": "500",
-  "price": 450,
-  "dateRange": "01/05/24 — 05/05/24",
-  "roomInfo": "2 quartos, 4 hóspedes"
-}
-] %>
+<% 
+  function formatISODateToDDMMYYYY(isoDate) {
+    const date = new Date(isoDate);
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+  }
+%>
 
 <div class="container mt-5 m-0 p-0">
   <div class="d-flex flex-column">
-    <% hotels.forEach(hotel => { %>
-    <div class="col-md-4 mb-4">
-      <div class="card border-0 mb-3">
-        <div class="row g-0">
-          <div class="col-md-4 rounded-start image-card" style="background-image: url('<%= hotel.image %>');">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title"><%= hotel.name %></h5>
-              <p class="card-text"><%= hotel.location %></p>
-              <p class="card-text">
-                <small class="text-muted">
-                  ⭐ <%= hotel.rating %> (<%=
-                  hotel.reviews %>)
-                </small>
-              </p>
-              <p class="card-text">
-                <strong>R$ <%= hotel.price %> diária</strong>
-              </p>
-              <p class="card-text mb-2">
-                <small class="text-muted">
-                  <img src="/imgs/icon/calendar.svg" class="me-1" alt="Calendario"> <%= hotel.dateRange %>
-                </small>
-              </p>
-              <p class="card-text">
-                <img src="/imgs/icon/bed.svg" class="me-1" alt="Cama"> <%= hotel.roomInfo %>
-              </p>
+    <% if (!hotels || hotels.length === 0) { %>
+      <p><%= message %></p>
+    <% } else { %>
+      <% hotels.forEach(hotel => { %>
+        <div class="col-md-4 mb-4">
+          <div class="card border-0 mb-3">
+            <div class="row g-0">
+              <div class="col-md-4 rounded-start image-card" style="background-image: url('../../imgs/hotels/<%= hotel.image %>');">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title"><%= hotel.nome %></h5>
+                  <p class="card-text"><%= hotel.endereco %></p>
+                  <p class="card-text">
+                    <small class="text-muted">
+                      ⭐ <%= hotel.avaliacao.avaliacaoGeral %> (<%= hotel.num_avaliacao %> avaliações)
+                    </small>
+                  </p>
+                  <p class="card-text">
+                    <strong>R$ <%= hotel.quarto[0].valor %> diária</strong>
+                  </p>
+
+                  <p class="card-text mb-2">
+                    <small class="text-muted">
+                      <img src="/imgs/icon/calendar.svg" class="me-1" alt="Calendario"> <%= formatISODateToDDMMYYYY(hotel.quarto[0].alugado.data_checkin) %> - <%= formatISODateToDDMMYYYY(hotel.quarto[0].alugado.data_checkout) %>
+                    </small>
+                  </p>
+
+                  <p class="card-text">
+                    <small class="text-muted">
+                      <img src="/imgs/icon/bed.svg" class="me-1" alt="Cama"> 1 quarto, <%= hotel.quarto[0].hospedes %> hospedes
+                    </small>
+                  </p>
+
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    <% }) %>
+      <% }) %>
+    <% } %>
   </div>
 </div>
