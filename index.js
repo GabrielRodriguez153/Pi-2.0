@@ -45,5 +45,6 @@ app.listen(port, function (erro) {
     console.log("Ocorreu um erro!");
   } else {
     console.log(`Servidor iniciado com sucesso na porta ${port}!`);
+    adicionarDados()
   }
 });
