@@ -16,19 +16,19 @@
         <ul class="navbar-nav ml-auto d-flex align-items-center nav-links">
           <li class="nav-item d-flex align-items-center">
             <span><img src="/imgs/icon/<%= (url != "/") ? (url === "/favoritos") ? 'favorites-active' : 'favorites-black' : 'favorites' %>.svg" alt="Favoritos" class="nav-icon"></span>
-            <a class="nav-link 
+            <a id="txtFavorites" class="nav-link 
             <%= (url === "/") ? 'text-white' : '' %>
             <%= (url === "/favoritos") ? 'active' : '' %> " href="/favoritos">Favoritos</a>
           </li>
           <li class="nav-item d-flex align-items-center">
             <span><img src="/imgs/icon/<%= (url != "/") ? (url === "/recentes") ? 'recently-active' : 'recently-black' : 'recently'  %>.svg" alt="Vistos Recentemente" class="nav-icon"></span>
-            <a class="nav-link 
+            <a id="txtRecently" class="nav-link 
             <%= (url === "/") ? 'text-white' : '' %>
             <%= (url === "/recentes") ? 'active' : '' %> " href="/recentes">Vistos Recentemente</a>
           </li>
           <li class="nav-item d-flex align-items-center">
             <span><img src="/imgs/icon/<%= (url != "/") ? (url === "/mapa") ? 'map-active' : 'map-black' : 'map'  %>.svg" alt="Mapa" class="nav-icon"></span>
-            <a class="nav-link 
+            <a id="txtMap" class="nav-link 
             <%= (url === "/") ? 'text-white' : '' %>
             <%= (url === "/mapa") ? 'active' : '' %> " href="/mapa">Mapa</a>
           </li>
@@ -42,6 +42,7 @@
         </form>
       <% } else { %>
         <button
+          id="btnLogin"
           type="button"
           class="btn <%= (url === "/") ? 'btn-outline-light' : 'btn-outline-dark' %> me-2"
           data-toggle="modal"

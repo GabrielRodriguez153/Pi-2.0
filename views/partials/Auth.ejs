@@ -18,16 +18,16 @@
         </div>
 
         <div class="modal-header flex-column pb-1">
-          <p class="modal-subtitle">Bem-vindo de volta ao Sight Inn</p>
+          <p class="modal-subtitle" id="txtWelcome">Bem-vindo de volta ao Sight Inn</p>
           <h2 class="modal-title text-start" id="loginModalLabel">
             Estamos felizes em vê-lo por aqui novamente!
           </h2>
-          <p class="modal-subtitle">Por favor, entre com seu e-mail e senha.</p>
+          <p class="modal-subtitle" id="txtSign">Por favor, entre com seu e-mail e senha.</p>
         </div>
         <div class="modal-body">
           <form id="loginForm">
             <div class="form-group">
-              <label for="loginEmail">Email</label>
+              <label for="loginEmail" id="txtEmail">Email</label>
               <input
                 type="email"
                 class="form-control"
@@ -47,7 +47,7 @@
           </form>
           <form id="Auth__password--Login" class="hidden">
             <div class="form-group">
-              <label for="loginPassword">Senha</label>
+              <label for="loginPassword" id="txtPass">Senha</label>
               <input
                 type="password"
                 class="form-control"
@@ -67,6 +67,7 @@
           </form>
           <div class="separator">
             <span><button
+              id="txtSignUp"
               type="button"
               class="btn btn-link"
               data-toggle="modal"
@@ -77,14 +78,14 @@
           </div>
           <div class="d-flex">
             <button class="btn btn-social btn-outline-black">
-              <span><i class="fa-brands fa-google"></i> Google</span>
+              <span id="txtGoogle"><i class="fa-brands fa-google"></i> Google</span>
             </button>
             <button class="btn btn-social btn-outline-black">
               <span><i class="fa-brands fa-facebook"></i></span>
-              <span class="ps-1">Facebook</span>
+              <span class="ps-1" id="txtFace">Facebook</span>
             </button>
             <button class="btn btn-social btn-outline-black">
-              <span><i class="fa-brands fa-apple"></i> Apple</span>
+              <span id="txtApple"><i class="fa-brands fa-apple"></i> Apple</span>
             </button>
           </div>
         </div>
@@ -113,11 +114,11 @@
         </div>
 
         <div class="modal-header flex-column">
-          <p class="modal-subtitle">Seja bem-vindo ao Sight Inn</p>
+          <p class="modal-subtitle" id="txtWelcome">Seja bem-vindo ao Sight Inn</p>
           <h2 class="modal-title text-start" id="signupModalLabel">
             Estamos felizes em vê-lo por aqui!
           </h2>
-          <p class="modal-subtitle">
+          <p class="modal-subtitle" id="txtSign">
             Para fazer o login use o seu e-mail ou entre por outras plataformas.
           </p>
         </div>
@@ -177,7 +178,7 @@
               <span class="ps-1">Facebook</span>
             </button>
             <button class="btn btn-social btn-outline-black">
-              <span><i class="fa-brands fa-apple"></i> Apple</span>
+              <span id="txtSign"><i class="fa-brands fa-apple"></i> Apple</span>
             </button>
           </div>
         </div>
