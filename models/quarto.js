@@ -5,10 +5,11 @@ import {alugado, Alugado} from './alugado.js'
 const quarto= new mongoose.Schema({
     tamanho_cama: String,
     hospedes: Number,
-    comodidades: comodidades,
+    comodidades: [String],
     tipo: String,
     alugado: alugado,
     valor: Number,
+    image: [String]
 });
 
 const Quarto = mongoose.model('Quarto', quarto);

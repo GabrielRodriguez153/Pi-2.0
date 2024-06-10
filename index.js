@@ -2,6 +2,9 @@ import express from "express";
 import mongoose from "mongoose";
 import session from "express-session";
 import PageController from "./controllers/PageController.js";
+import fs from 'fs'
+import { Hotel } from './models/hotel.js'
+import {Usuario} from "./models/usuario.js"
 const app = express();
 
 app.use(
@@ -14,14 +17,8 @@ app.use(
 );
 
 app.use(express.urlencoded({ extended: false }));
+
 app.use(express.json());
-
-const mongoURI = "mongodb://localhost:27017/sightinn";
-
-mongoose
-  .connect(mongoURI)
-  .then(() => console.log("MongoDB conectado com sucesso!"))
-  .catch((err) => console.error("Erro de conexão MongoDB:", err));
 
 app.set("view engine", "ejs");
 
@@ -39,33 +36,56 @@ app.use((req, res, next) => {
   next();
 });
 
+const mongoURI = "mongodb://localhost:27017/sightinn";
+
+mongoose
+  .connect(mongoURI)
+  .then(() => console.log("MongoDB conectado com sucesso!"))
+  .catch((err) => console.error("Erro de conexão MongoDB:", err));
 
 
-app.get("/", function (req, res) {
-  res.render("index");
-});
+app.use("/", PageController)
 
-app.get("/apartamentoId", (req, res) => {
-  res.render("apartamentoId");
-});
 
-app.get("/recentes", function (req, res) {
-  res.render("recentes");
-});
-
-app.get("/favoritos", function (req, res) {
-  res.render("favoritos");
-});
-
-app.get("/mapa", function (req, res) {
-  res.render("mapa");
-});
 
 const port = 8000;
+const adicionarDados = async () =>{
+
+    let countHotel = await Hotel.countDocuments()
+    let countUsuario = await Usuario.countDocuments()
+    if (countHotel === 0) {
+      
+        const hoteis = fs.readFileSync('public/json/sightinn.hotels.json')
+
+        const hotelsData = JSON.parse(hoteis)
+        await Hotel.insertMany(hotelsData)
+        countHotel = await Hotel.countDocuments()
+        if (countHotel > 0) {
+          console.log('Hóteis inseridos com sucesso')
+        } else {
+            console.error('Não foi possível adicionar os hotéis:', err)
+        }
+    } 
+    if(countUsuario === 0){
+      const usuario = fs.readFileSync('public/json/sightinn.usuario.json')
+      const usuarioData = JSON.parse(usuario)
+      await Usuario.create(usuarioData)
+      countUsuario = await Usuario.countDocuments()
+
+      if (countUsuario > 0) {
+        console.log('Usuário inserido com sucesso')
+      } else {
+          console.error('Não foi possível adicionar o usuário:', err)
+      }
+    }
+}
+
 app.listen(port, function (erro) {
   if (erro) {
     console.log("Ocorreu um erro!");
   } else {
     console.log(`Servidor iniciado com sucesso na porta ${port}!`);
+    adicionarDados()
   }
 });
+

@@ -1,9 +1,15 @@
 import UsuarioService from "./../services/UsuarioService.js"
 
 class UsuarioController{
-    async findById(id){
+    async save(email,senha,telefone){
+        return await UsuarioService.save(email,senha)
+    }
+    async findById(id){{
         return await UsuarioService.findById(id)
-        
+    }}
+    
+    async findOne(email){
+        return await UsuarioService.findByEmail(email)
     }
 }
 export default new UsuarioController()

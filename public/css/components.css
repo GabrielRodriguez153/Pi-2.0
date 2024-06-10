@@ -249,8 +249,18 @@ hr {
     height: 250px;
     object-fit: cover;
     border-radius: 15px;
+    
 }
-
+.hotel-card a{
+    text-decoration: none;
+}
+.like-button {
+    position: absolute;
+    top: 22.87px;
+    right: 30px;
+    z-index: 1;
+  }
+  
 .hotel-info {
     padding: 15px;
 }
@@ -568,6 +578,7 @@ hr {
     outline: none;
     background: transparent;
     padding: 0 0.625rem;
+    width: 100%;
 }
 
 .input-group-filter span img {

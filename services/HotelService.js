@@ -3,43 +3,39 @@ import HotelRepository from "./../repository/HotelRepository.js"
 
 class HotelService{
 
-    async findAll(){
-        return await HotelRepository.findAll()
+    async findAll(page){
+        return await HotelRepository.findAll(page)
     }
-    async create(nome, endereco, desc){
-        return await HotelRepository.create(nome, endereco, desc, tipo)
-    }
-    async update(id, nome, endereco, desc){
-        return await HotelRepository.update(id, nome, endereco, desc, tipo)
+    // async create(nome, endereco, desc){
+    //     return await HotelRepository.create(nome, endereco, desc, tipo)
+    // }
+    // async update(id, nome, endereco, desc){
+    //     return await HotelRepository.update(id, nome, endereco, desc, tipo)
 
+    // }
+    // async delete(id){
+    //     return await HotelRepository.delete(id);
+    // }
+    async findById(idHotel){
+        return await HotelRepository.findById(idHotel)
     }
-    async delete(id){
-        return await HotelRepository.delete(id);
+    async findByPessoaId(idPessoa){
+        return await HotelRepository.findByPessoaId(idPessoa)
     }
-    async findByQuartoPreco(preco, preco2){
-        return await HotelRepository.findByQuartoPreco(preco, preco2)
+    async saveFav(idHotel, idPessoa){
+        return await HotelRepository.saveFav(idHotel, idPessoa)
     }
-    async findByAvaliacao(nEstrelas, comodidades){
-        const filterTrueValues = (obj) => {
-            return Object.keys(obj)
-                .filter(key => obj[key] === true)
-                .map(key => ({ [`quarto.comodidades.${key}`]: true }))
-        }
-        
-        return await HotelRepository.findByAvaliacao(nEstrelas, filterTrueValues(comodidades))
+    async removeFav(idHotel, idPessoa){
+        return await HotelRepository.removeFav(idHotel, idPessoa)
     }
-    async findByTipo(tipo){
-        return await HotelRepository.findByTipo(tipo)
+    async findRecents(){
+        return await HotelRepository.findRecents()
     }
-    async findByLocalidade(localidade){
-        return await HotelRepository.findByLocalidade(localidade)
+    async findNear(coordenadas){
+        return await HotelRepository.findNear(coordenadas)
     }
-    async findByCidade(cidade){
-        return await HotelRepository.findByCidade(cidade)
-    }
-    async findHotelVago(entrada, saida){
-        return await HotelRepository.findHotelVago(entrada, saida)
-    }
-
+    clearRecents(){
+        return HotelRepository.clearRecents()
+    }    
 }
 export default new HotelService()

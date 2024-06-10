@@ -15,31 +15,31 @@
       <div class="collapse navbar-collapse text-center d-flex justify-content-center" id="navbarNav">
         <ul class="navbar-nav ml-auto d-flex align-items-center nav-links">
           <li class="nav-item d-flex align-items-center">
-            <span><img src="/imgs/icon/<%= (url != "/") ? (url === "/favoritos") ? 'favorites-active' : 'favorites-black' : 'favorites' %>.svg" alt="Favoritos" class="nav-icon"></span>
+            <span><img src="/imgs/icon/<%= (url != "/") ? (url === "/hotel/usuario/favoritos") ? 'favorites-active' : 'favorites-black' : 'favorites' %>.svg" alt="Favoritos" class="nav-icon"></span>
             <a id="txtFavorites" class="nav-link 
             <%= (url === "/") ? 'text-white' : '' %>
-            <%= (url === "/favoritos") ? 'active' : '' %> " href="/favoritos">Favoritos</a>
+            <%= (url === "/favoritos") ? 'active' : '' %> " href="/hotel/usuario/favoritos">Favoritos</a>
           </li>
           <li class="nav-item d-flex align-items-center">
-            <span><img src="/imgs/icon/<%= (url != "/") ? (url === "/recentes") ? 'recently-active' : 'recently-black' : 'recently'  %>.svg" alt="Vistos Recentemente" class="nav-icon"></span>
+            <span><img src="/imgs/icon/<%= (url != "/") ? (url === "/hotel/recentes") ? 'recently-active' : 'recently-black' : 'recently'  %>.svg" alt="Vistos Recentemente" class="nav-icon"></span>
             <a id="txtRecently" class="nav-link 
             <%= (url === "/") ? 'text-white' : '' %>
-            <%= (url === "/recentes") ? 'active' : '' %> " href="/recentes">Vistos Recentemente</a>
+            <%= (url === "/recentes") ? 'active' : '' %> " href="/hotel/recentes">Vistos Recentemente</a>
           </li>
           <li class="nav-item d-flex align-items-center">
             <span><img src="/imgs/icon/<%= (url != "/") ? (url === "/mapa") ? 'map-active' : 'map-black' : 'map'  %>.svg" alt="Mapa" class="nav-icon"></span>
             <a id="txtMap" class="nav-link 
             <%= (url === "/") ? 'text-white' : '' %>
-            <%= (url === "/mapa") ? 'active' : '' %> " href="/mapa">Mapa</a>
+            <%= (url === "/mapa") ? 'active' : '' %> " href="/hotel/mapa">Mapa</a>
           </li>
         </ul>
       </div>
 
-      <% if (session.loggedIn) { %>
-        <img src="" alt="Imagem de Sessão">
-        <form action="/logout" method="get">
-          <button type="submit">Logout</button>
-        </form>
+      <% if (session.user) { %>
+          <a href="/login/logout" class="btn <%= (url === "/") ? 'btn-outline-light' : 'btn-outline-dark' %> me-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"/>
+            <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+          </svg> Sair</a>
       <% } else { %>
         <button
           id="btnLogin"
