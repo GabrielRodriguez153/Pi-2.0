@@ -1,6 +1,7 @@
 import HotelService from "./../services/HotelService.js"
 
 class HotelController{
+    
     async findAll(page){
         return await HotelService.findAll(page)
     }
@@ -32,6 +33,9 @@ class HotelController{
     }
     async findNear(coordenadas){
         return await HotelService.findNear(coordenadas)
+    }
+    clearRecents(){
+        return HotelService.clearRecents()
     }
 
 }

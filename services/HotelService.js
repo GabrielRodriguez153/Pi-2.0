@@ -34,5 +34,8 @@ class HotelService{
     async findNear(coordenadas){
         return await HotelRepository.findNear(coordenadas)
     }
+    clearRecents(){
+        return HotelRepository.clearRecents()
+    }    
 }
 export default new HotelService()

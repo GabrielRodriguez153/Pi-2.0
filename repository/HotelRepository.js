@@ -1,12 +1,12 @@
 import { Usuario } from "../models/usuario.js"
 import { hotel, Hotel } from "./../models/hotel.js"
 import UsuarioRepository from "./UsuarioRepository.js"
-const historicoDeBusca = []
+let historicoDeBusca = []
 
 class HotelRepository {
     async findAll(page) {
         console.log("ACHANDO PÁGINA: ", page)
-        return await Hotel.find().skip(page*10).limit(10)
+        return await Hotel.find().skip(page*10).limit(12)
     }
     async create(nome, endereco, desc, tipo) {
 
@@ -35,10 +35,8 @@ class HotelRepository {
         return await Hotel.findByIdAndDelete(id)
     }
     async findByPessoaId(idPessoa){
-        console.log("ACHANDO FAVORITOS")
         const pessoa = await UsuarioRepository.findById(idPessoa)
         if(!pessoa) return
-        console.log(pessoa)
         return pessoa.favorito
     }
     async saveFav(idHotel, idPessoa){
@@ -68,8 +66,10 @@ class HotelRepository {
         return pessoaAtualizada
     }
     async findById(idHotel){
+        if (!historicoDeBusca.includes(idHotel)) {
+            historicoDeBusca.push(idHotel)
+        }
         
-        historicoDeBusca.push(idHotel)
         const hotel = await Hotel.findById(idHotel)
         return hotel
     }
@@ -105,10 +105,13 @@ class HotelRepository {
                 },
                 distanceField: "distance",
                 spherical: true,
-                maxDistance: 10000000,
+                maxDistance: 100000000000000000,
             }}
         ])
         return response
+    }
+    clearRecents(){
+        historicoDeBusca = []
     }
 }
 

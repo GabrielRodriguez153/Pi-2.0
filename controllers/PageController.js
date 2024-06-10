@@ -49,7 +49,7 @@ router.get("/:page?", async (req, res) => {
         })
         
         res.render("index", { hotels: hotelModificado })
-    } catch (error) {
+    } catch (err) {
         res.status(500).render("errors", {"message": err })
     }
 })
@@ -61,21 +61,32 @@ router.get("/hotel/apartamento/:idHotel", async(req, res) =>{
     })
 })
 
-router.get("/hotel/usuario/recents", async (req, res) => {
+router.get("/hotel/recentes", async (req, res) => {
     try{
         const response = await HotelController.findRecents()
-        res.status(200).send(response)
+        res.status(200).render("recentes", {hotels: response, message: 
+            "Não há hotéis registrados nos recentes no histórico, visite um hotel para vê-lo nos recentes."
+        })
     }catch(err){
         res.status(500).render("errors", {"message": err })
     }
 })
 
-
-router.get("/hotel/points/map", async (req, res) => {
+router.get("/hotel/recentes/limpar", async(req, res)=>{
     try{
-        const { latitude, longitude } = req.query
+        HotelController.clearRecents()
+        res.redirect("/hotel/recentes")
+    }catch(err){
+        res.status(500).render("errors", {"message": err })
+    }
+})
+
+router.get("/hotel/mapa", async (req, res) => {
+    try{
+        let { latitude, longitude } = req.query
         if (!latitude || !longitude) {
-            res.status(400).send({ erro: 'Faltou a latitude ou longitude' })
+            latitude = 23.5558
+            longitude = 46.6396
         }
 
         const coordenadas = {
@@ -84,16 +95,26 @@ router.get("/hotel/points/map", async (req, res) => {
         }
 
         const hoteisProximos = await HotelController.findNear(coordenadas)
-        res.status(200).send(hoteisProximos)
+        res.status(200).render("mapa", {hotels: hoteisProximos})
     }catch(err){
         res.status(500).render("errors", {"message": err })
     }
 })
 
-router.get("/hotel/fav/:idPessoa", async (req, res) =>{
+router.get("/hotel/usuario/favoritos", async (req, res) =>{
     try{
-        const response =  await HotelController.findByPessoaId(req.params.idPessoa)
-        res.status(200).send(response)
+        const idUsuario = req.session.user ? parseInt(req.session.user.idUsuario) : null
+
+        if (!idUsuario){
+            return res.status(200).render("favoritos", {
+                hotels: "", message: 
+                "Não há hotéis registrado nos favoritos ou o usuário não está ativo."
+            })
+        } 
+        const response =  await HotelController.findByPessoaId(req.session.user.idUsuario)
+        res.status(200).render("favoritos", {
+            hotels: response
+        })
     }catch(err){
         res.status(500).render("errors", {"message": err })
     }
@@ -138,6 +159,7 @@ router.post("/hotel/fav/delete/:idHotel", async (req, res) =>{
     }
 })
 
+
 router.post("/cadastro/usuario", async(req,res) =>{
     try{
         const response = await UsuarioController.save(req.body.email, req.body.senha)
@@ -148,18 +170,17 @@ router.post("/cadastro/usuario", async(req,res) =>{
 })
 
 router.post('/login', async (req, res) => {
-    const { email, senha } = req.body;
-    if (!email || !senha) {
-        res.status(400).render("errors", { message: "Email e senha são obrigatórios!" })
-    }
-
     try {
+        const { email, senha } = req.body;
+        if (!email || !senha) {
+            return res.status(400).render("errors", { message: "Email e senha são obrigatórios!" })
+        }
         const usuario = await UsuarioController.findOne(email)
         if (!usuario) {
-            res.status(500).render("errors",{ message: "Usuário não encontrado!" })
+            return res.status(500).render("errors",{ message: "Usuário não encontrado!" })
         }
         if (senha != usuario.senha) {
-            res.status(401).render("errors", { message: "Senha inválida!" })
+            return res.status(401).render("errors", { message: "Senha inválida!" })
         }
 
         req.session.user = {
@@ -167,7 +188,7 @@ router.post('/login', async (req, res) => {
         } 
         res.status(200).redirect("/")
 
-    } catch (error) {
+    } catch (err) {
         res.status(500).render("errors", {"message": err })
     }
 })

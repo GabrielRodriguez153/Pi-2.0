@@ -1,0 +1,669 @@
+[{
+  "tipo": "Hotel",
+  "nome": "Hotel Luxo",
+  "cidade": "Rio de Janeiro",
+  "endereco": "Av. Atlântica, 1702",
+  "desc": "Um hotel luxuoso à beira-mar com todas as comodidades modernas.",
+  "localidade": "Copacabana",
+  "avaliacao": {
+    "avaliacaoGeral": 4.5,
+    "avaliacaoLimpeza": 4.7,
+    "avaliacaoLocalizacao": 4.8,
+    "avaliacaoCustoBeneficio": 4.2,
+    "avaliacaoComunicacao": 4.6
+  },
+  "num_avaliacao": 200,
+  "quarto": [
+    {
+      "tamanho_cama": "King",
+      "hospedes": 2,
+      "comodidades": [
+        "wifi",
+        "estacionamento",
+        "arcondicionado",
+        "secador",
+        "Tv_Smart",
+        "varanda"
+      ],
+      "tipo": "Deluxe",
+      "alugado": {
+        "data_checkin": "2024-06-01T00:00:00Z",
+        "data_checkout": "2024-06-07T00:00:00Z"
+      },
+      "valor": 300,
+      "image": [
+        "quarto_1.svg",
+        "quarto_2.svg",
+        "quarto_3.svg"
+      ]
+    }
+  ],
+  "image": "hotel_1.jfif",
+  "coordenadas": {
+    "type": "Point",
+    "coordinates": [
+      -43.180278,
+      -22.967778
+    ]
+  }
+},
+{
+
+  "tipo": "Hotel",
+  "nome": "Hotel 5 Sul",
+  "cidade": "Curitiba",
+  "endereco": "Av. José dos Campos, 202",
+  "desc": "Um hotel de 5 estrelas extremamente qualificado e reconhecido mundo a fora.",
+  "localidade": "Copacabana",
+  "avaliacao": {
+    "avaliacaoGeral": 4.5,
+    "avaliacaoLimpeza": 4.7,
+    "avaliacaoLocalizacao": 4.8,
+    "avaliacaoCustoBeneficio": 4.2,
+    "avaliacaoComunicacao": 4.6
+  },
+  "num_avaliacao": 200,
+  "quarto": [
+    {
+      "tamanho_cama": "King",
+      "hospedes": 2,
+      "comodidades": [
+        "wifi",
+        "estacionamento",
+        "arcondicionado",
+        "secador",
+        "Tv_Smart",
+        "varanda"
+      ],
+      "tipo": "Deluxe",
+      "alugado": {
+        "data_checkin": "2024-06-01T00:00:00Z",
+        "data_checkout": "2024-06-07T00:00:00Z"
+      },
+      "valor": 300,
+      "image": [
+        "quarto_12.svg",
+        "quarto_1.svg",
+        "quarto_9.svg"
+      ]
+    }
+  ],
+  "image": "hotel_13.jfif",
+  "coordenadas": {
+    "type": "Point",
+    "coordinates": [
+      -43.180278,
+      -22.967778
+    ]
+  }
+},
+{
+
+  "tipo": "Resort",
+  "nome": "Resort Tropical",
+  "cidade": "Fortaleza",
+  "endereco": "Rua Beira Mar, 3200",
+  "desc": "Um resort tropical com vista para o mar, ideal para férias em família.",
+  "localidade": "Meireles",
+  "avaliacao": {
+    "avaliacaoGeral": 4.8,
+    "avaliacaoLimpeza": 4.9,
+    "avaliacaoLocalizacao": 4.9,
+    "avaliacaoCustoBeneficio": 4.5,
+    "avaliacaoComunicacao": 4.7
+  },
+  "num_avaliacao": 150,
+  "quarto": [
+    {
+      "tamanho_cama": "Queen",
+      "hospedes": 3,
+      "comodidades": [
+        "wifi",
+        "estacionamento",
+        "arcondicionado",
+        "secador",
+        "Tv_Smart"
+      ],
+      "tipo": "Suite",
+      "alugado": {
+        "data_checkin": "2024-07-10T00:00:00Z",
+        "data_checkout": "2024-07-20T00:00:00Z"
+      },
+      "valor": 450,
+      "image": [
+        "quarto_2.svg",
+        "quarto_4.svg",
+        "quarto_3.svg"
+      ]
+    }
+  ],
+  "image": "hotel_3.jfif",
+  "coordenadas": {
+    "type": "Point",
+    "coordinates": [
+      -38.497668,
+      -3.719848
+    ]
+  }
+},
+{
+
+  "tipo": "Pousada",
+  "nome": "Pousada Encanto",
+  "cidade": "Paraty",
+  "endereco": "Rua do Comércio, 45",
+  "desc": "Uma pousada charmosa e aconchegante no coração de Paraty.",
+  "localidade": "Centro Histórico",
+  "avaliacao": {
+    "avaliacaoGeral": 4.4,
+    "avaliacaoLimpeza": 4.6,
+    "avaliacaoLocalizacao": 4.9,
+    "avaliacaoCustoBeneficio": 4,
+    "avaliacaoComunicacao": 4.5
+  },
+  "num_avaliacao": 120,
+  "quarto": [
+    {
+      "tamanho_cama": "Double",
+      "hospedes": 2,
+      "comodidades": [
+        "wifi",
+        "arcondicionado",
+        "varanda"
+      ],
+      "tipo": "Standard",
+      "alugado": {
+        "data_checkin": "2024-08-15T00:00:00Z",
+        "data_checkout": "2024-08-22T00:00:00Z"
+      },
+      "valor": 200,
+      "image": [
+        "quarto_11.svg",
+        "quarto_7.svg",
+        "quarto_4.svg"
+      ]
+    }
+  ],
+  "image": "hotel_17.jfif",
+  "coordenadas": {
+    "type": "Point",
+    "coordinates": [
+      -44.722527,
+      -23.217507
+    ]
+  }
+},
+{
+  "tipo": "Hotel",
+  "nome": "Hotel Conforto",
+  "cidade": "São Paulo",
+  "endereco": "Av. Paulista, 1001",
+  "desc": "Um hotel confortável e bem localizado no coração de São Paulo.",
+  "localidade": "Bela Vista",
+  "avaliacao": {
+    "avaliacaoGeral": 4.3,
+    "avaliacaoLimpeza": 4.5,
+    "avaliacaoLocalizacao": 4.8,
+    "avaliacaoCustoBeneficio": 4.1,
+    "avaliacaoComunicacao": 4.3
+  },
+  "num_avaliacao": 250,
+  "quarto": [
+    {
+      "tamanho_cama": "Single",
+      "hospedes": 1,
+      "comodidades": [
+        "wifi",
+        "arcondicionado",
+        "secador",
+        "Tv_Smart"
+      ],
+      "tipo": "Economy",
+      "alugado": {
+        "data_checkin": "2024-09-05T00:00:00Z",
+        "data_checkout": "2024-09-10T00:00:00Z"
+      },
+      "valor": 150,
+      "image": [
+        "quarto_5.svg",
+        "quarto_7.svg",
+        "quarto_1.svg"
+      ]
+    }
+  ],
+  "image": "hotel_5.jfif",
+  "coordenadas": {
+    "type": "Point",
+    "coordinates": [
+      -46.654375,
+      -23.561414
+    ]
+  }
+},
+{
+  "tipo": "Resort",
+  "nome": "Resort Paraíso",
+  "cidade": "Salvador",
+  "endereco": "Praia do Forte, 3000",
+  "desc": "Um resort paradisíaco com todas as comodidades para uma estadia perfeita.",
+  "localidade": "Praia do Forte",
+  "avaliacao": {
+    "avaliacaoGeral": 4.7,
+    "avaliacaoLimpeza": 4.8,
+    "avaliacaoLocalizacao": 4.9,
+    "avaliacaoCustoBeneficio": 4.3,
+    "avaliacaoComunicacao": 4.7
+  },
+  "num_avaliacao": 180,
+  "quarto": [
+    {
+      "tamanho_cama": "King",
+      "hospedes": 2,
+      "comodidades": [
+        "wifi",
+        "estacionamento",
+        "arcondicionado",
+        "secador",
+        "Tv_Smart",
+        "varanda"
+      ],
+      "tipo": "Suite",
+      "alugado": {
+        "data_checkin": "2024-10-12T00:00:00Z",
+        "data_checkout": "2024-10-20T00:00:00Z"
+      },
+      "valor": 500,
+      "image": [
+        "quarto_12.svg",
+        "quarto_9.svg",
+        "quarto_3.svg"
+      ]
+    }
+  ],
+  "image": "hotel_6.jfif",
+  "coordenadas": {
+    "type": "Point",
+    "coordinates": [
+      -38.213122,
+      -12.566667
+    ]
+  }
+},
+{
+  "tipo": "Hotel",
+  "nome": "Hotel Vista Mar",
+  "cidade": "Recife",
+  "endereco": "Av. Boa Viagem, 2020",
+  "desc": "Um hotel com vista para o mar e excelente localização.",
+  "localidade": "Boa Viagem",
+  "avaliacao": {
+    "avaliacaoGeral": 4.6,
+    "avaliacaoLimpeza": 4.7,
+    "avaliacaoLocalizacao": 4.9,
+    "avaliacaoCustoBeneficio": 4.4,
+    "avaliacaoComunicacao": 4.6
+  },
+  "num_avaliacao": 220,
+  "quarto": [
+    {
+      "tamanho_cama": "Queen",
+      "hospedes": 2,
+      "comodidades": [
+        "wifi",
+        "arcondicionado",
+        "secador",
+        "Tv_Smart",
+        "varanda"
+      ],
+      "tipo": "Superior",
+      "alugado": {
+        "data_checkin": "2024-11-01T00:00:00Z",
+        "data_checkout": "2024-11-08T00:00:00Z"
+      },
+      "valor": 350,
+      "image": [
+        "quarto_9.svg",
+        "quarto_11.svg",
+        "quarto_2.svg"
+      ]
+    }
+  ],
+  "image": "hotel_7.jfif",
+  "coordenadas": {
+    "type": "Point",
+    "coordinates": [
+      -34.266612,
+      -8.211111
+    ]
+  }
+},
+{
+  "tipo": "Pousada",
+  "nome": "Pousada Sol Nascente",
+  "cidade": "Natal",
+  "endereco": "Rua das Dunas, 50",
+  "desc": "Uma pousada acolhedora com ambiente familiar e tranquilidade.",
+  "localidade": "Ponta Negra",
+  "avaliacao": {
+    "avaliacaoGeral": 4.2,
+    "avaliacaoLimpeza": 4.3,
+    "avaliacaoLocalizacao": 4.7,
+    "avaliacaoCustoBeneficio": 4.1,
+    "avaliacaoComunicacao": 4.2
+  },
+  "num_avaliacao": 100,
+  "quarto": [
+    {
+      "tamanho_cama": "Double",
+      "hospedes": 2,
+      "comodidades": [
+        "wifi",
+        "estacionamento",
+        "arcondicionado"
+      ],
+      "tipo": "Standard",
+      "alugado": {
+        "data_checkin": "2024-12-01T00:00:00Z",
+        "data_checkout": "2024-12-07T00:00:00Z"
+      },
+      "valor": 180,
+      "image": [
+        "quarto_1.svg",
+        "quarto_7.svg",
+        "quarto_9.svg"
+      ]
+    }
+  ],
+  "image": "hotel_8.jfif",
+  "coordenadas": {
+    "type": "Point",
+    "coordinates": [
+      -35.566122,
+      -5.132222
+    ]
+  }
+},
+{
+  "tipo": "Hotel",
+  "nome": "Hotel Central",
+  "cidade": "Belo Horizonte",
+  "endereco": "Rua Central, 150",
+  "desc": "Um hotel no centro da cidade, ideal para viagens de negócios.",
+  "localidade": "Centro",
+  "avaliacao": {
+    "avaliacaoGeral": 4,
+    "avaliacaoLimpeza": 4.2,
+    "avaliacaoLocalizacao": 4.8,
+    "avaliacaoCustoBeneficio": 4,
+    "avaliacaoComunicacao": 4.1
+  },
+  "num_avaliacao": 300,
+  "quarto": [
+    {
+      "tamanho_cama": "Single",
+      "hospedes": 1,
+      "comodidades": [
+        "wifi",
+        "arcondicionado"
+      ],
+      "tipo": "Economy",
+      "alugado": {
+        "data_checkin": "2024-07-01T00:00:00Z",
+        "data_checkout": "2024-07-03T00:00:00Z"
+      },
+      "valor": 120,
+      "image": [
+        "quarto_1.svg",
+        "quarto_11.svg",
+        "quarto_10.svg"
+      ]
+    }
+  ],
+  "image": "hotel_9.jfif",
+  "coordenadas": {
+    "type": "Point",
+    "coordinates": [
+      -43.912334,
+      -19.923904
+    ]
+  }
+},
+{
+  "tipo": "Hotel",
+  "nome": "Hotel Vista Mar",
+  "cidade": "Rio de Janeiro",
+  "endereco": "Av. Vieira Souto, 460",
+  "desc": "Um hotel à beira-mar com vistas deslumbrantes e serviço de alta qualidade.",
+  "localidade": "Ipanema",
+  "avaliacao": {
+    "avaliacaoGeral": 4.7,
+    "avaliacaoLimpeza": 4.8,
+    "avaliacaoLocalizacao": 4.9,
+    "avaliacaoCustoBeneficio": 4.5,
+    "avaliacaoComunicacao": 4.7
+  },
+  "num_avaliacao": 230,
+  "quarto": [
+    {
+      "tamanho_cama": "Queen",
+      "hospedes": 2,
+      "comodidades": [
+        "wifi",
+        "estacionamento",
+        "arcondicionado",
+        "secador",
+        "Tv_Smart"
+      ],
+      "tipo": "Superior",
+      "alugado": {
+        "data_checkin": "2024-06-10T00:00:00Z",
+        "data_checkout": "2024-06-15T00:00:00Z"
+      },
+      "valor": 400,
+      "image": [
+        "quarto_4.svg",
+        "quarto_5.svg"
+      ]
+    }
+  ],
+  "image": "hotel_2.jfif",
+  "coordenadas": {
+    "type": "Point",
+    "coordinates": [
+      -43.2078,
+      -22.9867
+    ]
+  }
+},
+{
+  "tipo": "Hotel",
+  "nome": "Pousada das Araras",
+  "cidade": "Florianópolis",
+  "endereco": "R. das Araras, 280",
+  "desc": "Uma pousada acolhedora em meio à natureza com conforto e tranquilidade.",
+  "localidade": "Lagoa da Conceição",
+  "avaliacao": {
+    "avaliacaoGeral": 4.3,
+    "avaliacaoLimpeza": 4.5,
+    "avaliacaoLocalizacao": 4.2,
+    "avaliacaoCustoBeneficio": 4.4,
+    "avaliacaoComunicacao": 4.1
+  },
+  "num_avaliacao": 180,
+  "quarto": [
+    {
+      "tamanho_cama": "Casal",
+      "hospedes": 2,
+      "comodidades": [
+        "wifi",
+        "arcondicionado",
+        "Tv",
+        "frigobar"
+      ],
+      "tipo": "Standard",
+      "alugado": {
+        "data_checkin": "2024-06-05T00:00:00Z",
+        "data_checkout": "2024-06-10T00:00:00Z"
+      },
+      "valor": 250,
+      "image": [
+        "quarto_6.svg",
+        "quarto_7.svg"
+      ]
+    }
+  ],
+  "image": "hotel_16.jfif",
+  "coordenadas": {
+    "type": "Point",
+    "coordinates": [
+      -48.4333,
+      -27.5967
+    ]
+  }
+},
+{
+  "tipo": "Hotel",
+  "nome": "Resort Paraíso Tropical",
+  "cidade": "Porto Seguro",
+  "endereco": "Av. Beira Mar, 1500",
+  "desc": "Um resort de luxo em uma praia paradisíaca com tudo o que você precisa para relaxar e se divertir.",
+  "localidade": "Taperapuan",
+  "avaliacao": {
+    "avaliacaoGeral": 4.8,
+    "avaliacaoLimpeza": 4.9,
+    "avaliacaoLocalizacao": 4.7,
+    "avaliacaoCustoBeneficio": 4.6,
+    "avaliacaoComunicacao": 4.8
+  },
+  "num_avaliacao": 300,
+  "quarto": [
+    {
+      "tamanho_cama": "King",
+      "hospedes": 2,
+      "comodidades": [
+        "wifi",
+        "estacionamento",
+        "arcondicionado",
+        "banheira",
+        "Tv_Smart",
+        "varanda"
+      ],
+      "tipo": "Luxo",
+      "alugado": {
+        "data_checkin": "2024-06-15T00:00:00Z",
+        "data_checkout": "2024-06-20T00:00:00Z"
+      },
+      "valor": 600,
+      "image": [
+        "quarto_8.svg",
+        "quarto_9.svg",
+        "quarto_10.svg"
+      ]
+    }
+  ],
+  "image": "hotel_4.jfif",
+  "coordenadas": {
+    "type": "Point",
+    "coordinates": [
+      -39.0531,
+      -16.4325
+    ]
+  }
+},
+{
+  "tipo": "Hotel",
+  "nome": "Hotel Elegância",
+  "cidade": "São Paulo",
+  "endereco": "Rua Augusta, 123",
+  "desc": "Um hotel elegante no coração da cidade, perfeito para viajantes sofisticados.",
+  "localidade": "Centro",
+  "avaliacao": {
+    "avaliacaoGeral": 4.6,
+    "avaliacaoLimpeza": 4.8,
+    "avaliacaoLocalizacao": 4.5,
+    "avaliacaoCustoBeneficio": 4.3,
+    "avaliacaoComunicacao": 4.7
+  },
+  "num_avaliacao": 180,
+  "quarto": [
+    {
+      "tamanho_cama": "Queen",
+      "hospedes": 2,
+      "comodidades": [
+        "wifi",
+        "arcondicionado",
+        "café da manhã",
+        "piscina",
+        "academia"
+      ],
+      "tipo": "Standard",
+      "alugado": {
+        "data_checkin": "2024-06-15T00:00:00Z",
+        "data_checkout": "2024-06-20T00:00:00Z"
+      },
+      "valor": 250,
+      "image": [
+        "quarto_4.svg",
+        "quarto_5.svg",
+        "quarto_6.svg"
+      ]
+    }
+  ],
+  "image": "hotel_14.jfif",
+  "coordenadas": {
+    "type": "Point",
+    "coordinates": [
+      -46.648056,
+      -23.561389
+    ]
+  }
+},
+{
+  "tipo": "Hotel",
+  "nome": "Resort Paraíso",
+  "cidade": "Salvador",
+  "endereco": "Av. Beira Mar, 500",
+  "desc": "Um resort de luxo à beira-mar com todas as comodidades e entretenimento.",
+  "localidade": "Praia do Forte",
+  "avaliacao": {
+    "avaliacaoGeral": 4.7,
+    "avaliacaoLimpeza": 4.9,
+    "avaliacaoLocalizacao": 4.6,
+    "avaliacaoCustoBeneficio": 4.4,
+    "avaliacaoComunicacao": 4.8
+  },
+  "num_avaliacao": 220,
+  "quarto": [
+    {
+      "tamanho_cama": "King",
+      "hospedes": 4,
+      "comodidades": [
+        "wifi",
+        "arcondicionado",
+        "café da manhã",
+        "spa",
+        "quadra de tênis",
+        "varanda"
+      ],
+      "tipo": "Suíte Master",
+      "alugado": {
+        "data_checkin": "2024-07-01T00:00:00Z",
+        "data_checkout": "2024-07-10T00:00:00Z"
+      },
+      "valor": 500,
+      "image": [
+        "quarto_7.svg",
+        "quarto_8.svg",
+        "quarto_9.svg"
+      ]
+    }
+  ],
+  "image": "hotel_15.jfif",
+  "coordenadas": {
+    "type": "Point",
+    "coordinates": [
+      -38.959444,
+      -12.976111
+    ]
+  }
+}]

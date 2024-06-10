@@ -3,12 +3,11 @@ section.home {
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
 }
 
 .site-footer {
   background-color: var(--cor-terciaria);
-  padding: 45px 0 20px;
+  padding: 25px 0 20px;
   font-size: 0.9375rem;
   line-height: 24px;
   color: var(--cor-secundaria);
