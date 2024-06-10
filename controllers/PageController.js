@@ -164,7 +164,10 @@ router.post("/hotel/fav/delete/:idHotel", async (req, res) =>{
 router.post("/cadastro/usuario", async(req,res) =>{
     try{
         const response = await UsuarioController.save(req.body.email, req.body.senha)
-        res.status(201).send(response)
+        req.session.user = {
+            idUsuario : response.id,
+        } 
+        res.status(201).redirect("/")
     }catch(err){
         res.status(500).send(err.message)
     }
@@ -194,4 +197,8 @@ router.post('/login', async (req, res) => {
     }
 })
 
+router.get("/login/logout", async(req, res) =>{
+    req.session.destroy()
+    res.redirect("/")
+})
 export default router
