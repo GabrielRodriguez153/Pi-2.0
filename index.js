@@ -28,27 +28,38 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 
 app.use((req, res, next) => {
-  res.locals.url = req.url
+  res.locals.url = req.url;
   res.locals.session = req.session;
+  if (req.session) {
+    if (req.session.lastUrl) {
+      res.locals.lastUrl = req.session.lastUrl;
+    }
+    req.session.lastUrl = req.originalUrl;
+  }
   next();
 });
+
+
 
 app.get("/", function (req, res) {
   res.render("index");
 });
 
-
 app.get("/apartamentoId", (req, res) => {
-    res.render('apartamentoId');
+  res.render("apartamentoId");
 });
 
 app.get("/recentes", function (req, res) {
-  res.render("recentes")
-})
+  res.render("recentes");
+});
 
 app.get("/favoritos", function (req, res) {
-  res.render("favoritos")
-})
+  res.render("favoritos");
+});
+
+app.get("/mapa", function (req, res) {
+  res.render("mapa");
+});
 
 const port = 8000;
 app.listen(port, function (erro) {
