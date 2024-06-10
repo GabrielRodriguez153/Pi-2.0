@@ -105,9 +105,9 @@ function changeLang(lang) {
     document.querySelector('#menuLanguage').textContent = translation.menuLanguage;
     document.querySelector('#menuLangEnglish').textContent = translation.menuLangEnglish;
     document.querySelector('#menuLangPortuguese').textContent = translation.menuLangPortuguese;
-    document.querySelector('#menuHome').textContent = translation.menuHome;
-    document.querySelector('#menuProducts').textContent = translation.menuProducts;
-    document.querySelector('#menuServices').textContent = translation.menuServices;
+    document.querySelector('#txtFavorites').textContent = translation.menuHome;
+    document.querySelector('#txtRecently').textContent = translation.menuProducts;
+    document.querySelector('#txtMap').textContent = translation.menuServices;
     document.querySelector('#homeContentTitleText').textContent = translation.homeContentTitleText;
     document.querySelector('#homeContentText').innerHTML = translation.homeContentText;
     document.querySelector('#footerText').textContent = translation.footerText;
