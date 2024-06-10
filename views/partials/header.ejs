@@ -53,8 +53,9 @@
       <% } %>
 
       <div class="language-currency d-flex align-items-center">
-        <span><img src="/imgs/icon/<%= (url != "/") ? 'global-black' : 'global' %>.svg" alt="Global" class="nav-icon"></span>
-        <input type="text" id="language-currency" value="PT · R$" readonly class="form-control-plaintext <%= (url === "/") ? 'text-white' : 'text-dark' %> ml-2">
+        <span><img src="/imgs/icon/<%= (url != '/') ? 'global-black' : 'global' %>.svg" alt="Global" class="nav-icon"></span>
+        <span id="menuLangPortuguese" class="menuLangPortuguese <%= (url === '/') ? 'text-white' : 'text-dark' %>"> PT · R$ </span>
+        <span id="menuLangEnglish" class="menuLangEnglish <%= (url === '/') ? 'text-white' : 'text-dark' %>">ENG · $</span>
       </div>
     </div>
   </nav>

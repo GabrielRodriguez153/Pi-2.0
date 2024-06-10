@@ -34,8 +34,7 @@
     height: 1.563rem;
 }
 
-.language-currency input {
-    width: 3.438rem;
+.language-currency span {
     border: none;
     background: none;
     color: #fff;
@@ -47,6 +46,14 @@
 .language-currency input:focus {
     outline: none;
     box-shadow: none;
+}
+
+.menuLangPortuguese {
+    cursor: pointer;
+}
+
+.menuLangEnglish {
+    cursor: pointer;
 }
 
 /* Active link indicator */

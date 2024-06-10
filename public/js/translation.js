@@ -1,14 +1,13 @@
 const translations = {
     en: {
-        menuLanguage: 'Language:',
-        menuLangEnglish: 'English',
-        menuLangPortuguese: 'Portuguese',
+        menuLangEnglish: 'ENG · $',
+        menuLangPortuguese: 'PT · R$',
         txtFavorites: 'Favorites',
         txtRecently: 'Recently Viewed',
         txtMap: 'Map',
         btnLogin: 'Login',
         mainText: 'Discover the perfect view for your next getaway',
-        subText: `“Sight Inn, where every trip turns into a unique experience”`,
+        subText: `“Sight Inn, where every trip turns into <br> a unique experience”`,
         txtLocation: 'Where to?',
         txtCheckin: 'Check in',
         txtCheckout: 'Check out',
@@ -42,11 +41,9 @@ const translations = {
         txtcommurating: 'Communication',
         footerText: 'All Rights Reserved ®',
     },
-    
     pt: {
-        menuLanguage: 'Language:',
-        menuLangEnglish: 'English',
-        menuLangPortuguese: 'Portuguese',
+        menuLangEnglish: 'ENG · $',
+        menuLangPortuguese: 'PT · R$',
         txtFavorites: 'Favoritos',
         txtRecently: 'Vistos Recentemente',
         txtMap: 'Mapa',
@@ -89,26 +86,56 @@ const translations = {
 };
 
 document.querySelector('#menuLangEnglish').addEventListener('click', () => changeLang('en'));
-document.querySelector('#menuLangEnglish').style.color = '#F5a223'
 document.querySelector('#menuLangPortuguese').addEventListener('click', () => changeLang('pt'));
 
 function changeLang(lang) {
     if (lang == 'en') {
-        document.querySelector('#menuLangEnglish').style.color = '#F5a223'
-        document.querySelector('#menuLangPortuguese').style.color = '#f1f1f1'
+        document.querySelector('#menuLangEnglish').style.color = '#F5a223';
+        document.querySelector('#menuLangPortuguese').style.color = '#f1f1f1';
     }
     if (lang == 'pt') {
-        document.querySelector('#menuLangPortuguese').style.color = '#F5a223'
-        document.querySelector('#menuLangEnglish').style.color = '#f1f1f1'
+        document.querySelector('#menuLangPortuguese').style.color = '#F5a223';
+        document.querySelector('#menuLangEnglish').style.color = '#f1f1f1';
     }
     const translation = translations[lang];
-    document.querySelector('#menuLanguage').textContent = translation.menuLanguage;
     document.querySelector('#menuLangEnglish').textContent = translation.menuLangEnglish;
     document.querySelector('#menuLangPortuguese').textContent = translation.menuLangPortuguese;
-    document.querySelector('#txtFavorites').textContent = translation.menuHome;
-    document.querySelector('#txtRecently').textContent = translation.menuProducts;
-    document.querySelector('#txtMap').textContent = translation.menuServices;
-    document.querySelector('#homeContentTitleText').textContent = translation.homeContentTitleText;
-    document.querySelector('#homeContentText').innerHTML = translation.homeContentText;
+    document.querySelector('#txtFavorites').textContent = translation.txtFavorites;
+    document.querySelector('#txtRecently').textContent = translation.txtRecently;
+    document.querySelector('#txtMap').textContent = translation.txtMap;
+    document.querySelector('#btnLoginText').textContent = translation.btnLogin;
+    document.querySelector('#mainText').textContent = translation.mainText;
+    document.querySelector('#subText').innerHTML = translation.subText;
+    document.querySelector('#txtLocation').textContent = translation.txtLocation;
+    document.querySelector('#txtCheckin').textContent = translation.txtCheckin;
+    document.querySelector('#txtCheckout').textContent = translation.txtCheckout;
+    document.querySelector('#txtRooms').textContent = translation.txtRooms;
+    document.querySelector('#txtPrice').textContent = translation.txtPrice;
+    document.querySelector('#txtRating').textContent = translation.txtRating;
+    document.querySelector('#txtType').textContent = translation.txtType;
+    document.querySelector('#txtLocal').textContent = translation.txtLocal;
+    document.querySelector('#removeFilters').textContent = translation.removeFilters;
+    document.querySelector('#txtSuggest').textContent = translation.txtSuggest;
+    document.querySelector('#txtRecentlyStays').textContent = translation.txtRecentlyStays;
+    document.querySelector('#txtFavoritesStays').textContent = translation.txtFavoritesStays;
+    document.querySelector('#txtOption').textContent = translation.txtOption;
+    document.querySelector('#txtHotelName').textContent = translation.txtHotelName;
+    document.querySelector('#txtHotelDesc').textContent = translation.txtHotelDesc;
+    document.querySelector('#txtAdr').textContent = translation.txtAdr;
+    document.querySelector('#txtHotelDescPar').textContent = translation.txtHotelDescPar;
+    document.querySelector('#txtHotelDescPar2').textContent = translation.txtHotelDescPar2;
+    document.querySelector('#txtHotelAmen').textContent = translation.txtHotelAmen;
+    document.querySelector('#txtHotelAllAmen').textContent = translation.txtHotelAllAmen;
+    document.querySelector('#txtHotelPrice').textContent = translation.txtHotelPrice;
+    document.querySelector('#txtPriceNight').textContent = translation.txtPriceNight;
+    document.querySelector('#txtPricenoTax').textContent = translation.txtPricenoTax;
+    document.querySelector('#txtPriceTax').textContent = translation.txtPriceTax;
+    document.querySelector('#txtPriceIncludeTax').textContent = translation.txtPriceIncludeTax;
+    document.querySelector('#txtOverview').textContent = translation.txtOverview;
+    document.querySelector('#txtOverviewGuest').textContent = translation.txtOverviewGuest;
+    document.querySelector('#txtcleanrating').textContent = translation.txtcleanrating;
+    document.querySelector('#txtlocalrating').textContent = translation.txtlocalrating;
+    document.querySelector('#txtvaluerating').textContent = translation.txtvaluerating;
+    document.querySelector('#txtcommurating').textContent = translation.txtcommurating;
     document.querySelector('#footerText').textContent = translation.footerText;
 }
