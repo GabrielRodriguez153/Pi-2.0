@@ -113,7 +113,8 @@ router.get("/hotel/usuario/favoritos", async (req, res) =>{
         } 
         const response =  await HotelController.findByPessoaId(req.session.user.idUsuario)
         res.status(200).render("favoritos", {
-            hotels: response
+            hotels: response, message: 
+                "Não há hotéis registrado nos favoritos ou o usuário não está ativo."
         })
     }catch(err){
         res.status(500).render("errors", {"message": err })

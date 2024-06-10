@@ -5,12 +5,10 @@ let historicoDeBusca = []
 
 class HotelRepository {
     async findAll(page) {
-        console.log("ACHANDO PÁGINA: ", page)
         return await Hotel.find().skip(page*10).limit(12)
     }
     async create(nome, endereco, desc, tipo) {
 
-        console.log("CRIANDO HOTEL")
         const newHotel = new Hotel({
             "nome": nome,
             "endereco": endereco,
@@ -20,7 +18,6 @@ class HotelRepository {
         })
     }
     async update(id, nome, endereco, desc, tipo) {
-        console.log("ATUALIZANDO HOTELS")
         return await Hotel.findByIdAndUpdate({ _id: id }, {
             $set: {
                 nome: nome,
@@ -31,7 +28,6 @@ class HotelRepository {
         })
     }
     async delete(id) {
-        console.log("DELETANDO HOTEL")
         return await Hotel.findByIdAndDelete(id)
     }
     async findByPessoaId(idPessoa){
@@ -40,13 +36,10 @@ class HotelRepository {
         return pessoa.favorito
     }
     async saveFav(idHotel, idPessoa){
-        console.log("SALVANDO FAVORITOS")
         const pessoa = await UsuarioRepository.findById(idPessoa)
-        console.log(pessoa)
         if(!pessoa) return
 
         const hotel = await Hotel.findById(idHotel)
-        console.log(hotel)
         if(!hotel) return
         
         pessoa.favorito.push(hotel)
