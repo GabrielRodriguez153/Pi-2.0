@@ -521,7 +521,7 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .date-input {
-    width: 85px;
+    width: 5.313rem;
 }
 
 .date-input::-webkit-calendar-picker-indicator {
@@ -538,7 +538,7 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .input-group-form-dropdown {
-    font-size: 14px;
+    font-size: 0.875rem;
     color: #fff;
     padding-inline: 5px;
 }
@@ -599,17 +599,17 @@ hr {
 .vl {
     border-left: 2px solid #363636;
     border-radius: 50px;
-    height: 65px;
+    height: 4.063rem;
 }
 
 .vl2 {
     border-left: 2px solid #363636;
     border-radius: 50px;
-    height: 30px;
+    height: 1.875rem;
 }
 
 .info-hotel-name {
-    padding-right: 15px;
+    padding-right: 0.938rem;
 }
 
 .info-hotel-name h2 {
@@ -618,7 +618,7 @@ hr {
 }
 
 .info-hotel-adress {
-    padding-left: 15px;
+    padding-left: 0.938rem;
 }
 
 .info-hotel-adress h5{
@@ -626,7 +626,7 @@ hr {
 }
 
 .info-hotel-adress span {
-    font-size: 15px;
+    font-size: 0.938rem;
 }
 
 .info-hotel-rating {
@@ -645,7 +645,7 @@ hr {
 .hotel-gallery {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 150px 150px;
+    grid-template-rows: 9.375rem 9.375rem;
     grid-template-areas:
         "img1 img1 img2 img3"
         "img1 img1 img2 img4";
@@ -694,20 +694,22 @@ hr {
 
 .description h3 {
     font-size: 1.5em;
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
 }
 
 .description p {
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
+    padding-right: 1.25rem;
+    font-size: 1.125rem;
 }
 
 .amenities h4 {
     font-size: 1.2em;
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
 }
 
 .amenities ul li {
-    font-size: 1em;
+    font-size: 1.125rem;
     display: flex;
     align-items: center;
 }
@@ -718,13 +720,13 @@ hr {
 
 .booking-box {
     background-color: #fff;
-    border-radius: 10px;
+    border-radius: 0.625rem;
     box-shadow: 0 0 20px #83838315;
 }
 
 .booking-box h5 {
     font-size: 1.5em;
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
 }
 
 .booking-box p {
@@ -733,8 +735,8 @@ hr {
 }
 
 .booking-box span img {
-    width: 30px;
-    height: 30px
+    width: 1.875rem;
+    height: 1.875rem;
 }
 
 .check-in-out {
@@ -742,17 +744,17 @@ hr {
 }
 
 .check-in-out span img {
-    width: 17px;
-    height: 17px
+    width: 1.063rem;
+    height: 1.063rem;
 }
 
 .room-info {
     font-size: 0.9em;
-    margin-top: 10px;
+    margin-top: 0.625rem;
 }
 
 .hotel-price {
-    padding-top: 35px;
+    padding-top: 2.188rem;
 }
 
 .pricing p {
@@ -767,19 +769,93 @@ hr {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 35px;
-    margin-bottom: 60px;
-    height: 40px;
+    margin-top: 2.188rem;
+    margin-bottom: 3.75rem;
+    height: 2.5rem;
     width: 100%;
     color: white;
-    background-color: #ffc107;
+    background-color: #F2D63D;
     border-radius: 45px;
+}
+
+.btn-reserve:hover {
+    background-color: #ecd23e;
+    color: white;
 }
 
 .btn-amenities {
     padding: 1rem 2.5rem;
-    border-radius: 10px;
+    border-radius: 0.625rem;
 }
+
+.hotel-description {
+    padding: 1.875rem 0;
+}
+
+.overview-box {
+    background-color: #fff;
+    border-radius: 0.625rem;
+    box-shadow: 0 0 20px #83838315;
+}
+
+.overview-box h5 {
+    font-size: 1.75rem;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.overview-box span img {
+    width: 2.188rem;
+    height: 2.188rem;
+}
+
+.hotel-rating {
+    
+}
+
+.calendars img {
+    width: 45rem;
+}
+
+.rating-bar-section {
+    padding-top: 1.25rem;
+}
+
+.rating-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.txt-rating {
+    font-size: 1.125rem;
+}
+
+.side {
+    width: 0.938rem;
+    float: left;
+  }
+
+.middle {
+    float: left;
+    width: 93%;
+    padding-left: 0.625rem;
+}
+
+.bar-container {
+    width: 100%;
+    background-color: #f1f1f1;
+    text-align: center;
+    color: white;
+    border-radius: 50px;
+    margin-top: 9px;
+}
+  
+.bar-5 {width: 90%; height: 7px; background-color: #F2D63D; border-radius: 50px;}
+.bar-4 {width: 30%; height: 7px; background-color: #2195f300; border-radius: 50px;}
+.bar-3 {width: 10%; height: 7px; background-color: #00bbd400; border-radius: 50px;}
+.bar-2 {width: 4%; height: 7px; background-color: #ff990000; border-radius: 50px;}
+.bar-1 {width: 15%; height: 7px; background-color: #f4433600; border-radius: 50px;}
 
 
 @media screen and (max-width: 768px) {
