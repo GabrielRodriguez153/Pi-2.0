@@ -568,6 +568,7 @@ hr {
     outline: none;
     background: transparent;
     padding: 0 0.625rem;
+    width: 100%;
 }
 
 .input-group-filter span img {

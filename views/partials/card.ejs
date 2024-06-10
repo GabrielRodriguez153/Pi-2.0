@@ -35,22 +35,20 @@
               <p class="card-text"><%= hotel.location %></p>
               <p class="card-text">
                 <small class="text-muted">
-                  <i class="bi bi-star-fill"></i> <%= hotel.rating %> (<%=
+                  ⭐ <%= hotel.rating %> (<%=
                   hotel.reviews %>)
                 </small>
               </p>
               <p class="card-text">
                 <strong>R$ <%= hotel.price %> diária</strong>
               </p>
-              <p class="card-text">
+              <p class="card-text mb-2">
                 <small class="text-muted">
-                  <i class="bi bi-calendar-event"></i> <%= hotel.dateRange %>
+                  <img src="/imgs/icon/calendar.svg" class="me-1" alt="Calendario"> <%= hotel.dateRange %>
                 </small>
               </p>
               <p class="card-text">
-                <small class="text-muted">
-                  <i class="bi bi-person"></i> <%= hotel.roomInfo %>
-                </small>
+                <img src="/imgs/icon/bed.svg" class="me-1" alt="Cama"> <%= hotel.roomInfo %>
               </p>
             </div>
           </div>
