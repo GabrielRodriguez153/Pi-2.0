@@ -9,17 +9,17 @@
 <div class="hotel-card m-2 <%= locationClass %> <%= ratingClass %> <%= priceClass %>">
     <a href="/eng/hotel/apartamento/<%= hotel.id %>"> 
 
-    <img src="../imgs/hotels/<%= hotel.image %>" alt="<%= hotel.nome %>" />
+    <img src="../../imgs/hotels/<%= hotel.image %>" alt="<%= hotel.nome %>" />
 
     </a>
     
     <% if (hotel.classe) { %>
         <form action="/eng/hotel/fav/delete/<%=hotel.id%>" method="POST">
-          <input type="image" class="like-button" src="../imgs/icon/liked.svg" alt="Like Button">
+          <input type="image" class="like-button" src="../../imgs/icon/liked.svg" alt="Like Button">
         </form>
       <% } else { %>
         <form action="/eng/hotel/fav/<%=hotel.id%>" method="POST">
-          <input type="image" class="like-button" src="../imgs/icon/like.svg" alt="Like Button">
+          <input type="image" class="like-button" src="../../imgs/icon/like.svg" alt="Like Button">
         </form>
       <% } %>
       
@@ -27,7 +27,7 @@
         <div class="col p-0 flex-grow-1">
             <h2><%= hotel.nome %></h2>
             <p><%= hotel.localidade %></p>
-            <p id="txtHotelPrice">R$ <%= hotel.quarto[0].valor %> daily</p>
+            <p id="txtHotelPrice">R$ <%= hotel.quarto[0].valor %> per night</p>
         </div>
 
         <div class="col-auto d-flex flex-column justify-content-between align-items-end p-0">

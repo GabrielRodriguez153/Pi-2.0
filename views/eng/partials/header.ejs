@@ -1,8 +1,9 @@
 <header>
   <nav class="navbar navbar-expand-lg py-4">
-    <div class="container<%= (url != "/eng/home") ? '-fluid mx-5' : ''  %>">
+    <% const rotaPrincipal = /^\/eng\/home\/?\d*$/.test(url); %>
+    <div class="container<%= (rotaPrincipal != true) ? '-fluid mx-5' : ''  %>">
       <a href="/eng/home">
-      <% if (url === "/eng/home") { %>
+      <% if (rotaPrincipal === true) { %>
         <img src="/imgs/image-logo-white.svg" width="80%" alt="Logo">
       <% } else { %>
         <img src="/imgs/image-logo.svg" width="80%" alt="Logo">
@@ -15,37 +16,37 @@
       <div class="collapse navbar-collapse text-center d-flex justify-content-center" id="navbarNav">
         <ul class="navbar-nav ml-auto d-flex align-items-center nav-links">
           <li class="nav-item d-flex align-items-center">
-            <% if (!session.user) { %>
-              <span><img src="/imgs/icon/<%= (url != "/eng/home") ? (url === "/eng/hotel/usuario/favoritos") ? 'favorites-active' : 'favorites-black' : 'favorites' %>.svg" alt="favorites" class="nav-icon"></span>
+            <% if (session.user) { %>
+              <span><img src="/imgs/icon/<%= (rotaPrincipal != true) ? (url === "/eng/hotel/usuario/favoritos") ? 'favorites-active' : 'favorites-black' : 'favorites' %>.svg" alt="favorites" class="nav-icon"></span>
             <a id="txtFavorites" class="nav-link 
-            <%= (url === "/eng/home") ? 'text-white' : '' %>
+            <%= (rotaPrincipal === true) ? 'text-white' : '' %>
             <%= (url === "/eng/hotel/usuario/favoritos") ? 'active' : '' %> " href="/eng/hotel/usuario/favoritos">Favorites</a>
             <% } else { %>
-            <span><img src="/imgs/icon/<%= (url != "/eng/home") ? (url === "/eng/hotel/usuario/favoritos") ? 'favorites-active' : 'favorites-black' : 'favorites' %>.svg" alt="favorites" class="nav-icon"></span>
+            <span><img src="/imgs/icon/<%= (rotaPrincipal != true) ? (url === "/eng/hotel/usuario/favoritos") ? 'favorites-active' : 'favorites-black' : 'favorites' %>.svg" alt="favorites" class="nav-icon"></span>
             <button id="txtFavorites" class="bg-transparent border-0"
             data-toggle="modal"
             data-target="#loginModal"><a class="nav-link 
-            <%= (url === "/eng/home") ? 'text-white' : '' %>
+            <%= (rotaPrincipal === true) ? 'text-white' : '' %>
             <%= (url === "/eng/hotel/usuario/favoritos") ? 'active' : '' %> " >Favorites</a></button>
             <% } %>
           </li>
           <li class="nav-item d-flex align-items-center">
-            <span><img src="/imgs/icon/<%= (url != "/eng/home") ? (url === "/eng/hotel/recentes") ? 'recently-active' : 'recently-black' : 'recently'  %>.svg" alt="Recents" class="nav-icon"></span>
+            <span><img src="/imgs/icon/<%= (rotaPrincipal != true) ? (url === "/eng/hotel/recentes") ? 'recently-active' : 'recently-black' : 'recently'  %>.svg" alt="Recents" class="nav-icon"></span>
             <a id="txtRecently" class="nav-link 
-            <%= (url === "/eng/home") ? 'text-white' : '' %>
+            <%= (rotaPrincipal === true) ? 'text-white' : '' %>
             <%= (url === "/eng/hotel/recentes") ? 'active' : '' %> " href="/eng/hotel/recentes">Recents</a>
           </li>
           <li class="nav-item d-flex align-items-center">
-            <span><img src="/imgs/icon/<%= (url != "/eng/home") ? (url === "/eng/hotel/mapa") ? 'map-active' : 'map-black' : 'map'  %>.svg" alt="map" class="nav-icon"></span>
+            <span><img src="/imgs/icon/<%= (rotaPrincipal != true) ? (url === "/eng/hotel/mapa") ? 'map-active' : 'map-black' : 'map'  %>.svg" alt="map" class="nav-icon"></span>
             <a id="txtMap" class="nav-link 
-            <%= (url === "/eng/home") ? 'text-white' : '' %>
+            <%= (rotaPrincipal === true) ? 'text-white' : '' %>
             <%= (url === "/eng/hotel/mapa") ? 'active' : '' %> " href="/eng/hotel/mapa">Map</a>
           </li>
         </ul>
       </div>
 
       <% if (session.user) { %>
-          <a href="/eng/login/logout" class="btn <%= (url === "/eng/home") ? 'btn-outline-light' : 'btn-outline-dark' %> me-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+          <a href="/eng/login/logout" class="btn <%= (rotaPrincipal === true) ? 'btn-outline-light' : 'btn-outline-dark' %> me-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"/>
             <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
           </svg> Sair</a>
@@ -53,7 +54,7 @@
         <button
           id="btnLogin"
           type="button"
-          class="btn <%= (url === "/eng/home") ? 'btn-outline-light' : 'btn-outline-dark' %> me-2"
+          class="btn <%= (rotaPrincipal === true) ? 'btn-outline-light' : 'btn-outline-dark' %> me-2"
           data-toggle="modal"
           data-target="#loginModal"
         >
@@ -62,9 +63,9 @@
       <% } %>
 
       <div class="language-currency d-flex align-items-center">
-        <span><img src="/imgs/icon/<%= (url != '/eng/home') ? 'global-black' : 'global' %>.svg" alt="Global" class="nav-icon"></span>
-        <a href="/" class=" <%= (url === '/eng/home') ? 'text-white' : 'text-dark' %>">PT · R$</a>
-        <a href="/eng/home" class="<%= (url === '/eng/home') ? 'text-white' : 'text-dark' %>">ENG · $</a>
+        <span><img src="/imgs/icon/<%= (rotaPrincipal != true) ? 'global-black' : 'global' %>.svg" alt="Global" class="nav-icon"></span>
+        <a href="/" class=" <%= (rotaPrincipal === true) ? 'text-white' : 'text-dark' %>">PT · R$</a>
+        <a href="/eng/home" class="<%= (rotaPrincipal === true) ? 'text-white' : 'text-dark' %>">ENG · $</a>
       </div>
     </div>
   </nav>
