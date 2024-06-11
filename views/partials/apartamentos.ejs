@@ -10,6 +10,8 @@
     <a href="/hotel/apartamento/<%= hotel.id %>"> 
 
     <img src="imgs/hotels/<%= hotel.image %>" alt="<%= hotel.name %>" />
+
+    </a>
     
     <% if (hotel.classe) { %>
         <form action="/hotel/fav/delete/<%=hotel.id%>" method="POST">
@@ -32,7 +34,7 @@
             <p class="text-end"> ⭐ <%= hotel.avaliacao.avaliacaoGeral %> (<%= hotel.num_avaliacao %> mil+) </p>
             <button class="dropdown-btn"><i class="fa-solid fa-chevron-down"></i></button>
         </div>
-      </a>
+      
 
         <div class="row dropdown-content p-0">
             <h2>Comodidades</h2>
