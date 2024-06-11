@@ -14,7 +14,7 @@
               <div class="vl mx-3"></div>
     
               <div class="info-hotel-adress mr-3">
-                  <span id="txtAdr">Address</span>
+                  <span id="txtAdr">Location</span>
                   <h5><%= hotel.localidade %></h5>
               </div>
     
@@ -41,7 +41,7 @@
                         <p><%= hotel.desc %></p>
                     </div>
                     <div class="amenities mt-5">
-                        <h3 id="txtHotelAmen">Hotel Amenities</h3>
+                        <h3 id="txtHotelAmen">Hotel Features</h3>
                         <ul class="list-unstyled row mt-4">
                           <div class="col-md-7">
                             <% hotel.quarto[0].comodidades.forEach(comodidade => { %>
@@ -70,7 +70,7 @@
                             <% }) %>
                           </div>
                         </ul>
-                        <button class="btn btn-outline-dark btn-amenities">Show all amenities</button>
+                        <button class="btn btn-outline-dark btn-amenities">Show all features</button>
                     </div>
                 </div>
                 <div class="col-md-6">
