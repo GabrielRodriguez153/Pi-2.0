@@ -37,11 +37,11 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="description">
-                        <h3>Descrição do Hotel</h3>
+                        <h3 id="txtHotelDesc">Descrição do Hotel</h3>
                         <p><%= hotel.desc %></p>
                     </div>
                     <div class="amenities mt-5">
-                        <h3>Comodidades do Hotel</h3>
+                        <h3 id="txtHotelAmen">Comodidades do Hotel</h3>
                         <ul class="list-unstyled row mt-4">
                           <div class="col-md-7">
                             <% hotel.quarto[0].comodidades.forEach(comodidade => { %>

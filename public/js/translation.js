@@ -20,7 +20,7 @@ const translations = {
         txtSuggest: 'Suggestions',
         txtRecentlyStays: 'Recent Stays',
         txtFavoritesStays: 'Preferred Stays',
-        txtOption: 'Choose from 1400 hotel options',
+        txtOption: 'Choose from <%= hotels.length %> hotel options',
         txtHotelName: 'Sunset Beach Hotel',
         txtHotelDesc: 'Hotel Description',
         txtAdr: 'Address',
@@ -28,11 +28,11 @@ const translations = {
         txtHotelDescPar2: 'Soak in amazing ocean views, stay in stylish rooms, and enjoy easy access to all the fun in South Beach.',
         txtHotelAmen: 'Hotel Amenities',
         txtHotelAllAmen: 'Show all Amenities',
-        txtHotelPrice: 'R$ 500 night',
-        txtPriceNight: 'R$ 500 x 3 nights',
-        txtPricenoTax: 'R$ 1500',
+        txtHotelPrice: '$ <%= hotel.quarto[0].valor %> night',
+        txtPriceNight: '$ 500 x 3 nights',
+        txtPricenoTax: '$ 1500',
         txtPriceTax: 'Total before taxes',
-        txtPriceIncludeTax: 'R$ 1500',
+        txtPriceIncludeTax: '$ 1500',
         txtOverview: 'Overview',
         txtOverviewGuest: 'Guest Overall Rating',
         txtcleanrating: 'Cleanliness',
@@ -62,7 +62,7 @@ const translations = {
         txtSuggest: 'Sugestões',
         txtRecentlyStays: 'Hospedagens Recentes',
         txtFavoritesStays: 'Hospedagens Preferidas',
-        txtOption: 'Escolha entre 1400 opções de hotéis',
+        txtOption: 'Escolha entre <%= hotels.length %> opções de hotéis',
         txtHotelName: 'Sunset Beach Hotel',
         txtHotelDesc: 'Descrição do Hotel',
         txtAdr: 'Endereço',
@@ -70,7 +70,7 @@ const translations = {
         txtHotelDescPar2: 'Desfrute de vistas deslumbrantes do oceano, acomodações elegantes e acesso conveniente às atrações de South Beach.',
         txtHotelAmen: 'Comodidades do Hotel',
         txtHotelAllAmen: 'Mostrar todas as comodidades',
-        txtHotelPrice: 'R$ 500 diária',
+        txtHotelPrice: 'R$ <%= hotel.quarto[0].valor %> diária',
         txtPriceNight: 'R$ 500 x 3 noites',
         txtPricenoTax: 'R$ 1500',
         txtPriceTax: 'Valor total sem impostos',
@@ -97,13 +97,15 @@ function changeLang(lang) {
         document.querySelector('#menuLangPortuguese').style.color = '#F5a223';
         document.querySelector('#menuLangEnglish').style.color = '#f1f1f1';
     }
+
     const translation = translations[lang];
+
     document.querySelector('#menuLangEnglish').textContent = translation.menuLangEnglish;
     document.querySelector('#menuLangPortuguese').textContent = translation.menuLangPortuguese;
     document.querySelector('#txtFavorites').textContent = translation.txtFavorites;
     document.querySelector('#txtRecently').textContent = translation.txtRecently;
     document.querySelector('#txtMap').textContent = translation.txtMap;
-    document.querySelector('#btnLoginText').textContent = translation.btnLogin;
+    document.querySelector('#btnLogin').textContent = translation.btnLogin;
     document.querySelector('#mainText').textContent = translation.mainText;
     document.querySelector('#subText').innerHTML = translation.subText;
     document.querySelector('#txtLocation').textContent = translation.txtLocation;
@@ -116,17 +118,17 @@ function changeLang(lang) {
     document.querySelector('#txtLocal').textContent = translation.txtLocal;
     document.querySelector('#removeFilters').textContent = translation.removeFilters;
     document.querySelector('#txtSuggest').textContent = translation.txtSuggest;
-    document.querySelector('#txtRecentlyStays').textContent = translation.txtRecentlyStays;
-    document.querySelector('#txtFavoritesStays').textContent = translation.txtFavoritesStays;
     document.querySelector('#txtOption').textContent = translation.txtOption;
     document.querySelector('#txtHotelName').textContent = translation.txtHotelName;
     document.querySelector('#txtHotelDesc').textContent = translation.txtHotelDesc;
     document.querySelector('#txtAdr').textContent = translation.txtAdr;
+    document.querySelector('#txtRecentlyStays').textContent = translation.txtRecentlyStays;
+    document.querySelector('#txtFavoritesStays').textContent = translation.txtFavoritesStays;
     document.querySelector('#txtHotelDescPar').textContent = translation.txtHotelDescPar;
     document.querySelector('#txtHotelDescPar2').textContent = translation.txtHotelDescPar2;
     document.querySelector('#txtHotelAmen').textContent = translation.txtHotelAmen;
     document.querySelector('#txtHotelAllAmen').textContent = translation.txtHotelAllAmen;
-    document.querySelector('#txtHotelPrice').textContent = translation.txtHotelPrice;
+    document.querySelector('#txtHotelPrice').innerHTML = translation.txtHotelPrice;
     document.querySelector('#txtPriceNight').textContent = translation.txtPriceNight;
     document.querySelector('#txtPricenoTax').textContent = translation.txtPricenoTax;
     document.querySelector('#txtPriceTax').textContent = translation.txtPriceTax;
