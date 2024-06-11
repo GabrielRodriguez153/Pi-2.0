@@ -24,7 +24,7 @@
     hotels.forEach(hotel => {
         console.log(hotel);
         L.marker(hotel.coordenadas.coordinates.reverse()).addTo(map)
-            .bindPopup(`<b>${hotel.nome}</b><br>${hotel.endereco}<br><a href="/hotel/apartamento/${hotel._id}">View Details</a>`);
+            .bindPopup(`<b>${hotel.nome}</b><br>${hotel.endereco}<br><a href="/eng/hotel/apartamento/${hotel._id}">View Details</a>`);
     });
 </script>
 
