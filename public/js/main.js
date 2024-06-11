@@ -277,7 +277,7 @@ $(document).ready(function() {
         // After the animation ends, hide the email form and show the password form
         setTimeout(function() {
             $('#loginForm').addClass('hidden').removeClass('fade-out');
-            $('#Auth__password--Login').removeClass('hidden').addClass('fade-in');
+            $('#loginPasswordForm').removeClass('hidden').addClass('fade-in');
         }, 500); // Match the duration of the fade-out animation
     });
 });
@@ -285,30 +285,21 @@ $(document).ready(function() {
 document.addEventListener("DOMContentLoaded", function() {
     const signUpButton = document.getElementById('txtSignUp');
     const logInLink = document.querySelector('#signupModal .btn-link');
-
-    // Função para fechar um modal
-    function closeModal(modal) {
-      const modalInstance = bootstrap.Modal.getInstance(modal);
-      modalInstance.hide();
-    }
-
+  
     // Quando o botão "Criar Conta" no modal de login for clicado
     signUpButton.addEventListener('click', function() {
       const loginModal = document.getElementById('loginModal');
       const signupModal = document.getElementById('signupModal');
 
-      closeModal(loginModal);
-      const signupModalInstance = new bootstrap.Modal(signupModal);
-      signupModalInstance.show();
+      $(loginModal).modal('hide');
+      $(signupModal).modal('show');
     });
-
-    // Quando o botão "Logar" no modal de cadastro for clicado
+  
     logInLink.addEventListener('click', function() {
       const signupModal = document.getElementById('signupModal');
       const loginModal = document.getElementById('loginModal');
-
-      closeModal(signupModal);
-      const loginModalInstance = new bootstrap.Modal(loginModal);
-      loginModalInstance.show();
+  
+      $(signupModal).modal('hide');
+      $(loginModal).modal('show');
     });
   });

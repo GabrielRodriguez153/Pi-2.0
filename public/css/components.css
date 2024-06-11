@@ -245,6 +245,7 @@ hr {
 /* Styling Hotel Card */
 
 .hotel-card {
+    flex-grow: 1;
     border-radius: 8px;
     overflow: hidden;
     width: 300px;
