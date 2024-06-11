@@ -37,7 +37,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="description">
-                        <h3 id="txtHotelDesc">Hotel description</h3>
+                        <h3 id="txtHotelDesc">Hotel Description</h3>
                         <p><%= hotel.desc %></p>
                     </div>
                     <div class="amenities mt-5">
@@ -70,7 +70,7 @@
                             <% }) %>
                           </div>
                         </ul>
-                        <button class="btn btn-outline-dark btn-amenities">Show all amenities</button>
+                        <button class="btn btn-outline-dark btn-amenities">Show all Amenities</button>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -83,7 +83,7 @@
                         </div>
                       </div>
                       <div class="hotel-price ms-auto mt-2">
-                        <p><%= hotel.quarto[0].valor%> daily</p>
+                        <p><%= hotel.quarto[0].valor%> night</p>
                       </div>
                     </div>
                     
@@ -93,7 +93,7 @@
                           <div class="input-group-form">
                             <span><img src="/imgs/icon/location.svg" alt="location icon"/></span>
                             <div class="col-auto">
-                              <label id="checkin">Check-in</label>
+                              <label id="checkin">Check in</label>
                             </div>
                             <div class="col-auto">
                               <input type="time" id="checkIn" class="time-input form-control" placeholder="14:00" />
@@ -103,7 +103,7 @@
                           <div class="input-group-form">
                             <span><img src="/imgs/icon/clock.svg" alt="clock icon" /></span>
                             <div class="col-auto">
-                              <label id="checkout">Check-out</label>
+                              <label id="checkout">Check out</label>
                             </div>
                             <div class="col-auto">
                               <input type="time" id="checkOut" class="time-input form-control" placeholder="14:00" />
@@ -124,7 +124,7 @@
                           <div class="input-group-form">
                             <span><img src="/imgs/icon/rooms.svg" alt="room icon"/></span>
                             <div>
-                              <label id="guests">Room&Guests</label>                 
+                              <label id="guests">Rooms & Guests</label>                 
                               <input type="text" id="guestRoom" class="text-input form-control" placeholder="1 room, 2 guests"/>
                             </div>
                           </div>
@@ -136,7 +136,7 @@
                     
                     <div class="pricing mt-3">
                       <div class="price-hotel-night d-flex align-items-center">
-                        <div class=""><p id="price-night">$ <%= hotel.quarto[0].valor %> x 3 dailys</p></div>
+                        <div class=""><p id="price-night">$ <%= hotel.quarto[0].valor %> x 3 nights</p></div>
                         <div class="ms-auto">
                           <span id="price-night-noTax"> $ <%= hotel.quarto[0].valor * 3 %></span>
                         </div>
@@ -144,10 +144,10 @@
                       <hr>
                       <div class="price-hotel-all d-flex align-items-center">
                         <div>
-                          <p id="price-tax"><strong>Total amount without taxes</strong></p>
+                          <p id="price-tax"><strong>Total before taxes</strong></p>
                         </div>
                         <div class="ms-auto">
-                          <span class="float-right" id="price-include">R$ <%= hotel.quarto[0].valor * 3 %></span>
+                          <span class="float-right" id="price-include">$ <%= hotel.quarto[0].valor * 3 %></span>
                         </div>
                       </div>
                     </div>
@@ -162,14 +162,14 @@
           <div class="row">
               <div class="col-md-8">
                   <div class="rating-container">
-                      <h2 id="txtHotelNight">3 nights in <%= hotel.nome %></h2>
+                      <h2 id="txtHotelNight">3 nights at <%= hotel.nome %></h2>
                       <div class="rating-txt d-flex align-items-center mt-3">
                         <div>
-                          <span class="txt-rating">April 4, 2024</span>
+                          <span class="txt-rating">April 04, 2024</span>
                         </div>
                         <div class="mx-3">&#9473;</div>
                         <div>
-                          <span class="txt-rating">April 7, 2024</span>
+                          <span class="txt-rating">April 07, 2024</span>
                         </div>
                       </div>
                   </div>
@@ -185,8 +185,8 @@
                 <div class="overview-box p-5">
                   <div class="d-flex align-items-center">
                     <div class="hotel-name mt-2">
-                      <h5 class="mb-2" id="txtOverview">General View</h5>
-                      <span id="txtOverviewGuest">Overall guest rating</span>
+                      <h5 class="mb-2" id="txtOverview">Overview</h5>
+                      <span id="txtOverviewGuest">Guest Overall Rating</span>
                     </div>
                   </div>
                   
