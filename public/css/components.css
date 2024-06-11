@@ -946,6 +946,9 @@ hr {
     font-size: 14px;
 }
 .recent-stays {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
     background-color: #fff;
     padding: 20px;
     margin-top: 20px;
@@ -954,6 +957,10 @@ hr {
 
 .recent-stays h2 {
     margin-top: 0;
+}
+
+.row {
+flex-grow: 1;
 }
 
 .actions {

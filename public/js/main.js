@@ -282,3 +282,33 @@ $(document).ready(function() {
     });
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+    const signUpButton = document.getElementById('txtSignUp');
+    const logInLink = document.querySelector('#signupModal .btn-link');
+
+    // Função para fechar um modal
+    function closeModal(modal) {
+      const modalInstance = bootstrap.Modal.getInstance(modal);
+      modalInstance.hide();
+    }
+
+    // Quando o botão "Criar Conta" no modal de login for clicado
+    signUpButton.addEventListener('click', function() {
+      const loginModal = document.getElementById('loginModal');
+      const signupModal = document.getElementById('signupModal');
+
+      closeModal(loginModal);
+      const signupModalInstance = new bootstrap.Modal(signupModal);
+      signupModalInstance.show();
+    });
+
+    // Quando o botão "Logar" no modal de cadastro for clicado
+    logInLink.addEventListener('click', function() {
+      const signupModal = document.getElementById('signupModal');
+      const loginModal = document.getElementById('loginModal');
+
+      closeModal(signupModal);
+      const loginModalInstance = new bootstrap.Modal(loginModal);
+      loginModalInstance.show();
+    });
+  });

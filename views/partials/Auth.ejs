@@ -25,48 +25,50 @@
           <p class="modal-subtitle" id="txtSign">Por favor, entre com seu e-mail e senha.</p>
         </div>
         <div class="modal-body">
-          <form action="/login" method = "POST">
-            <div class="form-group">
-              <label for="loginEmail" id="txtEmail">Email</label>
-              <input
-                type="email"
-                class="form-control"
-                id="email"
-                name="email"
-                placeholder="Digite seu email"
-              />
+          <form action="/login" method="POST">
+            <div id="emailForm">
+              <div class="form-group">
+                <label for="loginEmail" id="txtEmail">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="loginEmail"
+                  name="email"
+                  placeholder="Digite seu email"
+                />
+              </div>
+              <div class="mx-auto d-grid col-x">
+                <button
+                  type="button"
+                  class="btn btn-lg btn-primary btn-block"
+                  id="Auth__Continue--login"
+                >
+                  Continuar
+                </button>
+              </div>
             </div>
-            <div class="mx-auto d-grid col-x">
-              <button
-                type="button"
-                class="btn btn-lg btn-primary btn-block"
-                id="Auth__Continue--login"
-              >
-                Continuar
-              </button>
+            <div id="passwordForm" class="hidden">
+              <div class="form-group">
+                <label for="loginPassword" id="txtPass">Senha</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="loginPassword"
+                  placeholder="Digite sua senha"
+                  name="senha"
+                />
+              </div>
+              <div class="mx-auto d-grid col-x">
+                <button
+                  type="submit"
+                  class="btn btn-lg btn-primary btn-block"
+                  id="loginButton"
+                >
+                  Entrar
+                </button>              
+              </div>
             </div>
-        <div id="Auth__password--Login" class="hidden">
-            <div class="form-group">
-              <label for="loginPassword" id="txtPass">Senha</label>
-              <input
-                type="password"
-                class="form-control"
-                id="senha"
-                placeholder="Digite sua senha"
-                name="senha"
-              />
-            </div>
-            <div class="mx-auto d-grid col-x">
-              <button
-                type="submit"
-                class="btn btn-lg btn-primary btn-block"
-                id="loginButton"
-              >
-                Entrar
-              </button>              
-            </div>
-          </div>
-        </form>
+          </form>
 
           <div class="separator">
             <span><button
@@ -96,6 +98,7 @@
     </div>
   </div>
 </div>
+
 
 <!-- Modal de Cadastro -->
 <div

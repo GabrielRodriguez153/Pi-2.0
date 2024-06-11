@@ -1,28 +1,30 @@
 <footer class="site-footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12 col-md-6">
-          <img src="../../imgs/image-logo-white.svg" alt="logo" />
-        </div>
-        <div class="col-xs-6 col-md-3">
-          <h6>Atalhos</h6>
-          <ul class="footer-links">
-            <li><a href="/hotel/usuario/favoritos">Favoritos</a></li>
-            <li><a href="/hotel/recentes">Vistos Recentemente</a></li>
-            <li><a href="/hotel/mapa">Mapa</a></li>
-          </ul>
-        </div>
-  
-        <div class="col-xs-6 col-md-3">
-          <h6>Links</h6>
-          <ul class="footer-links">
-            <li><a href="">Sobre Nós</a></li>
-            <li><a href="">Doar</a></li>
-          </ul>
-        </div>
+<% if (url === "/") {%>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <img src="../../imgs/image-logo-white.svg" alt="logo" />
       </div>
-      <hr />
+      <div class="col-xs-6 col-md-3">
+        <h6>Atalhos</h6>
+        <ul class="footer-links">
+          <li><a href="/hotel/usuario/favoritos">Favoritos</a></li>
+          <li><a href="/hotel/recentes">Vistos Recentemente</a></li>
+          <li><a href="/hotel/mapa">Mapa</a></li>
+        </ul>
+      </div>
+
+      <div class="col-xs-6 col-md-3">
+        <h6>Links</h6>
+        <ul class="footer-links">
+          <li><a href="">Sobre Nós</a></li>
+          <li><a href="">Doar</a></li>
+        </ul>
+      </div>
     </div>
+    <hr />
+  </div>
+  <% } else { %>
     <div class="container">
       <div class="row">
         <div class="col-md-8 col-sm-6 col-xs-12">
@@ -32,4 +34,5 @@
         </div>
       </div>
     </div>
+    <% } %>
   </footer>

@@ -18,6 +18,8 @@ html {
 body {
   font-family: var(--estilo-fonte);
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 p {
