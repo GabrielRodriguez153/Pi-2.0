@@ -3,8 +3,10 @@ import mongoose from "mongoose";
 import session from "express-session";
 import PageController from "./controllers/PageController.js";
 import fs from 'fs'
-import { Hotel } from './models/hotel.js'
+import EnglishController from "./controllers/EnglishController.js"
+import { Hotel, hotel } from './models/hotel.js'
 import {Usuario} from "./models/usuario.js"
+import { HotelEnglish } from "./models/hotelEnglish.js";
 const app = express();
 
 app.use(
@@ -45,7 +47,7 @@ mongoose
 
 
 app.use("/", PageController)
-
+app.use("/eng", EnglishController)
 
 
 const port = 8000;
@@ -53,6 +55,18 @@ const adicionarDados = async () =>{
 
     let countHotel = await Hotel.countDocuments()
     let countUsuario = await Usuario.countDocuments()
+    let countEnglishHotel = await HotelEnglish.countDocuments()
+    if(countEnglishHotel === 0){
+      const hotelEnglish = fs.readFileSync('public/json/english.hotels.json')
+      const hotelsDataEnglish = JSON.parse(hotelEnglish)
+      await HotelEnglish.insertMany(hotelsDataEnglish)
+      countEnglishHotel = await HotelEnglish.countDocuments()
+      if(countEnglishHotel > 0){
+        console.log("Hotels in english updated with success")
+      }else{
+        console.log("Error, was not possible to insert data in hotels.")
+      }
+    }
     if (countHotel === 0) {
       
         const hoteis = fs.readFileSync('public/json/sightinn.hotels.json')
@@ -63,7 +77,7 @@ const adicionarDados = async () =>{
         if (countHotel > 0) {
           console.log('Hóteis inseridos com sucesso')
         } else {
-            console.error('Não foi possível adicionar os hotéis:', err)
+            console.error('Não foi possível adicionar os hotéis:')
         }
     } 
     if(countUsuario === 0){
@@ -75,7 +89,7 @@ const adicionarDados = async () =>{
       if (countUsuario > 0) {
         console.log('Usuário inserido com sucesso')
       } else {
-          console.error('Não foi possível adicionar o usuário:', err)
+          console.error('Não foi possível adicionar o usuário:')
       }
     }
 }

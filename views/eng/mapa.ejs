@@ -1,0 +1,33 @@
+<%- include("partials/head.ejs") %>
+<%- include("partials/header.ejs") %>
+<%- include("partials/Auth.ejs") %>
+<%- include("partials/filters.ejs") %>
+
+
+
+<div id="map" style="height: 800px;"></div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+    var map = L.map('map').setView([-23.5558, -46.6396], 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    L.marker([-23.5558, -46.6396]).addTo(map)
+        .bindPopup('Location (SP)')
+        .openPopup();
+
+    var hotels = <%- JSON.stringify(hotels).replace(/</g, '\\u003c') %>;
+
+    hotels.forEach(hotel => {
+        console.log(hotel);
+        L.marker(hotel.coordenadas.coordinates.reverse()).addTo(map)
+            .bindPopup(`<b>${hotel.nome}</b><br>${hotel.endereco}<br><a href="/hotel/apartamento/${hotel._id}">View Details</a>`);
+    });
+</script>
+
+
+<%- include("partials/footer.ejs") %>
+<%- include("partials/foot.ejs") %>

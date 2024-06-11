@@ -14,21 +14,21 @@
               <div class="vl mx-3"></div>
     
               <div class="info-hotel-adress mr-3">
-                  <span id="txtAdr">Endereço</span>
+                  <span id="txtAdr">Address</span>
                   <h5><%= hotel.localidade %></h5>
               </div>
     
               <div class="info-hotel-rating">
-                  <span>⭐ <%= hotel.avaliacao.avaliacaoGeral %>  (<%= hotel.num_avaliacao %> avaliações)</span>
+                  <span>⭐ <%= hotel.avaliacao.avaliacaoGeral %>  (<%= hotel.num_avaliacao %> reviews)</span>
               </div>
           </div>
         </div>
     
         <div class="hotel-gallery mt-3">
-          <div class="item gallery-img1"><img src="../../imgs/hotels/<%= hotel.image %>" alt="<%= hotel.name %>" /></div>
-          <div class="item gallery-img2"><img src="../../imgs/apartments/<%= hotel.quarto[0].image[0]%>"></div>
-          <div class="item gallery-img3"><img src="../../imgs/apartments/<%= hotel.quarto[0].image[1]%>"></div>
-          <div class="item gallery-img4"><img src="../../imgs/apartments/<%= hotel.quarto[0].image[2]%>"></div>
+          <div class="item gallery-img1"><img src="../../../../imgs/hotels/<%= hotel.image %>" alt="<%= hotel.name %>" /></div>
+          <div class="item gallery-img2"><img src="../../../../../imgs/apartments/<%= hotel.quarto[0].image[0]%>"></div>
+          <div class="item gallery-img3"><img src="../../../../../imgs/apartments/<%= hotel.quarto[0].image[1]%>"></div>
+          <div class="item gallery-img4"><img src="../../../../imgs/apartments/<%= hotel.quarto[0].image[2]%>"></div>
         </div>
       </section>
     
@@ -37,40 +37,40 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="description">
-                        <h3 id="txtHotelDesc">Descrição do Hotel</h3>
+                        <h3 id="txtHotelDesc">Hotel description</h3>
                         <p><%= hotel.desc %></p>
                     </div>
                     <div class="amenities mt-5">
-                        <h3 id="txtHotelAmen">Comodidades do Hotel</h3>
+                        <h3 id="txtHotelAmen">Hotel Amenities</h3>
                         <ul class="list-unstyled row mt-4">
                           <div class="col-md-7">
                             <% hotel.quarto[0].comodidades.forEach(comodidade => { %>
                               <% if (comodidade === 'wifi') { %>
                                 <li class="d-flex align-items-center mb-3"><i class="fas fa-wifi"></i> Wi-fi</li>
                               <% } %>
-                              <% if (comodidade === 'estacionamento') { %>
-                                <li class="d-flex align-items-center mb-3"><i class="fas fa-parking"></i> Estacionamento</li>
+                              <% if (comodidade === 'parking') { %>
+                                <li class="d-flex align-items-center mb-3"><i class="fas fa-parking"></i> Parking</li>
                               <% } %>
-                              <% if (comodidade === 'arcondicionado') { %>
-                                <li class="d-flex align-items-center mb-3"><i class="fas fa-snowflake"></i> Ar Condicionado</li>
+                              <% if (comodidade === 'air conditioning') { %>
+                                <li class="d-flex align-items-center mb-3"><i class="fas fa-snowflake"></i> Air Conditioner</li>
                               <% } %>
                             <% }) %>
                           </div>
                           <div class="col-md-5">
                             <% hotel.quarto[0].comodidades.forEach(comodidade => { %>
-                              <% if (comodidade === 'secador') { %>
-                                <li class="d-flex align-items-center mb-3"><i class="fas fa-tshirt"></i> Secador</li>
+                              <% if (comodidade === 'hairdryer') { %>
+                                <li class="d-flex align-items-center mb-3"><i class="fas fa-tshirt"></i> Dryer</li>
                               <% } %>
-                              <% if (comodidade === 'Tv_Smart') { %>
-                                <li class="d-flex align-items-center mb-3"><i class="fas fa-tv"></i> TV Smart</li>
+                              <% if (comodidade === 'Smart TV"') { %>
+                                <li class="d-flex align-items-center mb-3"><i class="fas fa-tv"></i> Smart TV</li>
                               <% } %>
-                              <% if (comodidade === 'varanda') { %>
-                                <li class="d-flex align-items-center mb-3"><i class="fas fa-cocktail"></i> Varanda</li>
+                              <% if (comodidade === 'balcony') { %>
+                                <li class="d-flex align-items-center mb-3"><i class="fas fa-cocktail"></i> Balcony</li>
                               <% } %>
                             <% }) %>
                           </div>
                         </ul>
-                        <button class="btn btn-outline-dark btn-amenities">Mostrar todas as comodidades</button>
+                        <button class="btn btn-outline-dark btn-amenities">Show all amenities</button>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -83,7 +83,7 @@
                         </div>
                       </div>
                       <div class="hotel-price ms-auto mt-2">
-                        <p><%= hotel.quarto[0].valor%> diária</p>
+                        <p><%= hotel.quarto[0].valor%> daily</p>
                       </div>
                     </div>
                     
@@ -124,27 +124,27 @@
                           <div class="input-group-form">
                             <span><img src="/imgs/icon/rooms.svg" alt="room icon"/></span>
                             <div>
-                              <label id="guests">Quartos&Hóspedes</label>                 
-                              <input type="text" id="guestRoom" class="text-input form-control" placeholder="1 quarto, 2 adultos"/>
+                              <label id="guests">Room&Guests</label>                 
+                              <input type="text" id="guestRoom" class="text-input form-control" placeholder="1 room, 2 guests"/>
                             </div>
                           </div>
                         </div>
                         <hr>
-                        <button type="submit" class="btn btn-reserve">Reservar</button>
+                        <button type="submit" class="btn btn-reserve">Reserve</button>
                       </form>
                     </div>
                     
                     <div class="pricing mt-3">
                       <div class="price-hotel-night d-flex align-items-center">
-                        <div class=""><p id="price-night">R$ <%= hotel.quarto[0].valor %> x 3 noites</p></div>
+                        <div class=""><p id="price-night">$ <%= hotel.quarto[0].valor %> x 3 dailys</p></div>
                         <div class="ms-auto">
-                          <span id="price-night-noTax"> R$ <%= hotel.quarto[0].valor * 3 %></span>
+                          <span id="price-night-noTax"> $ <%= hotel.quarto[0].valor * 3 %></span>
                         </div>
                       </div>
                       <hr>
                       <div class="price-hotel-all d-flex align-items-center">
                         <div>
-                          <p id="price-tax"><strong>Valor total sem impostos</strong></p>
+                          <p id="price-tax"><strong>Total amount without taxes</strong></p>
                         </div>
                         <div class="ms-auto">
                           <span class="float-right" id="price-include">R$ <%= hotel.quarto[0].valor * 3 %></span>
@@ -162,14 +162,14 @@
           <div class="row">
               <div class="col-md-8">
                   <div class="rating-container">
-                      <h2 id="txtHotelNight">3 noites em <%= hotel.nome %></h2>
+                      <h2 id="txtHotelNight">3 nights in <%= hotel.nome %></h2>
                       <div class="rating-txt d-flex align-items-center mt-3">
                         <div>
-                          <span class="txt-rating">04 de Abril, 2024</span>
+                          <span class="txt-rating">April 4, 2024</span>
                         </div>
                         <div class="mx-3">&#9473;</div>
                         <div>
-                          <span class="txt-rating">07 de Abril, 2024</span>
+                          <span class="txt-rating">April 7, 2024</span>
                         </div>
                       </div>
                   </div>
@@ -185,8 +185,8 @@
                 <div class="overview-box p-5">
                   <div class="d-flex align-items-center">
                     <div class="hotel-name mt-2">
-                      <h5 class="mb-2" id="txtOverview">Visão geral</h5>
-                      <span id="txtOverviewGuest">Avaliação geral dos hóspedes</span>
+                      <h5 class="mb-2" id="txtOverview">General View</h5>
+                      <span id="txtOverviewGuest">Overall guest rating</span>
                     </div>
                   </div>
                   
@@ -197,7 +197,7 @@
                         <span class="txt-rating px-3"><b>4.8</b></span>
                       </div>
                       <div>
-                        <span class="txt-rating" id="txtcleanrating">Limpeza</span>
+                        <span class="txt-rating" id="txtcleanrating">Cleanliness</span>
                       </div>
                     </div>
                     
@@ -207,7 +207,7 @@
                         <span class="txt-rating px-3"><b>4.9</b></span>
                       </div>
                       <div>
-                        <span class="txt-rating" id="txtlocalrating">Localização</span>
+                        <span class="txt-rating" id="txtlocalrating">Location</span>
                       </div>
                     </div>
                     
@@ -217,7 +217,7 @@
                         <span class="txt-rating px-3"><b>5.0</b></span>
                       </div>
                       <div>
-                        <span class="txt-rating" id="txtvaluerating">Custo benefício</span>
+                        <span class="txt-rating" id="txtvaluerating">Value for Money</span>
                       </div>
                     </div>
                     
@@ -227,7 +227,7 @@
                         <span class="txt-rating px-3"><b>4.6</b></span>   
                       </div>
                       <div>
-                        <span class="txt-rating" id="txtcommurating">Comunicação</span>   
+                        <span class="txt-rating" id="txtcommurating">Communication</span>   
                       </div>
                     </div>
                   </div>

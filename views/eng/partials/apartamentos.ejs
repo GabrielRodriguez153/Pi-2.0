@@ -1,0 +1,53 @@
+<div class="hotel-container grid">
+  <% hotels.forEach(hotel => { %>
+      <% 
+          const locationClass = hotel.localidade.split(',')[0].replace(/ /g, '_');
+          const ratingClass = `rating-${hotel.avaliacao.avaliacaoGeral}`;
+          const priceClass = hotel.quarto[0].valor <= 3000 ? 'price-low' : (hotel.quarto[0].valor <= 6000 ? 'price-mid' : 'price-high');
+      %>
+  %>
+<div class="hotel-card m-2 <%= locationClass %> <%= ratingClass %> <%= priceClass %>">
+    <a href="/eng/hotel/apartamento/<%= hotel.id %>"> 
+
+    <img src="../imgs/hotels/<%= hotel.image %>" alt="<%= hotel.nome %>" />
+
+    </a>
+    
+    <% if (hotel.classe) { %>
+        <form action="/eng/hotel/fav/delete/<%=hotel.id%>" method="POST">
+          <input type="image" class="like-button" src="../imgs/icon/liked.svg" alt="Like Button">
+        </form>
+      <% } else { %>
+        <form action="/eng/hotel/fav/<%=hotel.id%>" method="POST">
+          <input type="image" class="like-button" src="../imgs/icon/like.svg" alt="Like Button">
+        </form>
+      <% } %>
+      
+    <div class="row hotel-info">
+        <div class="col p-0 flex-grow-1">
+            <h2><%= hotel.nome %></h2>
+            <p><%= hotel.localidade %></p>
+            <p id="txtHotelPrice">R$ <%= hotel.quarto[0].valor %> daily</p>
+        </div>
+
+        <div class="col-auto d-flex flex-column justify-content-between align-items-end p-0">
+            <p class="text-end"> ⭐ <%= hotel.avaliacao.avaliacaoGeral %> (<%= hotel.num_avaliacao %> mil+) </p>
+            <button class="dropdown-btn"><i class="fa-solid fa-chevron-down"></i></button>
+        </div>
+      
+
+        <div class="row dropdown-content p-0">
+            <h2>Amenities</h2>
+            <ul class="amenities-list row">
+                <% hotel.quarto[0].comodidades.forEach(comodidade => { %>
+                    <li class="col-md-6 d-flex align-items-center mb-2">
+                        <i class="fas fa-check mr-2"></i> <%= comodidade %>
+                    </li>
+                <% }); %>
+            </ul>
+        </div>
+    </div>
+</div>
+  <% }); %>
+</div>
+

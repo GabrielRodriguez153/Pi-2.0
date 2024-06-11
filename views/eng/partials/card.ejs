@@ -1,0 +1,55 @@
+<% 
+  function formatISODateToDDMMYYYY(isoDate) {
+    const date = new Date(isoDate);
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+  }
+%>
+
+<div class="container mt-5 m-0 p-0">
+  <div class="d-flex flex-column">
+    <% if (!hotels || hotels.length === 0) { %>
+      <p><%= message %></p>
+    <% } else { %>
+      <% hotels.forEach(hotel => { %>
+        <div class="col-md-4 mb-4">
+          <div class="card border-0 mb-3">
+            <div class="row g-0">
+              <div class="col-md-4 rounded-start image-card" style="background-image: url('../../imgs/hotels/<%= hotel.image %>');">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title"><%= hotel.nome %></h5>
+                  <p class="card-text"><%= hotel.endereco %></p>
+                  <p class="card-text">
+                    <small class="text-muted">
+                      ⭐ <%= hotel.avaliacao.avaliacaoGeral %> (<%= hotel.num_avaliacao %> avaliações)
+                    </small>
+                  </p>
+                  <p class="card-text">
+                    <strong id="txtHotelPrice">$ <%= hotel.quarto[0].valor %> daily</strong>
+                  </p>
+
+                  <p class="card-text mb-2">
+                    <small class="text-muted">
+                      <img src="/imgs/icon/calendar.svg" class="me-1" alt="Calendario"> <%= formatISODateToDDMMYYYY(hotel.quarto[0].alugado.data_checkin) %> - <%= formatISODateToDDMMYYYY(hotel.quarto[0].alugado.data_checkout) %>
+                    </small>
+                  </p>
+
+                  <p class="card-text">
+                    <small class="text-muted">
+                      <img src="/imgs/icon/bed.svg" class="me-1" alt="Cama"> 1 room, <%= hotel.quarto[0].hospedes %> guests
+                    </small>
+                  </p>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    <% } %>
+  </div>
+</div>

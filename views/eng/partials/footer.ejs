@@ -1,0 +1,38 @@
+<footer class="site-footer">
+<% if (url === "/eng/home") {%>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <img src="../../imgs/image-logo-white.svg" alt="logo" />
+      </div>
+      <div class="col-xs-6 col-md-3">
+        <h6>Shortcuts</h6>
+        <ul class="footer-links">
+          <li><a href="/hotel/usuario/favoritos">Favorites</a></li>
+          <li><a href="/hotel/recentes">Recents</a></li>
+          <li><a href="/hotel/mapa">Map</a></li>
+        </ul>
+      </div>
+
+      <div class="col-xs-6 col-md-3">
+        <h6>Links</h6>
+        <ul class="footer-links">
+          <li><a href="">About us</a></li>
+          <li><a href="">Donate</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr />
+  </div>
+  <% } else { %>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-sm-6 col-xs-12">
+          <p class="copyright-text">
+            &copy; 2024 Sight Inn, Inc.
+          </p>
+        </div>
+      </div>
+    </div>
+    <% } %>
+  </footer>
